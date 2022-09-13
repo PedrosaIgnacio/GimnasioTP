@@ -42,18 +42,18 @@ namespace GymApp.Datos.DAOs
 
         public DataTable RecuperarUno(int id)
         {
-            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave, U.IdTipoUsuario as 'Perfil', U.Estado as 'Estado' FROM Usuario U WHERE U.IdUsuario ="+id;
+            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave, U.IdTipoUsuario as 'Perfil', U.Estado as 'Estado' FROM Usuario U WHERE U.IdUsuario =" + id;
             return DBHelper.obtenerInstancia().consultar(consulta);
         }
 
         public int InsertarUsuario(Usuario usuario)
         {
-            string consulta = "INSERT INTO Usuario (NombreUsuario, Clave, IdTipoUsuario, Estado) VALUES ('"+usuario.NombreUsuario+"','"+usuario.Clave+"',"+usuario.IdTipoUsuario+","+usuario.Estado+")";
+            string consulta = "INSERT INTO Usuario (NombreUsuario, Clave, IdTipoUsuario, Estado) VALUES ('" + usuario.NombreUsuario + "','" + usuario.Clave + "'," + usuario.IdTipoUsuario + "," + usuario.Estado + ")";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
-        public int ActualizarUsuario(Usuario usuario, int IdUsr)
+        public int ActualizarUsuario(Usuario usuario)
         {
-            string consulta = "UPDATE Usuario SET NombreUsuario='" + usuario.NombreUsuario +"', Clave='" + usuario.Clave + "', IdTipoUsuario = '" + usuario.IdTipoUsuario + "', Estado = '" + usuario.Estado + "' WHERE IdUsuario =" + IdUsr;
+            string consulta = "UPDATE Usuario SET NombreUsuario='" + usuario.NombreUsuario + "', Clave='" + usuario.Clave + "', IdTipoUsuario = '" + usuario.IdTipoUsuario + "', Estado = '" + usuario.Estado + "' WHERE IdUsuario =" + usuario.IdUsuario;
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
@@ -61,7 +61,16 @@ namespace GymApp.Datos.DAOs
         {
             string consulta = "UPDATE Usuario SET Estado = 0 WHERE IdUsuario = " + IdUsr;
             return DBHelper.obtenerInstancia().actualizar(consulta);
-            
+
+        }
+        public bool Existe(string NombreUsuario, int? IdUsuario)
+        {
+            string consulta = "SELECT * FROM Usuario WHERE NombreUsuario = '"+ NombreUsuario+"'";
+            if (IdUsuario != null)
+            {
+                consulta = consulta + " AND IdUsuario != " + IdUsuario;
+            }
+            return (DBHelper.obtenerInstancia().consultar(consulta).Rows.Count > 0);
         }
     }
 }

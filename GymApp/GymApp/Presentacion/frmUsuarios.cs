@@ -87,7 +87,7 @@ namespace GymApp.Presentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             MiAccion = Acciones.Alta;
-            AbrirFrmUsuariosAM(MiAccion.ToString(), (int)grdUsuarios.CurrentRow.Cells[0].Value);
+            AbrirFrmUsuariosAM(MiAccion.ToString(), null);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -95,11 +95,10 @@ namespace GymApp.Presentacion
             MiAccion = Acciones.Modificacion;
             AbrirFrmUsuariosAM(MiAccion.ToString(), (int)grdUsuarios.CurrentRow.Cells[0].Value);
         }
-        private void AbrirFrmUsuariosAM(string accion, int IdUsuario)
+        private void AbrirFrmUsuariosAM(string accion, int? IdUsuario)
         {
             frmUsuariosAM FrmUsuariosAM = new frmUsuariosAM(accion, IdUsuario);
             FrmUsuariosAM.Show();
-            CargarGrilla(grdUsuarios, Usuario.RecuperarTodos());
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

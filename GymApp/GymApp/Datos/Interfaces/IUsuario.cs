@@ -14,7 +14,8 @@ namespace GymApp.Datos.Interfaces
         DataTable RecuperarFiltrados(string NombreUsuario, int? IdTipoUsuario);
         DataTable RecuperarUno(int id);
         int InsertarUsuario(Usuario usuario);
-        int ActualizarUsuario(Usuario usuario, int IdUsr);
+        int ActualizarUsuario(Usuario usuario);
         int BajaLogicaUsuario(int IdUsr);
+        bool Existe(string NombreUsuario, int? IdUsuario);
     }
 }

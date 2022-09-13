@@ -35,13 +35,18 @@ namespace GymApp.Servicios
         {
             return dao.InsertarUsuario(usuario);
         }
-        public int ActualizarUsuario(Usuario usuario, int IdUsr)
+        public int ActualizarUsuario(Usuario usuario)
         {
-            return dao.ActualizarUsuario(usuario, IdUsr);
+            return dao.ActualizarUsuario(usuario);
         }
         public int BajaLogicaUsuario(int IdUsr)
         {
             return dao.BajaLogicaUsuario(IdUsr);
+        }
+        public bool Existe(string NombreUsuario, int? IdUsuario)
+        {
+            bool test = dao.Existe(NombreUsuario, IdUsuario);
+            return test;
         }
     }
 }

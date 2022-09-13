@@ -20,15 +20,18 @@ namespace GymApp.Presentacion
 
         private string MiAccion;
 
-        private int IdUsr;
-
-        public frmUsuariosAM(string action, int IdUsuario)
+        private int? IdUsr;
+        public frmUsuariosAM(string action, int? IdUsuario)
         {
             InitializeComponent();
             this.Text = action + " de un Usuario";
             MiAccion = action;
-            IdUsr = IdUsuario;
+            if (IdUsuario != null)
+            {
+                IdUsr = IdUsuario;
+            }
         }
+
         private void frmUsuariosAM_Load(object sender, EventArgs e)
         {
             txtIdUsuario.Enabled = false;
@@ -37,8 +40,8 @@ namespace GymApp.Presentacion
             CargarCombo(cmbEstado, Estado.RecuperarTodos());
             if (MiAccion == "Modificacion")
             {
-                DataTable usrs = Usuario.RecuperarUno(IdUsr);
-                CargarCampos(usrs);
+                DataTable usr = Usuario.RecuperarUno((int)IdUsr);
+                CargarCampos(usr);
             }
 
         }
@@ -67,6 +70,14 @@ namespace GymApp.Presentacion
             Close();
         }
 
+        private void LimpiarCampos()
+        {
+            txtNombreUsuario.Text = "";
+            txtClave.Text = "";
+            cmbEstado.SelectedIndex = -1;
+            cmbTipoUsuario.SelectedIndex = -1;
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
@@ -75,33 +86,52 @@ namespace GymApp.Presentacion
             usuario.IdTipoUsuario = (int)cmbTipoUsuario.SelectedValue;
             usuario.Estado = (int)cmbEstado.SelectedValue;
 
-
             if (MiAccion == "Modificacion")
             {
-                int rowsAff = Usuario.ActualizarUsuario(usuario, IdUsr);
-                if (rowsAff > 0)
+                usuario.IdUsuario = int.Parse(txtIdUsuario.Text);
+                if (Usuario.Existe(txtNombreUsuario.Text, usuario.IdUsuario))
                 {
-                    //MessageBox.Show("Usuario Actualizado Con Exito");
-                    MessageBox.Show("Usuario Actualizado Con Exito", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    LimpiarCampos();
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Usuario Actualizado Con Exito", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); Close();
+                    int rowsAff = Usuario.ActualizarUsuario(usuario);
+                    if (rowsAff > 0)
+                    {
+                        MessageBox.Show("Usuario Actualizado Con Exito", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar Usuario", "Actualizacion Fallida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        Close();
+                    }
                 }
             }
             else
             {
-                int rowsAff = Usuario.InsertarUsuario(usuario);
-                if (rowsAff > 0)
+                if (Usuario.Existe(txtNombreUsuario.Text, null))
                 {
-                    MessageBox.Show("Usuario Insertado Con Exito");
-                    Close();
+                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    LimpiarCampos();
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error al insertar el usuario");
-                    Close();
+
+                    int rowsAff = Usuario.InsertarUsuario(usuario);
+                    if (rowsAff > 0)
+                    {
+                        MessageBox.Show("Usuario Insertado Con Exito");
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error al insertar el usuario");
+                        Close();
+                    }
                 }
             }
         }
