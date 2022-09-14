@@ -72,7 +72,7 @@ namespace GymApp.Presentacion
             this.grdUsuarios.RowTemplate.Height = 24;
             this.grdUsuarios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdUsuarios.Size = new System.Drawing.Size(1004, 150);
+            this.grdUsuarios.Size = new System.Drawing.Size(1004, 236);
             this.grdUsuarios.TabIndex = 0;
             // 
             // ColIdUsuario
@@ -187,7 +187,7 @@ namespace GymApp.Presentacion
             this.grbUsuarios.Controls.Add(this.lblTipoUsuario);
             this.grbUsuarios.Location = new System.Drawing.Point(12, 24);
             this.grbUsuarios.Name = "grbUsuarios";
-            this.grbUsuarios.Size = new System.Drawing.Size(1061, 401);
+            this.grbUsuarios.Size = new System.Drawing.Size(1061, 496);
             this.grbUsuarios.TabIndex = 7;
             this.grbUsuarios.TabStop = false;
             this.grbUsuarios.Text = "Usuarios";
@@ -197,7 +197,7 @@ namespace GymApp.Presentacion
             this.btnEliminar.BackColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Location = new System.Drawing.Point(244, 324);
+            this.btnEliminar.Location = new System.Drawing.Point(240, 419);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(61, 58);
             this.btnEliminar.TabIndex = 10;
@@ -209,7 +209,7 @@ namespace GymApp.Presentacion
             this.btnSalir.BackColor = System.Drawing.SystemColors.Window;
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSalir.Location = new System.Drawing.Point(982, 324);
+            this.btnSalir.Location = new System.Drawing.Point(978, 419);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(61, 58);
             this.btnSalir.TabIndex = 9;
@@ -221,7 +221,7 @@ namespace GymApp.Presentacion
             this.btnEditar.BackColor = System.Drawing.SystemColors.Window;
             this.btnEditar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.BackgroundImage")));
             this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEditar.Location = new System.Drawing.Point(141, 324);
+            this.btnEditar.Location = new System.Drawing.Point(137, 419);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(61, 58);
             this.btnEditar.TabIndex = 8;
@@ -233,7 +233,7 @@ namespace GymApp.Presentacion
             this.btnNuevo.BackColor = System.Drawing.SystemColors.Window;
             this.btnNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNuevo.BackgroundImage")));
             this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnNuevo.Location = new System.Drawing.Point(39, 324);
+            this.btnNuevo.Location = new System.Drawing.Point(35, 419);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(61, 58);
             this.btnNuevo.TabIndex = 7;
@@ -244,7 +244,7 @@ namespace GymApp.Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 437);
+            this.ClientSize = new System.Drawing.Size(1085, 532);
             this.Controls.Add(this.grbUsuarios);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

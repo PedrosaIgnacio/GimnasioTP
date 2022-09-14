@@ -122,6 +122,6 @@
     <value>..\Resources\ilustracion-concepto-inicio-sesion_114360-739.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StringConexion" xml:space="preserve">
-    <value>Data Source=DESKTOP-AJIOCC9\SQLEXPRESS;Initial Catalog=GimnasioTP;Integrated Security=True</value>
+    <value>Data Source=localhost;Initial Catalog=GimnasioTP;Integrated Security=True</value>
   </data>
 </root>

@@ -99,6 +99,7 @@ namespace GymApp.Presentacion
         {
             frmUsuariosAM FrmUsuariosAM = new frmUsuariosAM(accion, IdUsuario);
             FrmUsuariosAM.Show();
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

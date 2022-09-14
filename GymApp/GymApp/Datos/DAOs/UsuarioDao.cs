@@ -16,7 +16,7 @@ namespace GymApp.Datos.DAOs
             string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave, TU.Descripcion as 'Perfil', E.Nombre as 'Estado' FROM Usuario U JOIN Estado E ON E.IdEstado = U.Estado JOIN TipoUsuario TU ON TU.IdTipoUsuario = U.IdTipoUsuario ";
             if (NombreUsuario != "" && IdTipoUsuario != null)
             {
-                consulta = consulta + "WHERE U.NombreUsuario LIKE '" + NombreUsuario + "%' AND U.IdTipoUsuario =" + IdTipoUsuario;
+                consulta = consulta + "WHERE U.NombreUsuario LIKE '%" + NombreUsuario + "%' AND U.IdTipoUsuario =" + IdTipoUsuario;
             }
             else
             {

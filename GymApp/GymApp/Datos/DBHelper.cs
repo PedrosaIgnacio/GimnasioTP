@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymApp.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -54,5 +55,32 @@ namespace GymApp.Datos
             conexion.Close();
             return rowsAff;
         }
+        public List<Usuario> ConsultarList(string consultaSQL)
+        {
+            List<Usuario> lstUsu = new List<Usuario>();
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+
+            comando.Connection = conexion;
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = consultaSQL;
+
+            using (SqlDataReader dr = comando.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    Usuario usuario = new Usuario();
+                    usuario.IdUsuario = int.Parse(dr["IdUsuario"].ToString());
+                    usuario.NombreUsuario = dr["NombreUsuario"].ToString();
+                    usuario.Clave = dr["Clave"].ToString();
+                    usuario.IdTipoUsuario = int.Parse(dr["IdTipoUsuario"].ToString());
+                    usuario.Estado = int.Parse(dr["Estado"].ToString());
+
+                    lstUsu.Add(usuario);
+                }
+                return lstUsu;
+            }
+        }
+
     }
 }
