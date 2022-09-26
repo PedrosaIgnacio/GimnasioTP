@@ -155,5 +155,15 @@ namespace GymApp.Presentacion
             MiAccion = Acciones.Alta;
             AbrirFrmUsuariosAM(MiAccion.ToString(), null, this);
         }
+
+        private void cmbTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grdUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -138,6 +138,7 @@ namespace GymApp.Presentacion
             this.grdUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdUsuarios.Size = new System.Drawing.Size(753, 192);
             this.grdUsuarios.TabIndex = 11;
+            this.grdUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellContentClick);
             // 
             // ColIdUsuario
             // 
@@ -218,6 +219,7 @@ namespace GymApp.Presentacion
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
             this.cmbTipoUsuario.Size = new System.Drawing.Size(159, 21);
             this.cmbTipoUsuario.TabIndex = 15;
+            this.cmbTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbTipoUsuario_SelectedIndexChanged);
             // 
             // lblTipoUsuario
             // 
@@ -245,7 +247,7 @@ namespace GymApp.Presentacion
             this.Controls.Add(this.txtNombreUsuario);
             this.Controls.Add(this.cmbTipoUsuario);
             this.Controls.Add(this.lblTipoUsuario);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrar Usuarios";
