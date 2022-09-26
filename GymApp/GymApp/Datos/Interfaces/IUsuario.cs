@@ -10,9 +10,9 @@ namespace GymApp.Datos.Interfaces
 {
     interface IUsuario
     {
-        DataTable RecuperarTodos();
-        DataTable RecuperarFiltrados(string NombreUsuario, int? IdTipoUsuario);
-        DataTable RecuperarUno(int id);
+        List<Usuario> RecuperarTodos();
+        List<Usuario> RecuperarFiltrados(string NombreUsuario, int? IdTipoUsuario);
+        Usuario RecuperarUno(int id);
         int InsertarUsuario(Usuario usuario);
         int ActualizarUsuario(Usuario usuario);
         int BajaLogicaUsuario(int IdUsr);

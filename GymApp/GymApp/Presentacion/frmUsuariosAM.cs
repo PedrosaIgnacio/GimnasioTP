@@ -14,18 +14,27 @@ namespace GymApp.Presentacion
 {
     public partial class frmUsuariosAM : Form
     {
-        UsuarioService Usuario = new UsuarioService();
-        TipoUsuarioService TipoUsuario = new TipoUsuarioService();
-        EstadoService Estado = new EstadoService();
+        //SERVICIOS
+        UsuarioService UsuarioS = new UsuarioService();
 
+        TipoUsuarioService TipoUsuarioS = new TipoUsuarioService();
+
+        EstadoService EstadoS = new EstadoService();
+
+        //ATRIBUTOS DE LA CLASE
         private string MiAccion;
 
+        private frmUsuarios AdministrarUsuarios;
+
         private int? IdUsr;
-        public frmUsuariosAM(string action, int? IdUsuario)
+
+        //CONSTRUCTOR
+        public frmUsuariosAM(string action, int? IdUsuario, frmUsuarios formPadre)
         {
             InitializeComponent();
             this.Text = action + " de un Usuario";
             MiAccion = action;
+            AdministrarUsuarios = formPadre;
             if (IdUsuario != null)
             {
                 IdUsr = IdUsuario;
@@ -36,12 +45,11 @@ namespace GymApp.Presentacion
         {
             txtIdUsuario.Enabled = false;
             txtNombreUsuario.Focus();
-            CargarCombo(cmbTipoUsuario, TipoUsuario.RecuperarTodos());
-            CargarCombo(cmbEstado, Estado.RecuperarTodos());
+            CargarCombo(cmbTipoUsuario, TipoUsuarioS.RecuperarTodos());
+            CargarCombo(cmbEstado, EstadoS.RecuperarTodos());
             if (MiAccion == "Modificacion")
             {
-                DataTable usr = Usuario.RecuperarUno((int)IdUsr);
-                CargarCampos(usr);
+                CargarCampos(UsuarioS.RecuperarUno((int)IdUsr));
             }
 
         }
@@ -55,13 +63,13 @@ namespace GymApp.Presentacion
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void CargarCampos(DataTable usrs)
+        private void CargarCampos(Usuario usr)
         {
-            txtIdUsuario.Text = usrs.Rows[0]["IdUsuario"].ToString();
-            txtNombreUsuario.Text = usrs.Rows[0]["NombreUsuario"].ToString();
-            txtClave.Text = usrs.Rows[0]["Clave"].ToString();
-            cmbTipoUsuario.SelectedValue = usrs.Rows[0]["Perfil"].ToString();
-            cmbEstado.SelectedValue = usrs.Rows[0]["Estado"].ToString();
+            txtIdUsuario.Text = usr.IdUsuario.ToString();
+            txtNombreUsuario.Text = usr.NombreUsuario.ToString();
+            txtClave.Text = usr.Clave.ToString();
+            cmbTipoUsuario.SelectedValue = usr.TipoUsuario.IdTipoUsuario;
+            cmbEstado.SelectedValue = usr.Estado.IdEstado;
         }
 
 
@@ -83,13 +91,15 @@ namespace GymApp.Presentacion
             Usuario usuario = new Usuario();
             usuario.NombreUsuario = txtNombreUsuario.Text;
             usuario.Clave = txtClave.Text;
-            usuario.IdTipoUsuario = (int)cmbTipoUsuario.SelectedValue;
-            usuario.Estado = (int)cmbEstado.SelectedValue;
+            usuario.TipoUsuario = new TipoUsuario();
+            usuario.TipoUsuario.IdTipoUsuario = (int)cmbTipoUsuario.SelectedValue;
+            usuario.Estado = new Estado();
+            usuario.Estado.IdEstado = (int)cmbEstado.SelectedValue;
 
             if (MiAccion == "Modificacion")
             {
                 usuario.IdUsuario = int.Parse(txtIdUsuario.Text);
-                if (Usuario.Existe(txtNombreUsuario.Text, usuario.IdUsuario))
+                if (UsuarioS.Existe(txtNombreUsuario.Text, usuario.IdUsuario))
                 {
                     MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     LimpiarCampos();
@@ -97,10 +107,14 @@ namespace GymApp.Presentacion
                 }
                 else
                 {
-                    int rowsAff = Usuario.ActualizarUsuario(usuario);
+                    int rowsAff = UsuarioS.ActualizarUsuario(usuario);
                     if (rowsAff > 0)
                     {
-                        MessageBox.Show("Usuario Actualizado Con Exito", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Usuario Actualizado", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        DataGridView grdUsuarios = (DataGridView)AdministrarUsuarios.Controls["grdUsuarios"];
+                        AdministrarUsuarios.CargarGrilla2(grdUsuarios, UsuarioS.RecuperarTodos());
+
                         Close();
                     }
                     else
@@ -112,7 +126,7 @@ namespace GymApp.Presentacion
             }
             else
             {
-                if (Usuario.Existe(txtNombreUsuario.Text, null))
+                if (UsuarioS.Existe(txtNombreUsuario.Text, null))
                 {
                     MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     LimpiarCampos();
@@ -121,11 +135,17 @@ namespace GymApp.Presentacion
                 else
                 {
 
-                    int rowsAff = Usuario.InsertarUsuario(usuario);
+                    int rowsAff = UsuarioS.InsertarUsuario(usuario);
                     if (rowsAff > 0)
                     {
-                        MessageBox.Show("Usuario Insertado Con Exito");
+                        MessageBox.Show("Usuario Insertado");
+
+
+                        DataGridView grdUsuarios = (DataGridView)AdministrarUsuarios.Controls["grdUsuarios"];
+                        AdministrarUsuarios.CargarGrilla2(grdUsuarios, UsuarioS.RecuperarTodos());
+                        AdministrarUsuarios.AlternarBotones(true);
                         Close();
+
                     }
                     else
                     {

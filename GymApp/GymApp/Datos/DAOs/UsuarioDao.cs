@@ -11,9 +11,10 @@ namespace GymApp.Datos.DAOs
 {
     class UsuarioDao : IUsuario
     {
-        public DataTable RecuperarFiltrados(string NombreUsuario, int? IdTipoUsuario)
+        //LLAMADAS A BASE DE DATOS
+        public List<Usuario> RecuperarFiltrados(string NombreUsuario, int? IdTipoUsuario)
         {
-            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave, TU.Descripcion as 'Perfil', E.Nombre as 'Estado' FROM Usuario U JOIN Estado E ON E.IdEstado = U.Estado JOIN TipoUsuario TU ON TU.IdTipoUsuario = U.IdTipoUsuario ";
+            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave,TU.IdTipoUsuario , TU.Descripcion as 'Perfil', E.Nombre as 'Estado', E.IdEstado FROM Usuario U JOIN Estado E ON E.IdEstado = U.Estado JOIN TipoUsuario TU ON TU.IdTipoUsuario = U.IdTipoUsuario ";
             if (NombreUsuario != "" && IdTipoUsuario != null)
             {
                 consulta = consulta + "WHERE U.NombreUsuario LIKE '%" + NombreUsuario + "%' AND U.IdTipoUsuario =" + IdTipoUsuario;
@@ -27,33 +28,33 @@ namespace GymApp.Datos.DAOs
                 }
                 if (NombreUsuario != "")
                 {
-                    consulta = consulta + "WHERE U.NombreUsuario LIKE '" + NombreUsuario + "%'";
+                    consulta = consulta + "WHERE U.NombreUsuario LIKE '%" + NombreUsuario + "%'";
                 }
             }
-            return DBHelper.obtenerInstancia().consultar(consulta);
+            consulta = consulta + " ORDER BY U.IdUsuario desc";
+            return MapeoAListaDeUsuarios(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
-        public DataTable RecuperarTodos()
+        public List<Usuario> RecuperarTodos()
         {
-            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave, TU.Descripcion as 'Perfil', E.Nombre as 'Estado' FROM Usuario U JOIN Estado E ON E.IdEstado = U.Estado JOIN TipoUsuario TU ON TU.IdTipoUsuario = U.IdTipoUsuario ORDER BY U.IdUsuario desc";
-            return DBHelper.obtenerInstancia().consultar(consulta);
-
+            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave,TU.IdTipoUsuario ,TU.Descripcion as 'Perfil', E.Nombre as 'Estado', E.IdEstado FROM Usuario U JOIN Estado E ON E.IdEstado = U.Estado JOIN TipoUsuario TU ON TU.IdTipoUsuario = U.IdTipoUsuario ORDER BY U.IdUsuario desc";
+            return MapeoAListaDeUsuarios(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
-        public DataTable RecuperarUno(int id)
+        public Usuario RecuperarUno(int id)
         {
-            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave, U.IdTipoUsuario as 'Perfil', U.Estado as 'Estado' FROM Usuario U WHERE U.IdUsuario =" + id;
-            return DBHelper.obtenerInstancia().consultar(consulta);
+            string consulta = "SELECT U.IdUsuario, U.NombreUsuario, U.Clave, TU.IdTipoUsuario, TU.Descripcion as 'Perfil', E.Nombre as 'Estado', E.IdEstado FROM Usuario U JOIN TipoUsuario TU ON TU.IdTipoUsuario = U.IdTipoUsuario JOIN Estado E ON E.IdEstado = U.Estado WHERE U.IdUsuario =" + id;
+            return MapToObjetoUsuario( DBHelper.obtenerInstancia().consultar(consulta));
         }
 
         public int InsertarUsuario(Usuario usuario)
         {
-            string consulta = "INSERT INTO Usuario (NombreUsuario, Clave, IdTipoUsuario, Estado) VALUES ('" + usuario.NombreUsuario + "','" + usuario.Clave + "'," + usuario.IdTipoUsuario + "," + usuario.Estado + ")";
+            string consulta = "INSERT INTO Usuario (NombreUsuario, Clave, IdTipoUsuario, Estado) VALUES ('" + usuario.NombreUsuario + "','" + usuario.Clave + "'," + usuario.TipoUsuario.IdTipoUsuario + "," + usuario.Estado.IdEstado + ")";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
         public int ActualizarUsuario(Usuario usuario)
         {
-            string consulta = "UPDATE Usuario SET NombreUsuario='" + usuario.NombreUsuario + "', Clave='" + usuario.Clave + "', IdTipoUsuario = '" + usuario.IdTipoUsuario + "', Estado = '" + usuario.Estado + "' WHERE IdUsuario =" + usuario.IdUsuario;
+            string consulta = "UPDATE Usuario SET NombreUsuario='" + usuario.NombreUsuario + "', Clave='" + usuario.Clave + "', IdTipoUsuario = '" + usuario.TipoUsuario.IdTipoUsuario + "', Estado = '" + usuario.Estado.IdEstado + "' WHERE IdUsuario =" + usuario.IdUsuario;
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
@@ -65,12 +66,49 @@ namespace GymApp.Datos.DAOs
         }
         public bool Existe(string NombreUsuario, int? IdUsuario)
         {
-            string consulta = "SELECT * FROM Usuario WHERE NombreUsuario = '"+ NombreUsuario+"'";
+            string consulta = "SELECT * FROM Usuario WHERE NombreUsuario = '" + NombreUsuario + "'";
             if (IdUsuario != null)
             {
                 consulta = consulta + " AND IdUsuario != " + IdUsuario;
             }
             return (DBHelper.obtenerInstancia().consultar(consulta).Rows.Count > 0);
+        }
+
+        //METODOS DE SOPORTE
+        public List<Usuario> MapeoAListaDeUsuarios(DataTable tabla)
+        {
+            List<Usuario> lstUsuarios = new List<Usuario>();
+            foreach (DataRow row in tabla.Rows)
+            {
+                Usuario usuario = new Usuario();
+                usuario.IdUsuario = int.Parse(row["IdUsuario"].ToString());
+                usuario.NombreUsuario = row["NombreUsuario"].ToString();
+                usuario.Clave = row["Clave"].ToString();
+                usuario.TipoUsuario = new TipoUsuario();
+                usuario.TipoUsuario.IdTipoUsuario = int.Parse(row["IdTipoUsuario"].ToString());
+                usuario.TipoUsuario.Descripcion = row["Perfil"].ToString();
+                usuario.Estado = new Estado();
+                usuario.Estado.IdEstado = int.Parse(row["IdEstado"].ToString());
+                usuario.Estado.Nombre = row["Estado"].ToString();
+
+                lstUsuarios.Add(usuario);
+            }
+            return lstUsuarios;
+        }
+        public Usuario MapToObjetoUsuario(DataTable tabla)
+        {
+            Usuario usuario = new Usuario();
+            usuario.IdUsuario = int.Parse(tabla.Rows[0]["IdUsuario"].ToString());
+            usuario.NombreUsuario = tabla.Rows[0]["NombreUsuario"].ToString();
+            usuario.Clave = tabla.Rows[0]["Clave"].ToString();
+            usuario.TipoUsuario = new TipoUsuario();
+            usuario.TipoUsuario.IdTipoUsuario = int.Parse(tabla.Rows[0]["IdTipoUsuario"].ToString());
+            usuario.TipoUsuario.Descripcion = tabla.Rows[0]["Perfil"].ToString();
+            usuario.Estado = new Estado();
+            usuario.Estado.IdEstado = int.Parse(tabla.Rows[0]["IdEstado"].ToString());
+            usuario.Estado.Nombre = tabla.Rows[0]["Estado"].ToString();
+
+            return usuario;
         }
     }
 }

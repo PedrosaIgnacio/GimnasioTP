@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GymApp.Entidades
 {
-    class Usuario
+    public class Usuario
     {
         public int IdUsuario { get; set; }
         public string NombreUsuario{ get; set; }
         public string Clave { get; set; }
-        public int IdTipoUsuario { get; set; }
-        public int Estado { get; set; }
+        public TipoUsuario TipoUsuario { get; set; }
+        public Estado Estado { get; set; }
     }
 }

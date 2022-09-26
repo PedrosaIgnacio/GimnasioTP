@@ -53,6 +53,8 @@
     <Compile Include="Datos\Interfaces\IEstado.cs" />
     <Compile Include="Datos\Interfaces\ITipoUsuario.cs" />
     <Compile Include="Datos\Interfaces\IUsuario.cs" />
+    <Compile Include="Entidades\Estado.cs" />
+    <Compile Include="Entidades\TipoUsuario.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Presentacion\frmUsuarios.cs">
       <SubType>Form</SubType>

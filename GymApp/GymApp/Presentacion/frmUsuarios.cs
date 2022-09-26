@@ -1,4 +1,5 @@
-﻿using GymApp.Servicios;
+﻿using GymApp.Entidades;
+using GymApp.Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,29 +14,41 @@ namespace GymApp.Presentacion
 {
     public partial class frmUsuarios : Form
     {
-        UsuarioService Usuario = new UsuarioService();
-        TipoUsuarioService TipoUsuario = new TipoUsuarioService();
+        //SERVICIOS
+        UsuarioService UsuarioS = new UsuarioService();
+
+        TipoUsuarioService TipoUsuarioS = new TipoUsuarioService();
+
+        //ATRIBUTOS
         enum Acciones
         {
             None,
             Alta,
+            Consulta,
             Modificacion
         }
 
         Acciones MiAccion;
 
+        //CONSTRUCTOR
         public frmUsuarios()
         {
             InitializeComponent();
         }
+        //MÉTODOS
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
-            CargarGrilla(grdUsuarios, Usuario.RecuperarTodos());
-            CargarCombo(cmbTipoUsuario, TipoUsuario.RecuperarTodos());
+            CargarCombo(cmbTipoUsuario, TipoUsuarioS.RecuperarTodos());
             txtNombreUsuario.Focus();
             MiAccion = Acciones.None;
-        }
+            AlternarBotones(false);
 
+        }
+        public void AlternarBotones(bool to)
+        {
+            btnEditar.Enabled = to;
+            btnEliminar.Enabled = to;
+        }
         public void CargarGrilla(DataGridView grilla, DataTable tabla)
         {
             grilla.Rows.Clear();
@@ -50,6 +63,20 @@ namespace GymApp.Presentacion
                     );
             }
         }
+        public void CargarGrilla2(DataGridView grilla, List<Usuario> lista)
+        {
+            grilla.Rows.Clear();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                grilla.Rows.Add(
+                    lista[i].IdUsuario,
+                    lista[i].NombreUsuario,
+                    lista[i].Clave,
+                    lista[i].TipoUsuario.Descripcion,
+                    lista[i].Estado.Nombre
+                    );
+            }
+        }
         private void CargarCombo(ComboBox combo, DataTable tabla)
         {
             combo.DataSource = tabla;
@@ -59,56 +86,74 @@ namespace GymApp.Presentacion
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
+        private void AbrirFrmUsuariosAM(string accion, int? IdUsuario, frmUsuarios form)
         {
-            if (cmbTipoUsuario.SelectedValue != null)
+            frmUsuariosAM FrmUsuariosAM = new frmUsuariosAM(accion, IdUsuario, this);
+            FrmUsuariosAM.Show();
+        }
+
+        private void btnConsultar_Click_1(object sender, EventArgs e)
+        {
+            if (cmbTipoUsuario.SelectedIndex == -1 && txtNombreUsuario.Text == "")
             {
-                CargarGrilla(grdUsuarios, Usuario.RecuperarFiltrados(txtNombreUsuario.Text, (int)cmbTipoUsuario.SelectedValue));
+                CargarGrilla2(grdUsuarios, UsuarioS.RecuperarTodos());
             }
             else
             {
-                CargarGrilla(grdUsuarios, Usuario.RecuperarFiltrados(txtNombreUsuario.Text, null));
+                if (cmbTipoUsuario.SelectedValue != null)
+                {
+                    CargarGrilla2(grdUsuarios, UsuarioS.RecuperarFiltrados(txtNombreUsuario.Text, (int)cmbTipoUsuario.SelectedValue));
+                }
+                else
+                {
+                    CargarGrilla2(grdUsuarios, UsuarioS.RecuperarFiltrados(txtNombreUsuario.Text, null));
+                }
+            }
+            if (grdUsuarios.Rows.Count > 0)
+            {
+                AlternarBotones(true);
             }
         }
 
-        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        private void btnLimpiarFiltros_Click_1(object sender, EventArgs e)
         {
             txtNombreUsuario.Text = "";
             cmbTipoUsuario.SelectedIndex = -1;
-            CargarGrilla(grdUsuarios, Usuario.RecuperarTodos());
+            CargarGrilla2(grdUsuarios, UsuarioS.RecuperarTodos());
             txtNombreUsuario.Focus();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            MiAccion = Acciones.Alta;
-            AbrirFrmUsuariosAM(MiAccion.ToString(), null);
+            if (grdUsuarios.CurrentRow.Cells[4].Value.ToString() == "Inhabilitado")
+            {
+                MessageBox.Show("Este usuario ya esta dado de baja, por favor intente con otro", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (MessageBox.Show("Está seguro de eliminar este usuario ?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    UsuarioS.BajaLogicaUsuario((int)grdUsuarios.CurrentRow.Cells[0].Value);
+                    CargarGrilla2(grdUsuarios, UsuarioS.RecuperarTodos());
+                }
+            }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click_1(object sender, EventArgs e)
         {
             MiAccion = Acciones.Modificacion;
-            AbrirFrmUsuariosAM(MiAccion.ToString(), (int)grdUsuarios.CurrentRow.Cells[0].Value);
-        }
-        private void AbrirFrmUsuariosAM(string accion, int? IdUsuario)
-        {
-            frmUsuariosAM FrmUsuariosAM = new frmUsuariosAM(accion, IdUsuario);
-            FrmUsuariosAM.Show();
-            
+            AbrirFrmUsuariosAM(MiAccion.ToString(), (int)grdUsuarios.CurrentRow.Cells[0].Value, this);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnNuevo_Click_1(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Esta seguro de eliminar este usuario ?", "ELIMINANDO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                Usuario.BajaLogicaUsuario((int)grdUsuarios.CurrentRow.Cells[0].Value);
-                CargarGrilla(grdUsuarios, Usuario.RecuperarTodos());
-            }
+            MiAccion = Acciones.Alta;
+            AbrirFrmUsuariosAM(MiAccion.ToString(), null, this);
         }
     }
 }

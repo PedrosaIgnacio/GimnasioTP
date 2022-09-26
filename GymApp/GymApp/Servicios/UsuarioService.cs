@@ -19,15 +19,15 @@ namespace GymApp.Servicios
             dao = new UsuarioDao();
         }
 
-        public DataTable RecuperarTodos()
+        public List<Usuario> RecuperarTodos()
         {
             return dao.RecuperarTodos();
         }
-        public DataTable RecuperarFiltrados(string NombreUsuario, int? IdTipoUsuario)
+        public List<Usuario> RecuperarFiltrados(string NombreUsuario, int? IdTipoUsuario)
         {
             return dao.RecuperarFiltrados(NombreUsuario, IdTipoUsuario);
         }
-        public DataTable RecuperarUno(int id)
+        public Usuario RecuperarUno(int id)
         {
             return dao.RecuperarUno(id);
         }
