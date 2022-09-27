@@ -17,5 +17,6 @@ namespace GymApp.Datos.Interfaces
         int ActualizarUsuario(Usuario usuario);
         int BajaLogicaUsuario(int IdUsr);
         bool Existe(string NombreUsuario, int? IdUsuario);
+        Usuario ValidarUsuario(string nombreUsr);
     }
 }

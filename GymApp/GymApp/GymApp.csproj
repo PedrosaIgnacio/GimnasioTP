@@ -74,6 +74,12 @@
     <Compile Include="Presentacion\frmEjerciciosAM.Designer.cs">
       <DependentUpon>frmEjerciciosAM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     </Compile>
     <Compile Include="Presentacion\frmUsuariosAM.Designer.cs">
       <DependentUpon>frmUsuariosAM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmLogIn.Designer.cs">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,11 +111,17 @@
     <EmbeddedResource Include="Presentacion\frmEjerciciosAM.resx">
       <DependentUpon>frmEjerciciosAM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmUsuariosAM.resx">
       <DependentUpon>frmUsuariosAM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmLogIn.resx">
+      <DependentUpon>frmLogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -152,8 +170,10 @@
     <Content Include="Imagenes\grabar2.png" />
     <Content Include="Imagenes\grabar3.png" />
     <Content Include="Imagenes\grabar4.png" />
+    <Content Include="Imagenes\gym-durango.png" />
     <Content Include="Imagenes\i-info.jpg" />
     <Content Include="Imagenes\i-info2.jpg" />
+    <Content Include="Imagenes\LogoGim.png" />
     <Content Include="Imagenes\logout_door.png" />
     <Content Include="Imagenes\new-file.png" />
     <Content Include="Imagenes\new_add_user.png" />
@@ -170,6 +190,7 @@
     <Content Include="Imagenes\puerta2.bmp" />
     <Content Include="Imagenes\salir1.png" />
     <Content Include="Imagenes\search-file.png" />
+    <None Include="Resources\gym-durango.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

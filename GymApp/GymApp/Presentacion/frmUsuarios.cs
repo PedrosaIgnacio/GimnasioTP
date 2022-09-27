@@ -125,7 +125,9 @@ namespace GymApp.Presentacion
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
-            Close();
+            frmPrincipal frmPrincipal = new frmPrincipal();
+            frmPrincipal.Show();
+            this.Hide();
         }
 
         private void btnEliminar_Click_1(object sender, EventArgs e)

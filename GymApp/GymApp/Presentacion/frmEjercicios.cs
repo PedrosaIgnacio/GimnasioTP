@@ -76,7 +76,9 @@ namespace GymApp.Presentacion
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            frmPrincipal frmPrincipal = new frmPrincipal();
+            frmPrincipal.Show();
+            this.Hide();
         }
 
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
@@ -100,6 +102,25 @@ namespace GymApp.Presentacion
             MiAccion = Acciones.Modificacion;
             frmEjerciciosAM frmEjAM = new frmEjerciciosAM(MiAccion.ToString(), (int)grdEjercicio.CurrentRow.Cells[0].Value);
             frmEjAM.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Está seguro de eliminar este ejercicio ?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                int rowsAff = EJservice.EliminarEjercicio((int)grdEjercicio.CurrentRow.Cells[0].Value);
+                if (rowsAff > 0)
+                {
+                    MessageBox.Show("Ejercicio eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el ejercicio");
+                }
+                //EJService.BajaLogicaUsuario((int)grdUsuarios.CurrentRow.Cells[0].Value);
+                List<Ejercicio> lstej = new List<Ejercicio>();
+                CargarGrilla(grdEjercicio, lstej);
+            }
         }
     }
 }

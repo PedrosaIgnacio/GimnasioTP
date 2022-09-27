@@ -19,7 +19,7 @@ namespace GymApp.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,6 +63,16 @@ namespace GymApp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gym_durango {
+            get {
+                object obj = ResourceManager.GetObject("gym-durango", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ilustracion_concepto_inicio_sesion_114360_739 {
             get {
                 object obj = ResourceManager.GetObject("ilustracion_concepto_inicio_sesion_114360_739", resourceCulture);
@@ -71,7 +81,17 @@ namespace GymApp.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=DESKTOP-AJIOCC9\SQLEXPRESS;Initial Catalog=GimnasioTP;Integrated Security=True.
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoGim {
+            get {
+                object obj = ResourceManager.GetObject("LogoGim", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Data Source=FRAN-MENENDEZ\MSSQLSERVER01;Initial Catalog=GimnasioTP;Integrated Security=True.
         /// </summary>
         internal static string StringConexion {
             get {

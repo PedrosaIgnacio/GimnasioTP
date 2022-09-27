@@ -54,6 +54,12 @@ namespace GymApp.Datos.DAOs
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
+        public int EliminarEjercicio(int idEj)
+        {
+            string consulta = "DELETE FROM Ejercicio WHERE IdEJ = " + idEj;
+            return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
+
         //MÉTODOS AUXILIARES
         public List<Ejercicio> MapeoAListaDeEjercicio(DataTable tabla)
         {

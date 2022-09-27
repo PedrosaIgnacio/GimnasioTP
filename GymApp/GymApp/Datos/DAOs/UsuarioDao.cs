@@ -74,6 +74,20 @@ namespace GymApp.Datos.DAOs
             return (DBHelper.obtenerInstancia().consultar(consulta).Rows.Count > 0);
         }
 
+        public Usuario ValidarUsuario(string nombreUsr)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            lista = this.RecuperarFiltrados(nombreUsr, null);
+            if (lista.Count > 0)
+            {
+                return lista[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //METODOS DE SOPORTE
         public List<Usuario> MapeoAListaDeUsuarios(DataTable tabla)
         {
@@ -110,5 +124,7 @@ namespace GymApp.Datos.DAOs
 
             return usuario;
         }
+
+
     }
 }

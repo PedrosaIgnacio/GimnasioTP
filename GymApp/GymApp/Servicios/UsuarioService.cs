@@ -48,5 +48,10 @@ namespace GymApp.Servicios
             bool test = dao.Existe(NombreUsuario, IdUsuario);
             return test;
         }
+        public Usuario ValidarUsuario(string nombreusr)
+        {
+            return dao.ValidarUsuario(nombreusr);
+        }
+
     }
 }

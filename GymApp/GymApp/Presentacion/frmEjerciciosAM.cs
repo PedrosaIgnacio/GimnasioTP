@@ -18,6 +18,7 @@ namespace GymApp.Presentacion
         private int? idEjer;
         EjercicioService EJservice = new EjercicioService();
         GrupoMuscularService GMservice = new GrupoMuscularService();
+       
         public frmEjerciciosAM(string MiAccion, int? idEj)
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace GymApp.Presentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace GymApp.Presentacion
                 int rowsAff = EJservice.InsertarUno(ej);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Usuario Insertado");
+                    MessageBox.Show("Ejercicio creado");
                 }
 
             }
@@ -93,7 +94,7 @@ namespace GymApp.Presentacion
                 int rowsAff = EJservice.ActualizarEjercicio(ej);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Cliente actualizado");
+                    MessageBox.Show("Ejercicio actualizado");
                 }
                 else
                 {

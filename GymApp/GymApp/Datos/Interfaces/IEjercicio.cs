@@ -14,5 +14,7 @@ namespace GymApp.Datos.Interfaces
         int InsertarUno(Ejercicio ej);
         Ejercicio RecuperarUno(int idEj);
         int ActualizarEjercicio(Ejercicio ej);
+
+        int EliminarEjercicio(int idEj);
     }
 }

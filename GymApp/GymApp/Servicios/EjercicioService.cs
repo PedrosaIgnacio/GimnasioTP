@@ -39,5 +39,9 @@ namespace GymApp.Servicios
         {
             return dao.ActualizarEjercicio(ej);
         }
+        public int EliminarEjercicio(int ej)
+        {
+            return dao.EliminarEjercicio(ej);
+        }
     }
 }
