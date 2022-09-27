@@ -72,6 +72,7 @@
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -82,6 +83,7 @@
             this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // lblNombreEjercicios
             // 
@@ -89,9 +91,9 @@
             this.lblNombreEjercicios.Location = new System.Drawing.Point(16, 76);
             this.lblNombreEjercicios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreEjercicios.Name = "lblNombreEjercicios";
-            this.lblNombreEjercicios.Size = new System.Drawing.Size(110, 13);
+            this.lblNombreEjercicios.Size = new System.Drawing.Size(47, 13);
             this.lblNombreEjercicios.TabIndex = 2;
-            this.lblNombreEjercicios.Text = "Nombre de Ejercicios:";
+            this.lblNombreEjercicios.Text = "Nombre:";
             this.lblNombreEjercicios.Click += new System.EventHandler(this.lblNombreUsuario_Click);
             // 
             // lblIdEjercicio
@@ -166,6 +168,7 @@
             this.Controls.Add(this.grbAltaEjercicios);
             this.Name = "frmEjerciciosAM";
             this.Text = "frmEjerciciosAM";
+            this.Load += new System.EventHandler(this.frmEjerciciosAM_Load);
             this.grbAltaEjercicios.ResumeLayout(false);
             this.grbAltaEjercicios.PerformLayout();
             this.ResumeLayout(false);

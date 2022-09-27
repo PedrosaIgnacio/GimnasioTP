@@ -27,5 +27,17 @@ namespace GymApp.Servicios
         {
             return dao.RecuperarFiltrados(Ejercicio, IdGM);
         }
+        public Ejercicio RecuperarUno(int idEj)
+        {
+            return dao.RecuperarUno(idEj);
+        }
+        public int InsertarUno(Ejercicio ej)
+        {
+            return dao.InsertarUno(ej);
+        }
+        public int ActualizarEjercicio(Ejercicio ej)
+        {
+            return dao.ActualizarEjercicio(ej);
+        }
     }
 }

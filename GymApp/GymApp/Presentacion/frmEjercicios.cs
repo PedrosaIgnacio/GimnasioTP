@@ -16,6 +16,12 @@ namespace GymApp.Presentacion
     {
         GrupoMuscularService GMservice = new GrupoMuscularService();
         EjercicioService EJservice = new EjercicioService();
+        enum Acciones
+        {
+            Alta,
+            Modificacion
+        }
+        private Acciones MiAccion;
         public frmEjercicios()
         {
             InitializeComponent();
@@ -23,6 +29,7 @@ namespace GymApp.Presentacion
 
         private void frmEjercicios_Load(object sender, EventArgs e)
         {
+            
             CargarCombo(cmbGrupoMuscular, GMservice.RecuperarTodos());
         }
         private void CargarCombo(ComboBox combo, List<GrupoMuscular> lista)
@@ -79,6 +86,20 @@ namespace GymApp.Presentacion
             List<Ejercicio> lstej = new List<Ejercicio>();
             CargarGrilla(grdEjercicio, lstej);
             txtNombreEjercicio.Focus();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            MiAccion = Acciones.Alta;
+            frmEjerciciosAM frmEjAM = new frmEjerciciosAM(MiAccion.ToString(), null);
+            frmEjAM.Show(); 
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            MiAccion = Acciones.Modificacion;
+            frmEjerciciosAM frmEjAM = new frmEjerciciosAM(MiAccion.ToString(), (int)grdEjercicio.CurrentRow.Cells[0].Value);
+            frmEjAM.Show();
         }
     }
 }

@@ -82,6 +82,7 @@
             this.btnEditar.Size = new System.Drawing.Size(46, 47);
             this.btnEditar.TabIndex = 30;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -94,6 +95,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(46, 47);
             this.btnNuevo.TabIndex = 29;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnConsultar
             // 
