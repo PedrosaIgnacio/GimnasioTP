@@ -11,5 +11,6 @@ namespace GymApp.Entidades
         public int IdGM { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public int IdEstado { get; set; }
     }
 }

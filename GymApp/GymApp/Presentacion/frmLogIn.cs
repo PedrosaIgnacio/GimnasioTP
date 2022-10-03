@@ -1,5 +1,6 @@
 ﻿using GymApp.Entidades;
 using GymApp.Servicios;
+using GymApp.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,8 @@ namespace GymApp.Presentacion
 {
     public partial class frmLogIn : Form
     {
-        private UsuarioService usrService= new UsuarioService();
-        private Usuario usuario = new Usuario();  
+        IUsuarioService usrService= new UsuarioService();
+        Usuario usuario = new Usuario();  
         public frmLogIn()
         {
             InitializeComponent();

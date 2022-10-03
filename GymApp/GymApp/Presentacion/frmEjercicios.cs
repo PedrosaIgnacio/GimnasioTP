@@ -1,5 +1,6 @@
 ﻿using GymApp.Entidades;
 using GymApp.Servicios;
+using GymApp.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,8 @@ namespace GymApp.Presentacion
 {
     public partial class frmEjercicios : Form
     {
-        GrupoMuscularService GMservice = new GrupoMuscularService();
-        EjercicioService EJservice = new EjercicioService();
+        IGrupoMuscularService GMservice = new GrupoMuscularService();
+        IEjercicioService EJservice = new EjercicioService();
         enum Acciones
         {
             Alta,

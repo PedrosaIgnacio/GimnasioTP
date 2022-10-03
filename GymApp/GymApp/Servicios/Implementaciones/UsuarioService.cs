@@ -1,6 +1,7 @@
 ﻿using GymApp.Datos.DAOs;
 using GymApp.Datos.Interfaces;
 using GymApp.Entidades;
+using GymApp.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GymApp.Servicios
 {
-    class UsuarioService
+    class UsuarioService: IUsuarioService
     {
         private IUsuario dao;
 

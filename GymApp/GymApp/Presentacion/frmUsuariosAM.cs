@@ -1,5 +1,6 @@
 ﻿using GymApp.Entidades;
 using GymApp.Servicios;
+using GymApp.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,11 @@ namespace GymApp.Presentacion
     public partial class frmUsuariosAM : Form
     {
         //SERVICIOS
-        UsuarioService UsuarioS = new UsuarioService();
+        IUsuarioService UsuarioS = new UsuarioService();
 
-        TipoUsuarioService TipoUsuarioS = new TipoUsuarioService();
+        ITipoUsuarioService TipoUsuarioS = new TipoUsuarioService();
 
-        EstadoService EstadoS = new EstadoService();
+        IEstadoService EstadoS = new EstadoService();
 
         //ATRIBUTOS DE LA CLASE
         private string MiAccion;

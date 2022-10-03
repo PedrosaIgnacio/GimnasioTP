@@ -13,7 +13,7 @@ namespace GymApp.Datos.DAOs
     {
         public List<Ejercicio> RecuperarTodos()
         {
-            string consulta = "SELECT e.IdEJ, e.Nombre, e.Descripcion, gm.IdGM, gm.Nombre as 'NombreGM', gm.Descripcion as 'DescripcionGM' FROM Ejercicio e  JOIN GrupoMuscular gm ON gm.IdGM = e.IdGM";
+            string consulta = "SELECT e.IdEJ, e.Nombre, e.Descripcion, gm.IdGM, gm.Nombre as 'NombreGM', gm.Descripcion as 'DescripcionGM' FROM Ejercicio e  JOIN GrupoMuscular gm ON gm.IdGM = e.IdGM WHERE e.IdEstado = 1";
             return MapeoAListaDeEjercicio(DBHelper.obtenerInstancia().consultar(consulta));
         }
         public List<Ejercicio> RecuperarFiltrados(string Ejercicio, int? IdGM)
@@ -34,12 +34,13 @@ namespace GymApp.Datos.DAOs
                     consulta = consulta + "WHERE gm.IdGM =" + IdGM;
                 }
             }
+            consulta = consulta + ",e.IdEstado = 1";
             return MapeoAListaDeEjercicio(DBHelper.obtenerInstancia().consultar(consulta));
 
         }
         public int InsertarUno(Ejercicio ej)
         {
-            string consulta = "INSERT INTO Ejercicio (Nombre, Descripcion, IdGM) VALUES ('" + ej.Nombre + "','" + ej.Descripcion + "'," + ej.GrupoMuscular.IdGM + ")";
+            string consulta = "INSERT INTO Ejercicio (Nombre, Descripcion, IdGM, IdEstado) VALUES ('" + ej.Nombre + "','" + ej.Descripcion + "'," + ej.GrupoMuscular.IdGM + ", 1)";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
         public Ejercicio RecuperarUno(int idEj)
@@ -56,7 +57,7 @@ namespace GymApp.Datos.DAOs
 
         public int EliminarEjercicio(int idEj)
         {
-            string consulta = "DELETE FROM Ejercicio WHERE IdEJ = " + idEj;
+            string consulta = "UPDATE Ejercicio SET IdEstado = 0 WHERE IdEJ = " + idEj;
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 

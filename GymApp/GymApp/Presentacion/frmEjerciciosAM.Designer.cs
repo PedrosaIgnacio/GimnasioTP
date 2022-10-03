@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grbAltaEjercicios = new System.Windows.Forms.GroupBox();
+            this.btnAgregarGrupoMuscular = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblNombreEjercicios = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             // 
             // grbAltaEjercicios
             // 
+            this.grbAltaEjercicios.Controls.Add(this.btnAgregarGrupoMuscular);
             this.grbAltaEjercicios.Controls.Add(this.btnCancelar);
             this.grbAltaEjercicios.Controls.Add(this.btnAceptar);
             this.grbAltaEjercicios.Controls.Add(this.lblNombreEjercicios);
@@ -58,10 +60,20 @@
             this.grbAltaEjercicios.Margin = new System.Windows.Forms.Padding(2);
             this.grbAltaEjercicios.Name = "grbAltaEjercicios";
             this.grbAltaEjercicios.Padding = new System.Windows.Forms.Padding(2);
-            this.grbAltaEjercicios.Size = new System.Drawing.Size(370, 326);
+            this.grbAltaEjercicios.Size = new System.Drawing.Size(407, 326);
             this.grbAltaEjercicios.TabIndex = 12;
             this.grbAltaEjercicios.TabStop = false;
             this.grbAltaEjercicios.Text = "Ejercicio";
+            // 
+            // btnAgregarGrupoMuscular
+            // 
+            this.btnAgregarGrupoMuscular.Image = global::GymApp.Properties.Resources.nuevo1;
+            this.btnAgregarGrupoMuscular.Location = new System.Drawing.Point(345, 199);
+            this.btnAgregarGrupoMuscular.Name = "btnAgregarGrupoMuscular";
+            this.btnAgregarGrupoMuscular.Size = new System.Drawing.Size(32, 27);
+            this.btnAgregarGrupoMuscular.TabIndex = 13;
+            this.btnAgregarGrupoMuscular.UseVisualStyleBackColor = true;
+            this.btnAgregarGrupoMuscular.Click += new System.EventHandler(this.btnAgregarGrupoMuscular_Click);
             // 
             // btnCancelar
             // 
@@ -164,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 355);
+            this.ClientSize = new System.Drawing.Size(473, 355);
             this.Controls.Add(this.grbAltaEjercicios);
             this.Name = "frmEjerciciosAM";
             this.Text = "frmEjerciciosAM";
@@ -188,5 +200,6 @@
         private System.Windows.Forms.ComboBox cmbGrupoMuscular;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblGrupoMuscular;
+        private System.Windows.Forms.Button btnAgregarGrupoMuscular;
     }
 }

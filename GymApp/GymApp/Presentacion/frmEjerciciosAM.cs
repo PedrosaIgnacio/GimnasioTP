@@ -1,5 +1,6 @@
 ﻿using GymApp.Entidades;
 using GymApp.Servicios;
+using GymApp.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,8 @@ namespace GymApp.Presentacion
     {
         private string Accion;
         private int? idEjer;
-        EjercicioService EJservice = new EjercicioService();
-        GrupoMuscularService GMservice = new GrupoMuscularService();
+        IEjercicioService EJservice = new EjercicioService();
+        IGrupoMuscularService GMservice = new GrupoMuscularService();
        
         public frmEjerciciosAM(string MiAccion, int? idEj)
         {
@@ -104,6 +105,10 @@ namespace GymApp.Presentacion
             this.Close();
         }
 
-
+        private void btnAgregarGrupoMuscular_Click(object sender, EventArgs e)
+        {
+            frmGrupoMuscularAM frmGrupoMuscularAM = new frmGrupoMuscularAM("Alta",null);
+            frmGrupoMuscularAM.Show();
+        }
     }
 }

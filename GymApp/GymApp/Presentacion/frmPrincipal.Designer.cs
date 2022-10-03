@@ -30,10 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupoMuscularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -61,15 +61,6 @@
             this.soporteToolStripMenuItem.Text = "Soporte";
             this.soporteToolStripMenuItem.Click += new System.EventHandler(this.soporteToolStripMenuItem_Click);
             // 
-            // planesToolStripMenuItem
-            // 
-            this.planesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.planesToolStripMenuItem1,
-            this.ejerciciosToolStripMenuItem});
-            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.planesToolStripMenuItem.Text = "Planes";
-            // 
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
@@ -88,17 +79,27 @@
             this.grupoMuscularToolStripMenuItem.Name = "grupoMuscularToolStripMenuItem";
             this.grupoMuscularToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.grupoMuscularToolStripMenuItem.Text = "Grupo Muscular";
+            this.grupoMuscularToolStripMenuItem.Click += new System.EventHandler(this.grupoMuscularToolStripMenuItem_Click);
+            // 
+            // planesToolStripMenuItem
+            // 
+            this.planesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.planesToolStripMenuItem1,
+            this.ejerciciosToolStripMenuItem});
+            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.planesToolStripMenuItem.Text = "Planes";
             // 
             // planesToolStripMenuItem1
             // 
             this.planesToolStripMenuItem1.Name = "planesToolStripMenuItem1";
-            this.planesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.planesToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.planesToolStripMenuItem1.Text = "Planes";
             // 
             // ejerciciosToolStripMenuItem
             // 
             this.ejerciciosToolStripMenuItem.Name = "ejerciciosToolStripMenuItem";
-            this.ejerciciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ejerciciosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.ejerciciosToolStripMenuItem.Text = "Ejercicios";
             this.ejerciciosToolStripMenuItem.Click += new System.EventHandler(this.ejerciciosToolStripMenuItem_Click);
             // 
@@ -110,7 +111,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
-            this.Text = "frmPrincipal";
+            this.Text = "Principal";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

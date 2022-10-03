@@ -1,24 +1,23 @@
 ﻿using GymApp.Datos.DAOs;
 using GymApp.Datos.Interfaces;
-using GymApp.Entidades;
+using GymApp.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GymApp.Servicios
 {
-    internal class GrupoMuscularService
+    class EstadoService:IEstadoService
     {
-        private IGrupoMuscular dao;
-
-        public GrupoMuscularService()
+        private IEstado dao;
+        public EstadoService()
         {
-            dao = new GrupoMuscularDao();
+            dao = new EstadoDao();
         }
-
-        public List<GrupoMuscular> RecuperarTodos()
+        public DataTable RecuperarTodos()
         {
             return dao.RecuperarTodos();
         }
