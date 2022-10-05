@@ -88,9 +88,9 @@ namespace GymApp.Datos.DAOs
             
         }
 
-        public int Modificar(Alumno alumno)
+        public int Modificar(Alumno a)
         {
-            string consulta = "";
+          string consulta = "UPDATE Alumno SET NumDoc ='"+ a.NroDocumento + "', TipoDoc ='" + a.TipoDoc + "' ,Nombre = '" +a.Nombre +"', Apellido = ' " + a.Apellido+ "' ,FechaNacimiento = '"+a.FechaNacimiento+"',Telefono='"+ a.Telefono+"',Email='"+a.Email+"',TelefonoEmergencia='"+a.TelefonoEmergencia+"',Numero='"+a.Numero+"',Calle='"+a.Calle+"',IdBarrio='"+a.Barrio+"'";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
     }
