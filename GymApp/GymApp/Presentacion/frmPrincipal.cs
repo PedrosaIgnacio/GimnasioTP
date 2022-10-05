@@ -42,5 +42,10 @@ namespace GymApp.Presentacion
             frmGrupoMuscular.Show();
             this.Hide();
         }
+
+        private void alumnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

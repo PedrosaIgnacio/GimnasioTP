@@ -54,6 +54,7 @@ namespace GymApp.Presentacion
                 {
                     CargarGrilla(grdEjercicio, EJservice.RecuperarFiltrados(txtNombreEjercicio.Text, (int)cmbGrupoMuscular.SelectedValue));
                 }
+          
                 else
                 {
                     // Aca se llama a cargar grilla con filtros donde si el usuario no selecciona algun opcion se pasa null.
