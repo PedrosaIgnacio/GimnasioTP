@@ -33,9 +33,13 @@ namespace GymApp.Presentacion
         {
             CargarComboTipoDoc(cmbTipoDocumento, svTipoDocumento.RecuperarTodos());
             CargarComboBarrio(cmbBarrio, svBarrio.RecuperarTodos());
-            CargarCampos(svAlumno.RecuperarUno((int)nroDoc));
-            txtNroDoc.Enabled = false;
-            cmbTipoDocumento.Enabled = false;
+
+            if (miAccion == "Modificacion")
+            {
+                CargarCampos(svAlumno.RecuperarUno((int)nroDoc));
+                txtNroDoc.Enabled = false;
+                cmbTipoDocumento.Enabled = false;
+            }
         }
 
         private void CargarComboBarrio(ComboBox combo, List<Barrio> lista)
@@ -78,29 +82,44 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            Alumno alumno = new Alumno();
+            alumno.NroDocumento = int.Parse(txtNroDoc.Text);
+            alumno.TipoDoc = new TipoDocumento();
+            alumno.TipoDoc.IdTipoDoc = (int)cmbTipoDocumento.SelectedValue;
+            alumno.TipoDoc.Nombre = cmbTipoDocumento.Text;
+            alumno.Nombre = txtNombre.Text;
+            alumno.Apellido = txtApellido.Text;
+            alumno.FechaNacimiento = txtFechaNacimiento.Text;
+            alumno.Telefono = int.Parse(txtTelefono.Text);
+            alumno.Email = txtEmail.Text;
+            alumno.TelefonoEmergencia = int.Parse(txtTelefonoEmergencia.Text);
+            alumno.Numero = int.Parse(txtNroCalle.Text);
+            alumno.Calle = txtCalle.Text;
+            alumno.Barrio = new Barrio();
+            alumno.Barrio.IdBarrio = (int)cmbBarrio.SelectedValue;
+            alumno.Barrio.Nombre = cmbBarrio.Text;
             if (miAccion == "Modificacion")
             {
-                Alumno alumno = new Alumno();
-                alumno.NroDocumento = int.Parse(txtNroDoc.Text);
-                alumno.TipoDoc = new TipoDocumento();
-                alumno.TipoDoc.IdTipoDoc = (int)cmbTipoDocumento.SelectedValue;
-                alumno.TipoDoc.Nombre = cmbTipoDocumento.Text;
-                alumno.Nombre = txtNombre.Text;
-                alumno.Apellido = txtApellido.Text;
-                alumno.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
-                alumno.Telefono = int.Parse(txtTelefono.Text);
-                alumno.Email = txtEmail.Text;
-                alumno.TelefonoEmergencia = int.Parse(txtTelefono.Text);
-                alumno.Numero = int.Parse(txtNroCalle.Text);
-                alumno.Calle = txtCalle.Text;
-                alumno.Barrio = new Barrio();
-                alumno.Barrio.IdBarrio = (int)cmbBarrio.SelectedValue;
-                alumno.Barrio.Nombre = cmbBarrio.Text;
-
                 int rowsAff = svAlumno.Modificar(alumno);
                 if (rowsAff > 0)
                 {
                     MessageBox.Show("Datos Modificados");
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+            }
+            else
+            {
+                int rowsAff = svAlumno.Insertar(alumno);
+                if (rowsAff > 0)
+                {
+                    MessageBox.Show("Datos Modificados");
+                }
+                else
+                {
+                    MessageBox.Show("error");
                 }
             }
         }

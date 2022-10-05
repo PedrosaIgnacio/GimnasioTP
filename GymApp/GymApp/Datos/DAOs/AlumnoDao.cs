@@ -30,7 +30,7 @@ namespace GymApp.Datos.DAOs
                 alumno.TipoDoc.Nombre = row["NombreTipoDoc"].ToString();
                 alumno.Nombre = row["Nombre"].ToString();
                 alumno.Apellido = row["Apellido"].ToString();
-                alumno.FechaNacimiento = (DateTime)row["FechaNacimiento"];
+                alumno.FechaNacimiento = row["FechaNacimiento"].ToString();
                 alumno.Telefono = (int)row["Telefono"];
                 alumno.Email = row["Email"].ToString();
                 alumno.TelefonoEmergencia = (int)row["TelefonoEmergencia"];
@@ -74,16 +74,17 @@ namespace GymApp.Datos.DAOs
             alumno.TipoDoc = new TipoDocumento();
             alumno.TipoDoc.IdTipoDoc = (int)tabla.Rows[0]["IdTipoDoc"];
             alumno.TipoDoc.Nombre = tabla.Rows[0]["NombreTipoDoc"].ToString();
-            alumno.Numero = (int)tabla.Rows[0]["Numero"];
             alumno.Telefono = (int)tabla.Rows[0]["Telefono"];
             alumno.TelefonoEmergencia = (int)tabla.Rows[0]["TelefonoEmergencia"];
             alumno.Calle = tabla.Rows[0]["Calle"].ToString();
+            alumno.Numero = (int)tabla.Rows[0]["Numero"];
             alumno.Barrio = new Barrio();
             alumno.Barrio.IdBarrio = (int)tabla.Rows[0]["IdBarrio"];
             alumno.Barrio.Localidad = new Localidad();
             alumno.Barrio.Localidad.IdLocalidad = (int)tabla.Rows[0]["IdLocalidad"];
             alumno.Barrio.Localidad.Nombre = tabla.Rows[0]["NombreLocalidad"].ToString();
             alumno.Barrio.Nombre = tabla.Rows[0]["NombreBarrio"].ToString();
+            alumno.FechaNacimiento = tabla.Rows[0]["FechaNacimiento"].ToString();
             return alumno;
             
         }
@@ -91,6 +92,13 @@ namespace GymApp.Datos.DAOs
         public int Modificar(Alumno a)
         {
           string consulta = "UPDATE Alumno SET NumDoc ='"+ a.NroDocumento + "', TipoDoc ='" + a.TipoDoc + "' ,Nombre = '" +a.Nombre +"', Apellido = ' " + a.Apellido+ "' ,FechaNacimiento = '"+a.FechaNacimiento+"',Telefono='"+ a.Telefono+"',Email='"+a.Email+"',TelefonoEmergencia='"+a.TelefonoEmergencia+"',Numero='"+a.Numero+"',Calle='"+a.Calle+"',IdBarrio='"+a.Barrio+"'";
+            return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
+
+        public int Insertar(Alumno a)
+        {
+            //string consulta = "INSERT INTO Alumno (NumDoc, TipoDoc, Nombre,Apellido,FechaNacimiento,Telefono,Email,TelefonoEmergencia,Numero,Calle,IdBarrio,IdEstado) VALUES (" + a.NroDocumento + "," + a.TipoDoc.IdTipoDoc + ",'" + a.Nombre + "','" + a.Apellido + "'," + a.FechaNacimiento + "," + a.Telefono + ",'" + a.Email + "'," + a.TelefonoEmergencia + "," + a.Numero + ",'" + a.Calle + "'," + a.Barrio.IdBarrio + ", 1)";
+            string consulta = "INSERT INTO Alumno (NumDoc, TipoDoc, Nombre,Apellido,FechaNacimiento,Telefono,Email,TelefonoEmergencia,Numero,Calle,IdBarrio,IdEstado) VALUES (436939888,1,'fran' ,'men','29/10/2001',3515231232,'fran',2314412,2312,'cli',1,1)";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
     }

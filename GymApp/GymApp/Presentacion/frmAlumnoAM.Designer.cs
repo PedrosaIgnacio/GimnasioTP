@@ -37,12 +37,9 @@
             this.lblNroDoc = new System.Windows.Forms.Label();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
-            this.txtFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTelefonoEmergencia = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefonoEmergencia = new System.Windows.Forms.Label();
             this.lblCalle = new System.Windows.Forms.Label();
             this.txtNroCalle = new System.Windows.Forms.MaskedTextBox();
@@ -53,6 +50,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtTelefonoEmergencia = new System.Windows.Forms.TextBox();
+            this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,15 +130,6 @@
             this.lblFechaNacimiento.TabIndex = 8;
             this.lblFechaNacimiento.Text = "Fecha Nacimiento: ";
             // 
-            // txtFechaNacimiento
-            // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(137, 129);
-            this.txtFechaNacimiento.Mask = "00/00/0000";
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(174, 20);
-            this.txtFechaNacimiento.TabIndex = 9;
-            this.txtFechaNacimiento.ValidatingType = typeof(System.DateTime);
-            // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
@@ -147,14 +138,6 @@
             this.lblTelefono.Size = new System.Drawing.Size(52, 13);
             this.lblTelefono.TabIndex = 10;
             this.lblTelefono.Text = "Teléfono:";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(137, 159);
-            this.txtTelefono.Mask = "000-000-0000";
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(174, 20);
-            this.txtTelefono.TabIndex = 12;
             // 
             // lblEmail
             // 
@@ -167,18 +150,10 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(137, 211);
+            this.txtEmail.Location = new System.Drawing.Point(136, 215);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(174, 20);
+            this.txtEmail.Size = new System.Drawing.Size(175, 20);
             this.txtEmail.TabIndex = 14;
-            // 
-            // txtTelefonoEmergencia
-            // 
-            this.txtTelefonoEmergencia.Location = new System.Drawing.Point(137, 185);
-            this.txtTelefonoEmergencia.Mask = "000-000-0000";
-            this.txtTelefonoEmergencia.Name = "txtTelefonoEmergencia";
-            this.txtTelefonoEmergencia.Size = new System.Drawing.Size(174, 20);
-            this.txtTelefonoEmergencia.TabIndex = 16;
             // 
             // lblTelefonoEmergencia
             // 
@@ -209,7 +184,7 @@
             // 
             // txtCalle
             // 
-            this.txtCalle.Location = new System.Drawing.Point(137, 237);
+            this.txtCalle.Location = new System.Drawing.Point(136, 237);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(174, 20);
             this.txtCalle.TabIndex = 19;
@@ -242,6 +217,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtFechaNacimiento);
+            this.groupBox1.Controls.Add(this.txtTelefonoEmergencia);
+            this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnAceptar);
             this.groupBox1.Controls.Add(this.lblNombre);
@@ -257,15 +235,12 @@
             this.groupBox1.Controls.Add(this.cmbTipoDocumento);
             this.groupBox1.Controls.Add(this.lblCalle);
             this.groupBox1.Controls.Add(this.lblNroDoc);
-            this.groupBox1.Controls.Add(this.txtTelefonoEmergencia);
             this.groupBox1.Controls.Add(this.txtNroDoc);
             this.groupBox1.Controls.Add(this.lblTelefonoEmergencia);
             this.groupBox1.Controls.Add(this.lblFechaNacimiento);
             this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.txtFechaNacimiento);
             this.groupBox1.Controls.Add(this.lblEmail);
             this.groupBox1.Controls.Add(this.lblTelefono);
-            this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(353, 384);
@@ -295,6 +270,27 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(136, 163);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(175, 20);
+            this.txtTelefono.TabIndex = 27;
+            // 
+            // txtTelefonoEmergencia
+            // 
+            this.txtTelefonoEmergencia.Location = new System.Drawing.Point(136, 193);
+            this.txtTelefonoEmergencia.Name = "txtTelefonoEmergencia";
+            this.txtTelefonoEmergencia.Size = new System.Drawing.Size(175, 20);
+            this.txtTelefonoEmergencia.TabIndex = 28;
+            // 
+            // txtFechaNacimiento
+            // 
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(137, 129);
+            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
+            this.txtFechaNacimiento.Size = new System.Drawing.Size(174, 20);
+            this.txtFechaNacimiento.TabIndex = 29;
+            // 
             // frmAlumnoAM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,12 +317,9 @@
         private System.Windows.Forms.Label lblNroDoc;
         private System.Windows.Forms.TextBox txtNroDoc;
         private System.Windows.Forms.Label lblFechaNacimiento;
-        private System.Windows.Forms.MaskedTextBox txtFechaNacimiento;
         private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.MaskedTextBox txtTelefonoEmergencia;
         private System.Windows.Forms.Label lblTelefonoEmergencia;
         private System.Windows.Forms.Label lblCalle;
         private System.Windows.Forms.MaskedTextBox txtNroCalle;
@@ -337,5 +330,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.TextBox txtTelefonoEmergencia;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtFechaNacimiento;
     }
 }

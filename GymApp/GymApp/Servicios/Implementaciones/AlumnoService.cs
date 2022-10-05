@@ -38,5 +38,10 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.RecuperarUno(documento);
         }
+
+        public int Insertar(Alumno a)
+        {
+            return dao.Insertar(a);
+        }
     }
 }

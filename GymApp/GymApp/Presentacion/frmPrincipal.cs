@@ -45,7 +45,9 @@ namespace GymApp.Presentacion
 
         private void alumnoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmAlumno frmAlumno = new frmAlumno();
+            frmAlumno.Show();
+            this.Hide();
         }
     }
 }

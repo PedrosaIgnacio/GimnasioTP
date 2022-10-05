@@ -12,7 +12,8 @@ namespace GymApp.Datos.Interfaces
         List<Alumno> RecuperarTodos();
         List<Alumno> RecuperarFiltrados(string nombre, int? dni);
         Alumno RecuperarUno(int documento);
-        public int Modificar(Alumno alumno)
+        int Modificar(Alumno alumno);
 
+        int Insertar(Alumno alumno);
     }
 }
