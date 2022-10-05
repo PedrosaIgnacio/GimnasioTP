@@ -10,7 +10,9 @@ namespace GymApp.Datos.Interfaces
     internal interface IAlumno
     {
         List<Alumno> RecuperarTodos();
-        List<Alumno> RecuperarFiltrados(string nombre, string dni);
+        List<Alumno> RecuperarFiltrados(string nombre, int? dni);
+        Alumno RecuperarUno(int documento);
+        public int Modificar(Alumno alumno)
 
     }
 }

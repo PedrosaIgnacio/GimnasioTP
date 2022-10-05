@@ -57,7 +57,16 @@ namespace GymApp.Presentacion
             }
             else
             {
-                CargarGrilla(grdAlumno, AlService.RecuperarFiltrados(txtNombre.Text, txtNroDni.Text));
+                if (txtNroDni.Text == "")
+                {
+                    CargarGrilla(grdAlumno, AlService.RecuperarFiltrados(txtNombre.Text, null));
+
+                }
+                else
+                {
+
+                CargarGrilla(grdAlumno, AlService.RecuperarFiltrados(txtNombre.Text, int.Parse(txtNroDni.Text)));
+                }
 
             }
         }
@@ -93,7 +102,8 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            frmAlumnoAM frmAl = new frmAlumnoAM(MiAccion.ToString(), (int)grdAlumno.CurrentRow.Cells[3].Value);
+            frmAl.Show();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -17,7 +17,7 @@ namespace GymApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGrupoMuscular());
+            Application.Run(new frmAlumno());
         }
     }
 }
