@@ -10,5 +10,6 @@ namespace GymApp.Servicios.Interfaces
     internal interface IAlumnoService
     {
         List<Alumno> RecuperarTodos();
+        List<Alumno> RecuperarFiltrados(string nombre, string dni);
     }
 }

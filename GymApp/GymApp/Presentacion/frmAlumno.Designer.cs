@@ -34,16 +34,16 @@
             this.txtNroDni = new System.Windows.Forms.TextBox();
             this.lblNumero = new System.Windows.Forms.Label();
             this.grdAlumno = new System.Windows.Forms.DataGridView();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNroDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNroDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdAlumno)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +93,26 @@
             this.grdAlumno.Size = new System.Drawing.Size(446, 204);
             this.grdAlumno.TabIndex = 6;
             // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            // 
+            // colApellido
+            // 
+            this.colApellido.HeaderText = "Apellido";
+            this.colApellido.Name = "colApellido";
+            // 
+            // colFechaNacimiento
+            // 
+            this.colFechaNacimiento.HeaderText = "FechaNacimiento";
+            this.colFechaNacimiento.Name = "colFechaNacimiento";
+            // 
+            // colNroDoc
+            // 
+            this.colNroDoc.HeaderText = "Nro Documento";
+            this.colNroDoc.Name = "colNroDoc";
+            // 
             // btnConsultar
             // 
             this.btnConsultar.BackColor = System.Drawing.SystemColors.Window;
@@ -130,6 +150,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(46, 47);
             this.btnEliminar.TabIndex = 36;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
@@ -142,6 +163,7 @@
             this.btnSalir.Size = new System.Drawing.Size(46, 47);
             this.btnSalir.TabIndex = 35;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
@@ -154,6 +176,7 @@
             this.btnEditar.Size = new System.Drawing.Size(46, 47);
             this.btnEditar.TabIndex = 34;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -166,26 +189,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(46, 47);
             this.btnNuevo.TabIndex = 33;
             this.btnNuevo.UseVisualStyleBackColor = false;
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            // 
-            // colApellido
-            // 
-            this.colApellido.HeaderText = "Apellido";
-            this.colApellido.Name = "colApellido";
-            // 
-            // colFechaNacimiento
-            // 
-            this.colFechaNacimiento.HeaderText = "FechaNacimiento";
-            this.colFechaNacimiento.Name = "colFechaNacimiento";
-            // 
-            // colNroDoc
-            // 
-            this.colNroDoc.HeaderText = "Nro Documento";
-            this.colNroDoc.Name = "colNroDoc";
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // frmAlumno
             // 

@@ -1,5 +1,4 @@
-﻿using GymApp.Servicios.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,17 +10,11 @@ using System.Windows.Forms;
 
 namespace GymApp.Presentacion
 {
-    public partial class frmAlumnoAM : Form
-         
+    public partial class frmBarrio : Form
     {
-        public frmAlumnoAM(string MiAccion, int? documento)
+        public frmBarrio()
         {
             InitializeComponent();
-        }
-
-        private void frmAlumnoAM_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

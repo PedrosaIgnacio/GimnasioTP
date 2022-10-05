@@ -142,6 +142,9 @@
     <EmbeddedResource Include="Presentacion\frmAlumno.resx">
       <DependentUpon>frmAlumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmAlumnoAM.resx">
+      <DependentUpon>frmAlumnoAM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEjercicios.resx">
       <DependentUpon>frmEjercicios.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,7 +1,10 @@
 ﻿using GymApp.Datos.Interfaces;
+using GymApp.Entidades;
+using GymApp.Servicios;
 using GymApp.Servicios.Implementaciones;
 using GymApp.Servicios.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +19,12 @@ namespace GymApp.Presentacion
     public partial class frmAlumno : Form
     {
         IAlumnoService AlService = new AlumnoService();
+        enum Acciones
+        {
+            Alta,
+            Modificacion
+        }
+        private Acciones MiAccion;
         public frmAlumno()
         {
             InitializeComponent();
@@ -35,7 +44,8 @@ namespace GymApp.Presentacion
         {
             txtNombre.Text = "";
             txtNroDni.Text = "";
-            //Agregar limpiar grilla
+            List<Alumno> lstAl = new List<Alumno>();
+            CargarGrilla(grdAlumno, lstAl);
             txtNombre.Focus();
         }
 
@@ -47,11 +57,48 @@ namespace GymApp.Presentacion
             }
             else
             {
-                if (true)
-                {
+                CargarGrilla(grdAlumno, AlService.RecuperarFiltrados(txtNombre.Text, txtNroDni.Text));
 
-                }
             }
+        }
+
+        private void CargarGrilla(DataGridView grdAlumno, List<Alumno> alumnos)
+        {
+            grdAlumno.Rows.Clear();
+            for (int i = 0; i < alumnos.Count; i++)
+            {
+                grdAlumno.Rows.Add(
+                    alumnos[i].Nombre,
+                    alumnos[i].Apellido,
+                    alumnos[i].FechaNacimiento,
+                    alumnos[i].NroDocumento
+                    );
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            frmPrincipal frmPrincipal = new frmPrincipal();
+            frmPrincipal.Show();
+            this.Hide();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+            MiAccion = Acciones.Alta;
+            frmAlumnoAM frmAlAM = new frmAlumnoAM(MiAccion.ToString(), null);
+            frmAlAM.Show();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
