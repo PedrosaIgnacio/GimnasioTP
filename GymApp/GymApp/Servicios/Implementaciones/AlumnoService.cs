@@ -34,7 +34,7 @@ namespace GymApp.Servicios.Implementaciones
             return dao.RecuperarTodos();
         }
 
-        public Alumno RecuperarUno(int documento)
+        public Alumno RecuperarUno(long documento)
         {
             return dao.RecuperarUno(documento);
         }

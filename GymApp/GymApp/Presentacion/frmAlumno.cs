@@ -74,12 +74,14 @@ namespace GymApp.Presentacion
         private void CargarGrilla(DataGridView grdAlumno, List<Alumno> alumnos)
         {
             grdAlumno.Rows.Clear();
+            string FechaNacimiento;
             for (int i = 0; i < alumnos.Count; i++)
             {
+                FechaNacimiento = alumnos[i].DiaNacimiento.ToString() + "/" + alumnos[i].MesNacimiento.ToString() +'/'+ alumnos[i].AnioNacimiento.ToString();
                 grdAlumno.Rows.Add(
                     alumnos[i].Nombre,
                     alumnos[i].Apellido,
-                    alumnos[i].FechaNacimiento,
+                    FechaNacimiento,
                     alumnos[i].NroDocumento
                     );
             }
@@ -102,7 +104,8 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            frmAlumnoAM frmAl = new frmAlumnoAM(MiAccion.ToString(), (int)grdAlumno.CurrentRow.Cells[3].Value);
+            MiAccion = Acciones.Modificacion;
+            frmAlumnoAM frmAl = new frmAlumnoAM(MiAccion.ToString(), (long)grdAlumno.CurrentRow.Cells[3].Value);
             frmAl.Show();
         }
 

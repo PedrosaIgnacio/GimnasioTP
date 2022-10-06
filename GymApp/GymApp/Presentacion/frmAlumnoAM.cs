@@ -20,9 +20,9 @@ namespace GymApp.Presentacion
         IAlumnoService svAlumno = new AlumnoService();
         ITipoDocumentoService svTipoDocumento = new TipoDocumentoService();
         IBarrioService svBarrio = new BarrioService();
-        private int? nroDoc;
+        private long? nroDoc;
         private string miAccion;
-        public frmAlumnoAM(string MiAccion, int? documento)
+        public frmAlumnoAM(string MiAccion, long? documento)
         {
             InitializeComponent();
             nroDoc = documento;
@@ -36,7 +36,7 @@ namespace GymApp.Presentacion
 
             if (miAccion == "Modificacion")
             {
-                CargarCampos(svAlumno.RecuperarUno((int)nroDoc));
+                CargarCampos(svAlumno.RecuperarUno((long)nroDoc));
                 txtNroDoc.Enabled = false;
                 cmbTipoDocumento.Enabled = false;
             }
@@ -66,7 +66,9 @@ namespace GymApp.Presentacion
             txtApellido.Text = alumno.Apellido;
             cmbTipoDocumento.SelectedValue = alumno.TipoDoc.IdTipoDoc;
             txtNroDoc.Text = alumno.NroDocumento.ToString();
-            txtFechaNacimiento.Text = alumno.FechaNacimiento.ToString();
+            txtDiaNacimiento.Text = alumno.DiaNacimiento.ToString();
+            txtMesNacimiento.Text = alumno.MesNacimiento.ToString();
+            txtAnioNacimiento.Text = alumno.AnioNacimiento.ToString();
             txtTelefono.Text = alumno.Telefono.ToString();
             txtTelefonoEmergencia.Text = alumno.TelefonoEmergencia.ToString();
             txtEmail.Text = alumno.Email;
@@ -82,17 +84,50 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+
             Alumno alumno = new Alumno();
-            alumno.NroDocumento = int.Parse(txtNroDoc.Text);
+            int Dia = int.Parse(txtDiaNacimiento.Text);
+            if (1 <= Dia && Dia <= 31)
+            {
+                alumno.DiaNacimiento = Dia;
+            }
+            else
+            {
+                MessageBox.Show("Error! El dia esta fuera de rango","Error", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                this.txtDiaNacimiento.Focus();
+            }
+
+            int Mes = int.Parse(txtMesNacimiento.Text);
+
+            if (1 <= Mes && Mes <= 12)
+            {
+                alumno.MesNacimiento = Mes;
+            }
+            else
+            {
+                MessageBox.Show("Error! El mes esta fuera de rango", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMesNacimiento.Focus();
+            }
+            int Anio = int.Parse(txtAnioNacimiento.Text);
+            if (1930<=Anio && Anio < DateTime.Now.Year)
+            {
+                alumno.AnioNacimiento = Anio;
+            }
+            else
+            {
+                MessageBox.Show("Error! El anio esta fuera de rango", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAnioNacimiento.Focus();
+            }
+
+            alumno.NroDocumento = long.Parse(txtNroDoc.Text);
             alumno.TipoDoc = new TipoDocumento();
             alumno.TipoDoc.IdTipoDoc = (int)cmbTipoDocumento.SelectedValue;
             alumno.TipoDoc.Nombre = cmbTipoDocumento.Text;
             alumno.Nombre = txtNombre.Text;
             alumno.Apellido = txtApellido.Text;
-            alumno.FechaNacimiento = txtFechaNacimiento.Text;
-            alumno.Telefono = int.Parse(txtTelefono.Text);
+            alumno.Telefono = long.Parse(txtTelefono.Text);
             alumno.Email = txtEmail.Text;
-            alumno.TelefonoEmergencia = int.Parse(txtTelefonoEmergencia.Text);
+            alumno.TelefonoEmergencia = long.Parse(txtTelefonoEmergencia.Text);
             alumno.Numero = int.Parse(txtNroCalle.Text);
             alumno.Calle = txtCalle.Text;
             alumno.Barrio = new Barrio();
@@ -115,12 +150,40 @@ namespace GymApp.Presentacion
                 int rowsAff = svAlumno.Insertar(alumno);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Datos Modificados");
+                    MessageBox.Show("El Alumno: " + alumno.Nombre + " fue agregado con exito!");
                 }
                 else
                 {
-                    MessageBox.Show("error");
+                    MessageBox.Show("Error");
                 }
+            }
+        }
+
+        private void frmAlumnoAM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void txtFechaNacimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMesNacimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAnioNacimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
             }
         }
     }

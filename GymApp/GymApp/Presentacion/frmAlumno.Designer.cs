@@ -82,6 +82,8 @@
             // 
             // grdAlumno
             // 
+            this.grdAlumno.AllowUserToAddRows = false;
+            this.grdAlumno.AllowUserToDeleteRows = false;
             this.grdAlumno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdAlumno.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNombre,
@@ -90,6 +92,7 @@
             this.colNroDoc});
             this.grdAlumno.Location = new System.Drawing.Point(63, 115);
             this.grdAlumno.Name = "grdAlumno";
+            this.grdAlumno.ReadOnly = true;
             this.grdAlumno.Size = new System.Drawing.Size(446, 204);
             this.grdAlumno.TabIndex = 6;
             // 
@@ -97,21 +100,25 @@
             // 
             this.colNombre.HeaderText = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
             // 
             // colApellido
             // 
             this.colApellido.HeaderText = "Apellido";
             this.colApellido.Name = "colApellido";
+            this.colApellido.ReadOnly = true;
             // 
             // colFechaNacimiento
             // 
             this.colFechaNacimiento.HeaderText = "FechaNacimiento";
             this.colFechaNacimiento.Name = "colFechaNacimiento";
+            this.colFechaNacimiento.ReadOnly = true;
             // 
             // colNroDoc
             // 
             this.colNroDoc.HeaderText = "Nro Documento";
             this.colNroDoc.Name = "colNroDoc";
+            this.colNroDoc.ReadOnly = true;
             // 
             // btnConsultar
             // 
