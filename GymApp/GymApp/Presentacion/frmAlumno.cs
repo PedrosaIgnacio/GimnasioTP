@@ -18,7 +18,7 @@ namespace GymApp.Presentacion
 {
     public partial class frmAlumno : Form
     {
-        IAlumnoService AlService = new AlumnoService();
+        IAlumnoService AlumnoService = new AlumnoService();
         enum Acciones
         {
             Alta,
@@ -42,30 +42,26 @@ namespace GymApp.Presentacion
 
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
-            txtNombre.Text = "";
-            txtNroDni.Text = "";
-            List<Alumno> lstAl = new List<Alumno>();
-            CargarGrilla(grdAlumno, lstAl);
-            txtNombre.Focus();
+            this.LimpiarFiltro();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text == "" && txtNroDni.Text == "")
             {
-                CargarGrilla(grdAlumno, AlService.RecuperarTodos() );
+                CargarGrilla(grdAlumno, AlumnoService.RecuperarTodos() );
             }
             else
             {
                 if (txtNroDni.Text == "")
                 {
-                    CargarGrilla(grdAlumno, AlService.RecuperarFiltrados(txtNombre.Text, null));
+                    CargarGrilla(grdAlumno, AlumnoService.RecuperarFiltrados(txtNombre.Text, null));
 
                 }
                 else
                 {
 
-                CargarGrilla(grdAlumno, AlService.RecuperarFiltrados(txtNombre.Text, int.Parse(txtNroDni.Text)));
+                CargarGrilla(grdAlumno, AlumnoService.RecuperarFiltrados(txtNombre.Text, int.Parse(txtNroDni.Text)));
                 }
 
             }
@@ -104,14 +100,43 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            
             MiAccion = Acciones.Modificacion;
-            frmAlumnoAM frmAl = new frmAlumnoAM(MiAccion.ToString(), (long)grdAlumno.CurrentRow.Cells[3].Value);
-            frmAl.Show();
+           if (grdAlumno.CurrentRow != null)
+           {
+                frmAlumnoAM frmAlumnoAM = new frmAlumnoAM(MiAccion.ToString(), (long)grdAlumno.CurrentRow.Cells[3].Value);
+                this.LimpiarFiltro();
+                frmAlumnoAM.Show();
+            }
+            else
+            {
+               MessageBox.Show("Debe elegir un alumno primero!");
+            }
+
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            int rowsAff = AlumnoService.BajaLogica((long)grdAlumno.CurrentRow.Cells[3].Value);
+            if (rowsAff > 0)
+            {
+                MessageBox.Show("Alumno dado de baja correctamente");
+            }
+            else
+            {
+                MessageBox.Show("error");
+            }
+        }
 
+        // Funcion para limpiar los filtros
+        private void LimpiarFiltro()
+        {
+            txtNombre.Text = "";
+            txtNroDni.Text = "";
+            List<Alumno> lstAl = new List<Alumno>();
+            CargarGrilla(grdAlumno, lstAl);
+            txtNombre.Focus();
         }
     }
 }

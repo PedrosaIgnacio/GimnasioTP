@@ -33,7 +33,7 @@ namespace GymApp.Presentacion
         {
             CargarComboTipoDoc(cmbTipoDocumento, svTipoDocumento.RecuperarTodos());
             CargarComboBarrio(cmbBarrio, svBarrio.RecuperarTodos());
-
+            this.Text = miAccion;
             if (miAccion == "Modificacion")
             {
                 CargarCampos(svAlumno.RecuperarUno((long)nroDoc));
@@ -157,6 +157,8 @@ namespace GymApp.Presentacion
                     MessageBox.Show("Error");
                 }
             }
+            
+            this.Close();
         }
 
         private void frmAlumnoAM_KeyPress(object sender, KeyPressEventArgs e)

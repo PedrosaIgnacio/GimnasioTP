@@ -101,9 +101,17 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            MiAccion = Acciones.Modificacion;
-            frmEjerciciosAM frmEjAM = new frmEjerciciosAM(MiAccion.ToString(), (int)grdEjercicio.CurrentRow.Cells[0].Value);
-            frmEjAM.Show();
+            if (grdEjercicio.CurrentRow != null) 
+            {
+                MiAccion = Acciones.Modificacion;
+                frmEjerciciosAM frmEjAM = new frmEjerciciosAM(MiAccion.ToString(), (int)grdEjercicio.CurrentRow.Cells[0].Value);
+                frmEjAM.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error, debe elegir un ejercicio primero.");
+            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

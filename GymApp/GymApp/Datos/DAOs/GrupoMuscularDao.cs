@@ -34,7 +34,7 @@ namespace GymApp.Datos.DAOs
 
         public List<GrupoMuscular> RecuperarFiltrados(string Nombre)
         {
-            string consulta = "SELECT gm.IdGM, gm.Nombre, gm.Descripcion, gm.IdEstado FROM GrupoMuscular gm WHERE gm.Nombre LIKE '%"+Nombre+"%', IdEstado = 1";
+            string consulta = "SELECT gm.IdGM, gm.Nombre, gm.Descripcion, gm.IdEstado FROM GrupoMuscular gm WHERE gm.Nombre LIKE '%"+Nombre+"%' AND IdEstado = 1";
             return MapeoAListaDeGrupoMuscular(DBHelper.obtenerInstancia().consultar(consulta));
         }
 

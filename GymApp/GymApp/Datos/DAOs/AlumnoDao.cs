@@ -13,7 +13,7 @@ namespace GymApp.Datos.DAOs
     {
         public List<Alumno> RecuperarTodos()
         {
-            string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento, a.MesNacimiento, a.AnioNacimiento, a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad";
+            string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento, a.MesNacimiento, a.AnioNacimiento, a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.IdEstado = 1";
             return MapeoAListaDeAlumno(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
@@ -52,10 +52,24 @@ namespace GymApp.Datos.DAOs
 
         public List<Alumno> RecuperarFiltrados(string nombre, int? dni)
         {
-            string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.FechaNacimiento, a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.Nombre  LIKE '%" + nombre + "%'";
-            if(dni != null)
+            string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento, a.MesNacimiento, a.AnioNacimiento , a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.IdEstado = 1";
+
+            if (nombre != null && dni != null)
             {
-                consulta = consulta + " AND a.NumDoc LIKE'%" + dni + "%'";
+                consulta = consulta + "AND a.Nombre  LIKE '%" + nombre + "%' AND a.NumDoc =" + dni;
+            }
+
+            else
+            {
+                if (nombre != null)
+                {
+                    consulta = consulta + "AND a.Nombre  LIKE '%" + nombre + "%'";
+                }
+
+                if (dni != null)
+                {
+                    consulta = consulta + "AND a.NumDoc=" + dni;
+                }
             }
             return MapeoAListaDeAlumno(DBHelper.obtenerInstancia().consultar(consulta));
         }
@@ -102,6 +116,12 @@ namespace GymApp.Datos.DAOs
         public int Insertar(Alumno a)
         {
             string consulta = "INSERT INTO Alumno (NumDoc, TipoDoc, Nombre,Apellido,DiaNacimiento, MesNacimiento, AnioNacimiento,Telefono,Email,TelefonoEmergencia,Numero,Calle,IdBarrio,IdEstado) VALUES (" + a.NroDocumento + "," + a.TipoDoc.IdTipoDoc + ",'" + a.Nombre + "','" + a.Apellido + "'," + a.DiaNacimiento + "," + a.MesNacimiento + "," + a.AnioNacimiento + "," + a.Telefono + ",'" + a.Email + "'," + a.TelefonoEmergencia + "," + a.Numero + ",'" + a.Calle + "'," + a.Barrio.IdBarrio + ", 1)";
+            return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
+
+        public int BajaLogica(long alumno)
+        {
+            string consulta = "UPDATE Alumno SET IdEstado = 0 WHERE NumDoc =" + alumno;
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
     }

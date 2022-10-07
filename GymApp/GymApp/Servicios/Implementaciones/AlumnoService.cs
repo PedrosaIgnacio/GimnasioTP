@@ -43,5 +43,10 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.Insertar(a);
         }
+
+        public int BajaLogica(long a)
+        {
+            return dao.BajaLogica(a);
+        }
     }
 }

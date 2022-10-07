@@ -93,6 +93,7 @@
             this.grdAlumno.Location = new System.Drawing.Point(63, 115);
             this.grdAlumno.Name = "grdAlumno";
             this.grdAlumno.ReadOnly = true;
+            this.grdAlumno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdAlumno.Size = new System.Drawing.Size(446, 204);
             this.grdAlumno.TabIndex = 6;
             // 
@@ -215,7 +216,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Name = "frmAlumno";
-            this.Text = "frmAlumno";
+            this.Text = "Administrador Alumno";
             this.Load += new System.EventHandler(this.frmAlumno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdAlumno)).EndInit();
             this.ResumeLayout(false);
