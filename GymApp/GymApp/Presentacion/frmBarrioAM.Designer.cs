@@ -28,137 +28,120 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grbAltaBarrio = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgregarGrupoMuscular = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.lblNombreEjercicios = new System.Windows.Forms.Label();
-            this.lblIdEjercicio = new System.Windows.Forms.Label();
-            this.txtNombreBarrio = new System.Windows.Forms.TextBox();
-            this.txtIdBarrio = new System.Windows.Forms.TextBox();
-            this.lblLocalidad = new System.Windows.Forms.Label();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
-            this.grbAltaBarrio.SuspendLayout();
+            this.txtNombreBarrio = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grbAltaBarrio
+            // groupBox1
             // 
-            this.grbAltaBarrio.Controls.Add(this.cmbLocalidad);
-            this.grbAltaBarrio.Controls.Add(this.btnCancelar);
-            this.grbAltaBarrio.Controls.Add(this.btnAceptar);
-            this.grbAltaBarrio.Controls.Add(this.lblNombreEjercicios);
-            this.grbAltaBarrio.Controls.Add(this.lblIdEjercicio);
-            this.grbAltaBarrio.Controls.Add(this.txtNombreBarrio);
-            this.grbAltaBarrio.Controls.Add(this.txtIdBarrio);
-            this.grbAltaBarrio.Controls.Add(this.lblLocalidad);
-            this.grbAltaBarrio.Location = new System.Drawing.Point(11, 31);
-            this.grbAltaBarrio.Margin = new System.Windows.Forms.Padding(2);
-            this.grbAltaBarrio.Name = "grbAltaBarrio";
-            this.grbAltaBarrio.Padding = new System.Windows.Forms.Padding(2);
-            this.grbAltaBarrio.Size = new System.Drawing.Size(407, 326);
-            this.grbAltaBarrio.TabIndex = 13;
-            this.grbAltaBarrio.TabStop = false;
-            this.grbAltaBarrio.Text = "Barrio";
+            this.groupBox1.Controls.Add(this.btnCancelar);
+            this.groupBox1.Controls.Add(this.btnAgregarGrupoMuscular);
+            this.groupBox1.Controls.Add(this.btnAceptar);
+            this.groupBox1.Controls.Add(this.cmbLocalidad);
+            this.groupBox1.Controls.Add(this.txtNombreBarrio);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 26);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(240, 168);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Barrio";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(235, 226);
+            this.btnCancelar.Location = new System.Drawing.Point(126, 127);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(85, 28);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Size = new System.Drawing.Size(85, 26);
+            this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // btnAgregarGrupoMuscular
+            // 
+            this.btnAgregarGrupoMuscular.Image = global::GymApp.Properties.Resources.nuevo1;
+            this.btnAgregarGrupoMuscular.Location = new System.Drawing.Point(197, 77);
+            this.btnAgregarGrupoMuscular.Name = "btnAgregarGrupoMuscular";
+            this.btnAgregarGrupoMuscular.Size = new System.Drawing.Size(37, 35);
+            this.btnAgregarGrupoMuscular.TabIndex = 14;
+            this.btnAgregarGrupoMuscular.UseVisualStyleBackColor = true;
+            // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(110, 226);
+            this.btnAceptar.Location = new System.Drawing.Point(29, 127);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(80, 28);
-            this.btnAceptar.TabIndex = 11;
+            this.btnAceptar.Size = new System.Drawing.Size(80, 26);
+            this.btnAceptar.TabIndex = 13;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // lblNombreEjercicios
-            // 
-            this.lblNombreEjercicios.AutoSize = true;
-            this.lblNombreEjercicios.Location = new System.Drawing.Point(16, 76);
-            this.lblNombreEjercicios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNombreEjercicios.Name = "lblNombreEjercicios";
-            this.lblNombreEjercicios.Size = new System.Drawing.Size(47, 13);
-            this.lblNombreEjercicios.TabIndex = 2;
-            this.lblNombreEjercicios.Text = "Nombre:";
-            // 
-            // lblIdEjercicio
-            // 
-            this.lblIdEjercicio.AutoSize = true;
-            this.lblIdEjercicio.Location = new System.Drawing.Point(16, 37);
-            this.lblIdEjercicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIdEjercicio.Name = "lblIdEjercicio";
-            this.lblIdEjercicio.Size = new System.Drawing.Size(28, 13);
-            this.lblIdEjercicio.TabIndex = 10;
-            this.lblIdEjercicio.Text = "# ID";
-            // 
-            // txtNombreBarrio
-            // 
-            this.txtNombreBarrio.Location = new System.Drawing.Point(129, 73);
-            this.txtNombreBarrio.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombreBarrio.Name = "txtNombreBarrio";
-            this.txtNombreBarrio.Size = new System.Drawing.Size(211, 20);
-            this.txtNombreBarrio.TabIndex = 1;
-            // 
-            // txtIdBarrio
-            // 
-            this.txtIdBarrio.Location = new System.Drawing.Point(129, 37);
-            this.txtIdBarrio.Margin = new System.Windows.Forms.Padding(2);
-            this.txtIdBarrio.Name = "txtIdBarrio";
-            this.txtIdBarrio.Size = new System.Drawing.Size(211, 20);
-            this.txtIdBarrio.TabIndex = 0;
-            // 
-            // lblLocalidad
-            // 
-            this.lblLocalidad.AutoSize = true;
-            this.lblLocalidad.Location = new System.Drawing.Point(16, 107);
-            this.lblLocalidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLocalidad.Name = "lblLocalidad";
-            this.lblLocalidad.Size = new System.Drawing.Size(56, 13);
-            this.lblLocalidad.TabIndex = 3;
-            this.lblLocalidad.Text = "Localidad:";
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // cmbLocalidad
             // 
             this.cmbLocalidad.FormattingEnabled = true;
-            this.cmbLocalidad.Location = new System.Drawing.Point(129, 107);
-            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbLocalidad.Location = new System.Drawing.Point(70, 81);
             this.cmbLocalidad.Name = "cmbLocalidad";
-            this.cmbLocalidad.Size = new System.Drawing.Size(211, 21);
-            this.cmbLocalidad.TabIndex = 13;
+            this.cmbLocalidad.Size = new System.Drawing.Size(121, 21);
+            this.cmbLocalidad.TabIndex = 7;
             // 
-            // BarrioAM
+            // txtNombreBarrio
+            // 
+            this.txtNombreBarrio.Location = new System.Drawing.Point(70, 41);
+            this.txtNombreBarrio.Name = "txtNombreBarrio";
+            this.txtNombreBarrio.Size = new System.Drawing.Size(121, 20);
+            this.txtNombreBarrio.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Localidad:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Nombre:";
+            // 
+            // frmBarrioAM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 370);
-            this.Controls.Add(this.grbAltaBarrio);
-            this.Name = "BarrioAM";
-            this.Text = "BarrioAM";
-            this.Load += new System.EventHandler(this.BarrioAM_Load);
-            this.grbAltaBarrio.ResumeLayout(false);
-            this.grbAltaBarrio.PerformLayout();
+            this.ClientSize = new System.Drawing.Size(275, 229);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "frmBarrioAM";
+            this.Text = "Alta Barrio";
+            this.Load += new System.EventHandler(this.frmBarrioAM_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grbAltaBarrio;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cmbLocalidad;
+        private System.Windows.Forms.TextBox txtNombreBarrio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAgregarGrupoMuscular;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Label lblNombreEjercicios;
-        private System.Windows.Forms.Label lblIdEjercicio;
-        private System.Windows.Forms.TextBox txtNombreBarrio;
-        private System.Windows.Forms.TextBox txtIdBarrio;
-        private System.Windows.Forms.Label lblLocalidad;
-        private System.Windows.Forms.ComboBox cmbLocalidad;
     }
 }

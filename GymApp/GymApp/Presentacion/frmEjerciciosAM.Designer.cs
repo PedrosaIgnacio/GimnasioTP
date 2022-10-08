@@ -64,6 +64,7 @@
             this.grbAltaEjercicios.TabIndex = 12;
             this.grbAltaEjercicios.TabStop = false;
             this.grbAltaEjercicios.Text = "Ejercicio";
+            this.grbAltaEjercicios.Enter += new System.EventHandler(this.grbAltaEjercicios_Enter);
             // 
             // btnAgregarGrupoMuscular
             // 

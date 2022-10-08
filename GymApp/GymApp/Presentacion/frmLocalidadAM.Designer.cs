@@ -28,111 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grbAltaBarrio = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.lblNombreEjercicios = new System.Windows.Forms.Label();
-            this.lblIdEjercicio = new System.Windows.Forms.Label();
-            this.txtNombreBarrio = new System.Windows.Forms.TextBox();
-            this.txtIdBarrio = new System.Windows.Forms.TextBox();
-            this.grbAltaBarrio.SuspendLayout();
+            this.txtNombreLocalidad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grbAltaBarrio
+            // groupBox1
             // 
-            this.grbAltaBarrio.Controls.Add(this.btnCancelar);
-            this.grbAltaBarrio.Controls.Add(this.btnAceptar);
-            this.grbAltaBarrio.Controls.Add(this.lblNombreEjercicios);
-            this.grbAltaBarrio.Controls.Add(this.lblIdEjercicio);
-            this.grbAltaBarrio.Controls.Add(this.txtNombreBarrio);
-            this.grbAltaBarrio.Controls.Add(this.txtIdBarrio);
-            this.grbAltaBarrio.Location = new System.Drawing.Point(11, 23);
-            this.grbAltaBarrio.Margin = new System.Windows.Forms.Padding(2);
-            this.grbAltaBarrio.Name = "grbAltaBarrio";
-            this.grbAltaBarrio.Padding = new System.Windows.Forms.Padding(2);
-            this.grbAltaBarrio.Size = new System.Drawing.Size(367, 198);
-            this.grbAltaBarrio.TabIndex = 14;
-            this.grbAltaBarrio.TabStop = false;
-            this.grbAltaBarrio.Text = "Localidad";
+            this.groupBox1.Controls.Add(this.btnCancelar);
+            this.groupBox1.Controls.Add(this.btnAceptar);
+            this.groupBox1.Controls.Add(this.txtNombreLocalidad);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(22, 32);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(240, 141);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Localidad";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(255, 136);
+            this.btnCancelar.Location = new System.Drawing.Point(131, 91);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(85, 28);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Size = new System.Drawing.Size(85, 26);
+            this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(130, 136);
+            this.btnAceptar.Location = new System.Drawing.Point(29, 91);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(80, 28);
-            this.btnAceptar.TabIndex = 11;
+            this.btnAceptar.Size = new System.Drawing.Size(80, 26);
+            this.btnAceptar.TabIndex = 13;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             // 
-            // lblNombreEjercicios
+            // txtNombreLocalidad
             // 
-            this.lblNombreEjercicios.AutoSize = true;
-            this.lblNombreEjercicios.Location = new System.Drawing.Point(16, 76);
-            this.lblNombreEjercicios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNombreEjercicios.Name = "lblNombreEjercicios";
-            this.lblNombreEjercicios.Size = new System.Drawing.Size(47, 13);
-            this.lblNombreEjercicios.TabIndex = 2;
-            this.lblNombreEjercicios.Text = "Nombre:";
+            this.txtNombreLocalidad.Location = new System.Drawing.Point(69, 41);
+            this.txtNombreLocalidad.Name = "txtNombreLocalidad";
+            this.txtNombreLocalidad.Size = new System.Drawing.Size(121, 20);
+            this.txtNombreLocalidad.TabIndex = 6;
             // 
-            // lblIdEjercicio
+            // label1
             // 
-            this.lblIdEjercicio.AutoSize = true;
-            this.lblIdEjercicio.Location = new System.Drawing.Point(16, 37);
-            this.lblIdEjercicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIdEjercicio.Name = "lblIdEjercicio";
-            this.lblIdEjercicio.Size = new System.Drawing.Size(28, 13);
-            this.lblIdEjercicio.TabIndex = 10;
-            this.lblIdEjercicio.Text = "# ID";
-            // 
-            // txtNombreBarrio
-            // 
-            this.txtNombreBarrio.Location = new System.Drawing.Point(129, 73);
-            this.txtNombreBarrio.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombreBarrio.Name = "txtNombreBarrio";
-            this.txtNombreBarrio.Size = new System.Drawing.Size(211, 20);
-            this.txtNombreBarrio.TabIndex = 1;
-            // 
-            // txtIdBarrio
-            // 
-            this.txtIdBarrio.Location = new System.Drawing.Point(129, 37);
-            this.txtIdBarrio.Margin = new System.Windows.Forms.Padding(2);
-            this.txtIdBarrio.Name = "txtIdBarrio";
-            this.txtIdBarrio.Size = new System.Drawing.Size(211, 20);
-            this.txtIdBarrio.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Nombre:";
             // 
             // frmLocalidadAM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 245);
-            this.Controls.Add(this.grbAltaBarrio);
+            this.ClientSize = new System.Drawing.Size(284, 229);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmLocalidadAM";
-            this.Text = "LocalidadAM";
-            this.grbAltaBarrio.ResumeLayout(false);
-            this.grbAltaBarrio.PerformLayout();
+            this.Text = "frmLocalidadAM";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grbAltaBarrio;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Label lblNombreEjercicios;
-        private System.Windows.Forms.Label lblIdEjercicio;
-        private System.Windows.Forms.TextBox txtNombreBarrio;
-        private System.Windows.Forms.TextBox txtIdBarrio;
+        private System.Windows.Forms.TextBox txtNombreLocalidad;
+        private System.Windows.Forms.Label label1;
     }
 }

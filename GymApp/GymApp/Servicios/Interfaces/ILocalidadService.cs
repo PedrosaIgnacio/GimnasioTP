@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace GymApp.Servicios.Interfaces
 {
-    interface IBarrioService
+    interface ILocalidadService
     {
-        List<Barrio> RecuperarTodos();
-        List<Barrio> RecuperarFiltrados(string Nombre, int? IdLoc);
-
-        List<Barrio> EliminarBarrio();
-
+        List<Localidad> RecuperarTodos();
     }
 }

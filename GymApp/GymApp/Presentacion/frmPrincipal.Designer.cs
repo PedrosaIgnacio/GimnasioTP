@@ -36,6 +36,8 @@
             this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barrioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.localidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +72,8 @@
             // 
             // alumnoToolStripMenuItem
             // 
+            this.alumnoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.barrioToolStripMenuItem});
             this.alumnoToolStripMenuItem.Name = "alumnoToolStripMenuItem";
             this.alumnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alumnoToolStripMenuItem.Text = "Alumno";
@@ -94,15 +98,31 @@
             // planesToolStripMenuItem1
             // 
             this.planesToolStripMenuItem1.Name = "planesToolStripMenuItem1";
-            this.planesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.planesToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.planesToolStripMenuItem1.Text = "Planes";
             // 
             // ejerciciosToolStripMenuItem
             // 
             this.ejerciciosToolStripMenuItem.Name = "ejerciciosToolStripMenuItem";
-            this.ejerciciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ejerciciosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.ejerciciosToolStripMenuItem.Text = "Ejercicios";
             this.ejerciciosToolStripMenuItem.Click += new System.EventHandler(this.ejerciciosToolStripMenuItem_Click);
+            // 
+            // barrioToolStripMenuItem
+            // 
+            this.barrioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.localidadToolStripMenuItem});
+            this.barrioToolStripMenuItem.Name = "barrioToolStripMenuItem";
+            this.barrioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.barrioToolStripMenuItem.Text = "Barrio";
+            this.barrioToolStripMenuItem.Click += new System.EventHandler(this.barrioToolStripMenuItem_Click);
+            // 
+            // localidadToolStripMenuItem
+            // 
+            this.localidadToolStripMenuItem.Name = "localidadToolStripMenuItem";
+            this.localidadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.localidadToolStripMenuItem.Text = "Localidad";
+            this.localidadToolStripMenuItem.Click += new System.EventHandler(this.localidadToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -130,5 +150,7 @@
         private System.Windows.Forms.ToolStripMenuItem grupoMuscularToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ejerciciosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem barrioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem localidadToolStripMenuItem;
     }
 }

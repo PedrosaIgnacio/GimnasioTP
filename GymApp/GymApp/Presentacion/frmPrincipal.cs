@@ -49,5 +49,19 @@ namespace GymApp.Presentacion
             frmAlumno.Show();
             this.Hide();
         }
+
+        private void barrioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBarrio frmBarrio =  new frmBarrio();
+            frmBarrio.Show();
+            this.Hide();
+        }
+
+        private void localidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalidad frmLocalidad = new frmLocalidad();
+            frmLocalidad.Show();
+            this.Hide();
+        }
     }
 }

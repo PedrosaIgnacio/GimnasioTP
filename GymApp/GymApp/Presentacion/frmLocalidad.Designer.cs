@@ -29,30 +29,53 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLocalidad));
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.grdEjercicio = new System.Windows.Forms.DataGridView();
-            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.grdBarrio = new System.Windows.Forms.DataGridView();
             this.lblNombreEjercicio = new System.Windows.Forms.Label();
-            this.txtLocalidad = new System.Windows.Forms.TextBox();
-            this.ColIdLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombreLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.grdEjercicio)).BeginInit();
+            this.txtNombreLocalidad = new System.Windows.Forms.TextBox();
+            this.ColLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBarrio)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.BackColor = System.Drawing.SystemColors.Window;
+            this.btnConsultar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConsultar.BackgroundImage")));
+            this.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnConsultar.Location = new System.Drawing.Point(246, 36);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(46, 47);
+            this.btnConsultar.TabIndex = 49;
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLimpiarFiltros.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.BackgroundImage")));
+            this.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(307, 36);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(46, 47);
+            this.btnLimpiarFiltros.TabIndex = 50;
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Location = new System.Drawing.Point(171, 334);
+            this.btnEliminar.Location = new System.Drawing.Point(179, 331);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(46, 47);
-            this.btnEliminar.TabIndex = 43;
+            this.btnEliminar.TabIndex = 48;
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnSalir
@@ -60,11 +83,11 @@
             this.btnSalir.BackColor = System.Drawing.SystemColors.Window;
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSalir.Location = new System.Drawing.Point(445, 334);
+            this.btnSalir.Location = new System.Drawing.Point(307, 331);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(46, 47);
-            this.btnSalir.TabIndex = 42;
+            this.btnSalir.TabIndex = 47;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // btnEditar
@@ -72,11 +95,11 @@
             this.btnEditar.BackColor = System.Drawing.SystemColors.Window;
             this.btnEditar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.BackgroundImage")));
             this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEditar.Location = new System.Drawing.Point(94, 334);
+            this.btnEditar.Location = new System.Drawing.Point(102, 331);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(46, 47);
-            this.btnEditar.TabIndex = 41;
+            this.btnEditar.TabIndex = 46;
             this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnNuevo
@@ -84,110 +107,77 @@
             this.btnNuevo.BackColor = System.Drawing.SystemColors.Window;
             this.btnNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNuevo.BackgroundImage")));
             this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnNuevo.Location = new System.Drawing.Point(17, 334);
+            this.btnNuevo.Location = new System.Drawing.Point(25, 331);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(46, 47);
-            this.btnNuevo.TabIndex = 40;
+            this.btnNuevo.TabIndex = 45;
             this.btnNuevo.UseVisualStyleBackColor = false;
             // 
-            // btnConsultar
+            // grdBarrio
             // 
-            this.btnConsultar.BackColor = System.Drawing.SystemColors.Window;
-            this.btnConsultar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConsultar.BackgroundImage")));
-            this.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnConsultar.Location = new System.Drawing.Point(389, 13);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(46, 47);
-            this.btnConsultar.TabIndex = 38;
-            this.btnConsultar.UseVisualStyleBackColor = false;
-            // 
-            // grdEjercicio
-            // 
-            this.grdEjercicio.AllowUserToAddRows = false;
-            this.grdEjercicio.AllowUserToDeleteRows = false;
-            this.grdEjercicio.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.grdEjercicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdEjercicio.ColumnHeadersHeight = 30;
-            this.grdEjercicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColIdLocalidad,
-            this.ColNombreLocalidad});
-            this.grdEjercicio.GridColor = System.Drawing.SystemColors.Control;
-            this.grdEjercicio.Location = new System.Drawing.Point(20, 100);
-            this.grdEjercicio.Margin = new System.Windows.Forms.Padding(2);
-            this.grdEjercicio.Name = "grdEjercicio";
-            this.grdEjercicio.ReadOnly = true;
-            this.grdEjercicio.RowHeadersWidth = 51;
-            this.grdEjercicio.RowTemplate.Height = 24;
-            this.grdEjercicio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grdEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdEjercicio.Size = new System.Drawing.Size(353, 192);
-            this.grdEjercicio.TabIndex = 33;
-            // 
-            // btnLimpiarFiltros
-            // 
-            this.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Window;
-            this.btnLimpiarFiltros.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.BackgroundImage")));
-            this.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(450, 13);
-            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(46, 47);
-            this.btnLimpiarFiltros.TabIndex = 39;
-            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.grdBarrio.AllowUserToAddRows = false;
+            this.grdBarrio.AllowUserToDeleteRows = false;
+            this.grdBarrio.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.grdBarrio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdBarrio.ColumnHeadersHeight = 30;
+            this.grdBarrio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColLocalidad});
+            this.grdBarrio.GridColor = System.Drawing.SystemColors.Control;
+            this.grdBarrio.Location = new System.Drawing.Point(28, 97);
+            this.grdBarrio.Margin = new System.Windows.Forms.Padding(2);
+            this.grdBarrio.Name = "grdBarrio";
+            this.grdBarrio.ReadOnly = true;
+            this.grdBarrio.RowHeadersWidth = 51;
+            this.grdBarrio.RowTemplate.Height = 24;
+            this.grdBarrio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdBarrio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdBarrio.Size = new System.Drawing.Size(262, 192);
+            this.grdBarrio.TabIndex = 44;
             // 
             // lblNombreEjercicio
             // 
             this.lblNombreEjercicio.AutoSize = true;
-            this.lblNombreEjercicio.Location = new System.Drawing.Point(18, 24);
+            this.lblNombreEjercicio.Location = new System.Drawing.Point(25, 38);
             this.lblNombreEjercicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreEjercicio.Name = "lblNombreEjercicio";
-            this.lblNombreEjercicio.Size = new System.Drawing.Size(96, 13);
-            this.lblNombreEjercicio.TabIndex = 34;
-            this.lblNombreEjercicio.Text = "Nombre Localidad:";
+            this.lblNombreEjercicio.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreEjercicio.TabIndex = 40;
+            this.lblNombreEjercicio.Text = "Nombre:";
             // 
-            // txtLocalidad
+            // txtNombreLocalidad
             // 
-            this.txtLocalidad.Location = new System.Drawing.Point(20, 40);
-            this.txtLocalidad.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLocalidad.Name = "txtLocalidad";
-            this.txtLocalidad.Size = new System.Drawing.Size(159, 20);
-            this.txtLocalidad.TabIndex = 35;
+            this.txtNombreLocalidad.Location = new System.Drawing.Point(27, 54);
+            this.txtNombreLocalidad.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombreLocalidad.Name = "txtNombreLocalidad";
+            this.txtNombreLocalidad.Size = new System.Drawing.Size(159, 20);
+            this.txtNombreLocalidad.TabIndex = 41;
             // 
-            // ColIdLocalidad
+            // ColLocalidad
             // 
-            this.ColIdLocalidad.HeaderText = "# ID";
-            this.ColIdLocalidad.MinimumWidth = 6;
-            this.ColIdLocalidad.Name = "ColIdLocalidad";
-            this.ColIdLocalidad.ReadOnly = true;
-            this.ColIdLocalidad.Width = 125;
-            // 
-            // ColNombreLocalidad
-            // 
-            this.ColNombreLocalidad.HeaderText = "Nombre Localidad";
-            this.ColNombreLocalidad.MinimumWidth = 6;
-            this.ColNombreLocalidad.Name = "ColNombreLocalidad";
-            this.ColNombreLocalidad.ReadOnly = true;
-            this.ColNombreLocalidad.Width = 175;
+            this.ColLocalidad.HeaderText = "Nombre Localidad";
+            this.ColLocalidad.MinimumWidth = 6;
+            this.ColLocalidad.Name = "ColLocalidad";
+            this.ColLocalidad.ReadOnly = true;
+            this.ColLocalidad.Width = 300;
             // 
             // frmLocalidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 399);
+            this.ClientSize = new System.Drawing.Size(380, 401);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.grdEjercicio);
-            this.Controls.Add(this.btnLimpiarFiltros);
+            this.Controls.Add(this.grdBarrio);
             this.Controls.Add(this.lblNombreEjercicio);
-            this.Controls.Add(this.txtLocalidad);
+            this.Controls.Add(this.txtNombreLocalidad);
             this.Name = "frmLocalidad";
             this.Text = "frmLocalidad";
-            ((System.ComponentModel.ISupportInitialize)(this.grdEjercicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBarrio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,16 +185,15 @@
 
         #endregion
 
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.DataGridView grdEjercicio;
-        private System.Windows.Forms.Button btnLimpiarFiltros;
+        private System.Windows.Forms.DataGridView grdBarrio;
         private System.Windows.Forms.Label lblNombreEjercicio;
-        private System.Windows.Forms.TextBox txtLocalidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColIdLocalidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreLocalidad;
+        private System.Windows.Forms.TextBox txtNombreLocalidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColLocalidad;
     }
 }

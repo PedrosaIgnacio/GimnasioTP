@@ -110,5 +110,10 @@ namespace GymApp.Presentacion
             frmGrupoMuscularAM frmGrupoMuscularAM = new frmGrupoMuscularAM("Alta",null);
             frmGrupoMuscularAM.Show();
         }
+
+        private void grbAltaEjercicios_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
