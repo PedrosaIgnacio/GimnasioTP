@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymApp.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,25 @@ namespace GymApp.Presentacion
 {
     public partial class frmLocalidadAM : Form
     {
-        public frmLocalidadAM()
+        private string Accion;
+        public frmLocalidadAM(string MiAccion)
         {
             InitializeComponent();
+            Accion = MiAccion;
+            this.Text = MiAccion;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (Accion == "Alta")
+            {
+                Localidad loc = new Localidad();
+                loc.Nombre = txtNombreLocalidad.Text.ToString();
+            }
+            else
+            {
+
+            }
         }
     }
 }

@@ -125,7 +125,7 @@
     <value>..\Resources\ilustracion-concepto-inicio-sesion_114360-739.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StringConexion" xml:space="preserve">
-    <value>Data Source=DESKTOP-PRD39SM\SQLEXPRESS;Initial Catalog=GimnasioTP;Integrated Security=True</value>
+    <value>Data Source=DESKTOP-L2D8I3V\SQLEXPRESS;Initial Catalog=GimnasioTP;Integrated Security=True</value>
   </data>
   <data name="gym-durango" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gym-durango.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

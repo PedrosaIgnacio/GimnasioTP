@@ -10,5 +10,6 @@ namespace GymApp.Datos.Interfaces
     internal interface ILocalidad
     {
         List<Localidad> RecuperarTodos();
+        List<Localidad> RecuperarFiltrados();
     }
 }

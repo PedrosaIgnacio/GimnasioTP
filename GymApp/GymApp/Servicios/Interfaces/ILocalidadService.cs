@@ -10,5 +10,6 @@ namespace GymApp.Servicios.Interfaces
     interface ILocalidadService
     {
         List<Localidad> RecuperarTodos();
+        List<Localidad> RecuperarFiltrados();
     }
 }

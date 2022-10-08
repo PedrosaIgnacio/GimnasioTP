@@ -21,5 +21,9 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.RecuperarTodos();
         }
+        public List<Localidad> RecuperarFiltrados()
+        {
+            return dao.RecuperarFiltrados();
+        }
     }
 }

@@ -157,7 +157,7 @@
             this.grdBarrio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdBarrio.Size = new System.Drawing.Size(478, 192);
             this.grdBarrio.TabIndex = 33;
-            // 
+            
             // ColIdUsuario
             // 
             this.ColIdUsuario.HeaderText = "# ID";

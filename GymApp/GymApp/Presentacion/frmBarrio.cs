@@ -126,5 +126,7 @@ namespace GymApp.Presentacion
                 CargarGrilla(grdBarrio, lstBr);
             }
         }
+
+       
     }
 }
