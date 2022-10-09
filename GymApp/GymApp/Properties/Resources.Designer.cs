@@ -102,6 +102,7 @@ namespace GymApp.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a Data Source=DESKTOP-AJIOCC9\SQLEXPRESS;Initial Catalog=GimnasioTP2;Integrated Security=True.
+
         /// </summary>
         internal static string StringConexion {
             get {

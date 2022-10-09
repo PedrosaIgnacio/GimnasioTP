@@ -22,5 +22,15 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.RecuperarTodos();
         }
+
+        public List<Barrio> RecuperarFiltrados(string Nombre, int? IdLoc )
+        {
+            return dao.RecuperarFiltrados(Nombre,IdLoc);
+        }
+
+        public List<Barrio> EliminarBarrio()
+        {
+            return dao.EliminarBarrio();
+        }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Datos\DAOs\EjercicioDao.cs" />
     <Compile Include="Datos\DAOs\EstadoDao.cs" />
     <Compile Include="Datos\DAOs\GrupoMuscularDao.cs" />
+    <Compile Include="Datos\DAOs\LocalidadDao.cs" />
     <Compile Include="Datos\DAOs\TipoDocumentoDao.cs" />
     <Compile Include="Datos\DAOs\TipoUsuarioDao.cs" />
     <Compile Include="Datos\DAOs\UsuarioDao.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Datos\Interfaces\IEjercicio.cs" />
     <Compile Include="Datos\Interfaces\IEstado.cs" />
     <Compile Include="Datos\Interfaces\IGrupoMuscular.cs" />
+    <Compile Include="Datos\Interfaces\ILocalidad.cs" />
     <Compile Include="Datos\Interfaces\ITipoDocumento.cs" />
     <Compile Include="Datos\Interfaces\ITipoUsuario.cs" />
     <Compile Include="Datos\Interfaces\IUsuario.cs" />
@@ -89,6 +91,18 @@
     </Compile>
     <Compile Include="Presentacion\frmEjercicioPlan.Designer.cs">
       <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
+
+    <Compile Include="Presentacion\frmBarrio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmBarrio.Designer.cs">
+      <DependentUpon>frmBarrio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmBarrioAM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmBarrioAM.Designer.cs">
+      <DependentUpon>frmBarrioAM.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\frmEjercicios.cs">
       <SubType>Form</SubType>
@@ -125,6 +139,17 @@
     </Compile>
     <Compile Include="Presentacion\frmPlanes.Designer.cs">
       <DependentUpon>frmPlanes.cs</DependentUpon>
+    <Compile Include="Presentacion\frmLocalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmLocalidad.Designer.cs">
+      <DependentUpon>frmLocalidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmLocalidadAM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmLocalidadAM.Designer.cs">
+      <DependentUpon>frmLocalidadAM.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -157,6 +182,7 @@
     <Compile Include="Servicios\Implementaciones\EjercicioService.cs" />
     <Compile Include="Servicios\Implementaciones\EstadoService.cs" />
     <Compile Include="Servicios\Implementaciones\GrupoMuscularService.cs" />
+    <Compile Include="Servicios\Implementaciones\LocalidadService.cs" />
     <Compile Include="Servicios\Implementaciones\TipoDocumentoService.cs" />
     <Compile Include="Servicios\Implementaciones\TipoUsuarioService.cs" />
     <Compile Include="Servicios\Implementaciones\UsuarioService.cs" />
@@ -165,6 +191,7 @@
     <Compile Include="Servicios\Interfaces\IEjercicioService.cs" />
     <Compile Include="Servicios\Interfaces\IEstadoService.cs" />
     <Compile Include="Servicios\Interfaces\IGrupoMuscularService.cs" />
+    <Compile Include="Servicios\Interfaces\ILocalidadService.cs" />
     <Compile Include="Servicios\Interfaces\ITipoDocumentoService.cs" />
     <Compile Include="Servicios\Interfaces\ITipoUsuarioService.cs" />
     <Compile Include="Servicios\Interfaces\IUsuarioService.cs" />
@@ -176,6 +203,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEjercicioPlan.resx">
       <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\frmBarrio.resx">
+      <DependentUpon>frmBarrio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmBarrioAM.resx">
+      <DependentUpon>frmBarrioAM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEjercicios.resx">
       <DependentUpon>frmEjercicios.cs</DependentUpon>
@@ -194,6 +226,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmPlanes.resx">
       <DependentUpon>frmPlanes.cs</DependentUpon>
+    <EmbeddedResource Include="Presentacion\frmLocalidad.resx">
+      <DependentUpon>frmLocalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmLocalidadAM.resx">
+      <DependentUpon>frmLocalidadAM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

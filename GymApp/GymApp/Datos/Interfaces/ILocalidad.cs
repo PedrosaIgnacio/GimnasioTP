@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace GymApp.Datos.Interfaces
 {
-    interface IBarrio
+    internal interface ILocalidad
     {
-        List<Barrio> RecuperarTodos();
-
-        List<Barrio> RecuperarFiltrados(string nombre, int? IdLoc);
-
+        List<Localidad> RecuperarTodos();
+        List<Localidad> RecuperarFiltrados();
     }
 }

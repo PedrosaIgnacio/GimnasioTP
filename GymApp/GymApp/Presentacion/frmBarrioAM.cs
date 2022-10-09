@@ -1,7 +1,4 @@
 ﻿using GymApp.Entidades;
-using GymApp.Servicios;
-using GymApp.Servicios.Implementaciones;
-using GymApp.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,27 +13,39 @@ namespace GymApp.Presentacion
 {
     public partial class frmBarrioAM : Form
     {
-        IBarrioService BRservice = new BarrioService();
-       // ILocalidadService LocService = new LocalidadService();
-        public frmBarrioAM()
+        private string Accion;
+        
+        public frmBarrioAM(string MiAccion)
         {
             InitializeComponent();
-            txtIdBarrio.Enabled = false;
-           
-           // CargarCombo(cmbLocalidad, LocService.RecuperarTodos);
+            Accion = MiAccion;
+            this.Text = MiAccion;
         }
 
-        private void BarrioAM_Load(object sender, EventArgs e)
+        private void frmBarrioAM_Load(object sender, EventArgs e)
         {
 
         }
-        private void CargarCombo(ComboBox combo, List<Localidad> lista)
+
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-            combo.DataSource = lista;
-            combo.DisplayMember = "Nombre";
-            combo.ValueMember = "IdLocalidad";
-            combo.SelectedIndex = -1;
-            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+            if (Accion == "Alta")
+            {
+                Barrio br = new Barrio();
+                br.Nombre = txtNombreBarrio.Text.ToString();
+                br.Localidad = new Localidad();
+                br.Localidad.IdLocalidad = (int)cmbLocalidad.SelectedValue;
+                //ACA FALTA
+
+            }
+            else
+            {
+                Barrio br = new Barrio();
+                br.Nombre = txtNombreBarrio.Text.ToString();
+                br.Localidad = new Localidad();
+                br.Localidad.IdLocalidad = (int)cmbLocalidad.SelectedValue;
+                //ACA FALTA
+            }
         }
     }
 }

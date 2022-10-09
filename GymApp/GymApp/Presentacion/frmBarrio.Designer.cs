@@ -29,193 +29,205 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBarrio));
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
-            this.grdEjercicio = new System.Windows.Forms.DataGridView();
-            this.ColIdBarrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombreBarrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNombreEjercicio = new System.Windows.Forms.Label();
+            this.txtNombreBarrio = new System.Windows.Forms.TextBox();
+            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
+            this.lblGrupoMuscular = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblLocalidad = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.grdEjercicio)).BeginInit();
+            this.grdBarrio = new System.Windows.Forms.DataGridView();
+            this.ColIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreBarrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBarrio)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNombre
+            // lblNombreEjercicio
             // 
-            this.txtNombre.Location = new System.Drawing.Point(65, 30);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 3;
+            this.lblNombreEjercicio.AutoSize = true;
+            this.lblNombreEjercicio.Location = new System.Drawing.Point(22, 31);
+            this.lblNombreEjercicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNombreEjercicio.Name = "lblNombreEjercicio";
+            this.lblNombreEjercicio.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreEjercicio.TabIndex = 27;
+            this.lblNombreEjercicio.Text = "Nombre:";
             // 
-            // lblNombre
+            // txtNombreBarrio
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(9, 33);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(50, 13);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre: ";
+            this.txtNombreBarrio.Location = new System.Drawing.Point(24, 47);
+            this.txtNombreBarrio.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombreBarrio.Name = "txtNombreBarrio";
+            this.txtNombreBarrio.Size = new System.Drawing.Size(159, 20);
+            this.txtNombreBarrio.TabIndex = 28;
             // 
-            // btnConsultar
+            // cmbLocalidad
             // 
-            this.btnConsultar.BackColor = System.Drawing.SystemColors.Window;
-            this.btnConsultar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConsultar.BackgroundImage")));
-            this.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnConsultar.Location = new System.Drawing.Point(381, 11);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(46, 47);
-            this.btnConsultar.TabIndex = 31;
-            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.cmbLocalidad.FormattingEnabled = true;
+            this.cmbLocalidad.Location = new System.Drawing.Point(234, 46);
+            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbLocalidad.Name = "cmbLocalidad";
+            this.cmbLocalidad.Size = new System.Drawing.Size(159, 21);
+            this.cmbLocalidad.TabIndex = 30;
             // 
-            // btnLimpiarFiltros
+            // lblGrupoMuscular
             // 
-            this.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Window;
-            this.btnLimpiarFiltros.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.BackgroundImage")));
-            this.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(431, 11);
-            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(46, 47);
-            this.btnLimpiarFiltros.TabIndex = 32;
-            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
-            // 
-            // grdEjercicio
-            // 
-            this.grdEjercicio.AllowUserToAddRows = false;
-            this.grdEjercicio.AllowUserToDeleteRows = false;
-            this.grdEjercicio.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.grdEjercicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdEjercicio.ColumnHeadersHeight = 30;
-            this.grdEjercicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColIdBarrio,
-            this.ColNombreBarrio,
-            this.colLocalidad});
-            this.grdEjercicio.GridColor = System.Drawing.SystemColors.Control;
-            this.grdEjercicio.Location = new System.Drawing.Point(12, 90);
-            this.grdEjercicio.Margin = new System.Windows.Forms.Padding(2);
-            this.grdEjercicio.Name = "grdEjercicio";
-            this.grdEjercicio.ReadOnly = true;
-            this.grdEjercicio.RowHeadersWidth = 51;
-            this.grdEjercicio.RowTemplate.Height = 24;
-            this.grdEjercicio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grdEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdEjercicio.Size = new System.Drawing.Size(444, 192);
-            this.grdEjercicio.TabIndex = 33;
-            // 
-            // ColIdBarrio
-            // 
-            this.ColIdBarrio.HeaderText = "# ID";
-            this.ColIdBarrio.MinimumWidth = 6;
-            this.ColIdBarrio.Name = "ColIdBarrio";
-            this.ColIdBarrio.ReadOnly = true;
-            this.ColIdBarrio.Width = 125;
-            // 
-            // ColNombreBarrio
-            // 
-            this.ColNombreBarrio.HeaderText = "Nombre Barrio";
-            this.ColNombreBarrio.MinimumWidth = 6;
-            this.ColNombreBarrio.Name = "ColNombreBarrio";
-            this.ColNombreBarrio.ReadOnly = true;
-            this.ColNombreBarrio.Width = 175;
-            // 
-            // colLocalidad
-            // 
-            this.colLocalidad.HeaderText = "Localidad";
-            this.colLocalidad.MinimumWidth = 6;
-            this.colLocalidad.Name = "colLocalidad";
-            this.colLocalidad.ReadOnly = true;
-            this.colLocalidad.Width = 125;
+            this.lblGrupoMuscular.AutoSize = true;
+            this.lblGrupoMuscular.Location = new System.Drawing.Point(232, 29);
+            this.lblGrupoMuscular.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGrupoMuscular.Name = "lblGrupoMuscular";
+            this.lblGrupoMuscular.Size = new System.Drawing.Size(56, 13);
+            this.lblGrupoMuscular.TabIndex = 29;
+            this.lblGrupoMuscular.Text = "Localidad:";
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Location = new System.Drawing.Point(171, 355);
+            this.btnEliminar.Location = new System.Drawing.Point(176, 324);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(46, 47);
             this.btnEliminar.TabIndex = 37;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.SystemColors.Window;
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSalir.Location = new System.Drawing.Point(410, 355);
+            this.btnSalir.Location = new System.Drawing.Point(524, 324);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(46, 47);
             this.btnSalir.TabIndex = 36;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.SystemColors.Window;
             this.btnEditar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.BackgroundImage")));
             this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEditar.Location = new System.Drawing.Point(94, 355);
+            this.btnEditar.Location = new System.Drawing.Point(99, 324);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(46, 47);
             this.btnEditar.TabIndex = 35;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.SystemColors.Window;
             this.btnNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNuevo.BackgroundImage")));
             this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnNuevo.Location = new System.Drawing.Point(17, 355);
+            this.btnNuevo.Location = new System.Drawing.Point(22, 324);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(46, 47);
             this.btnNuevo.TabIndex = 34;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // textBox1
+            // grdBarrio
             // 
-            this.textBox1.Location = new System.Drawing.Point(230, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 39;
+            this.grdBarrio.AllowUserToAddRows = false;
+            this.grdBarrio.AllowUserToDeleteRows = false;
+            this.grdBarrio.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.grdBarrio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdBarrio.ColumnHeadersHeight = 30;
+            this.grdBarrio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColIdUsuario,
+            this.colNombreBarrio,
+            this.ColLocalidad});
+            this.grdBarrio.GridColor = System.Drawing.SystemColors.Control;
+            this.grdBarrio.Location = new System.Drawing.Point(25, 90);
+            this.grdBarrio.Margin = new System.Windows.Forms.Padding(2);
+            this.grdBarrio.Name = "grdBarrio";
+            this.grdBarrio.ReadOnly = true;
+            this.grdBarrio.RowHeadersWidth = 51;
+            this.grdBarrio.RowTemplate.Height = 24;
+            this.grdBarrio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdBarrio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdBarrio.Size = new System.Drawing.Size(478, 192);
+            this.grdBarrio.TabIndex = 33;
+            
+            // ColIdUsuario
             // 
-            // lblLocalidad
+            this.ColIdUsuario.HeaderText = "# ID";
+            this.ColIdUsuario.MinimumWidth = 6;
+            this.ColIdUsuario.Name = "ColIdUsuario";
+            this.ColIdUsuario.ReadOnly = true;
+            this.ColIdUsuario.Width = 125;
             // 
-            this.lblLocalidad.AutoSize = true;
-            this.lblLocalidad.Location = new System.Drawing.Point(174, 33);
-            this.lblLocalidad.Name = "lblLocalidad";
-            this.lblLocalidad.Size = new System.Drawing.Size(59, 13);
-            this.lblLocalidad.TabIndex = 38;
-            this.lblLocalidad.Text = "Localidad: ";
+            // colNombreBarrio
+            // 
+            this.colNombreBarrio.HeaderText = "Nombre de Barrio";
+            this.colNombreBarrio.MinimumWidth = 6;
+            this.colNombreBarrio.Name = "colNombreBarrio";
+            this.colNombreBarrio.ReadOnly = true;
+            this.colNombreBarrio.Width = 175;
+            // 
+            // ColLocalidad
+            // 
+            this.ColLocalidad.HeaderText = "Localidad";
+            this.ColLocalidad.MinimumWidth = 6;
+            this.ColLocalidad.Name = "ColLocalidad";
+            this.ColLocalidad.ReadOnly = true;
+            this.ColLocalidad.Width = 125;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.BackColor = System.Drawing.SystemColors.Window;
+            this.btnConsultar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConsultar.BackgroundImage")));
+            this.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnConsultar.Location = new System.Drawing.Point(463, 29);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(46, 47);
+            this.btnConsultar.TabIndex = 38;
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLimpiarFiltros.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiarFiltros.BackgroundImage")));
+            this.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(524, 29);
+            this.btnLimpiarFiltros.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(46, 47);
+            this.btnLimpiarFiltros.TabIndex = 39;
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
             // frmBarrio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 412);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblLocalidad);
+            this.ClientSize = new System.Drawing.Size(590, 386);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.grdEjercicio);
-            this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.grdBarrio);
+            this.Controls.Add(this.lblNombreEjercicio);
+            this.Controls.Add(this.txtNombreBarrio);
+            this.Controls.Add(this.cmbLocalidad);
+            this.Controls.Add(this.lblGrupoMuscular);
             this.Name = "frmBarrio";
-            this.Text = "frmBarrio";
-            ((System.ComponentModel.ISupportInitialize)(this.grdEjercicio)).EndInit();
+            this.Text = "Barrio";
+            this.Load += new System.EventHandler(this.frmBarrio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdBarrio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,19 +235,19 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Button btnLimpiarFiltros;
-        private System.Windows.Forms.DataGridView grdEjercicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColIdBarrio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreBarrio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLocalidad;
+        private System.Windows.Forms.Label lblNombreEjercicio;
+        private System.Windows.Forms.TextBox txtNombreBarrio;
+        private System.Windows.Forms.ComboBox cmbLocalidad;
+        private System.Windows.Forms.Label lblGrupoMuscular;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblLocalidad;
+        private System.Windows.Forms.DataGridView grdBarrio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColIdUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreBarrio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColLocalidad;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }
