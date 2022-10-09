@@ -46,7 +46,7 @@
             this.planesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,28 +57,28 @@
             this.alumnoToolStripMenuItem,
             this.grupoMuscularToolStripMenuItem});
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
-            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(67, 21);
+            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.soporteToolStripMenuItem.Text = "Soporte";
             this.soporteToolStripMenuItem.Click += new System.EventHandler(this.soporteToolStripMenuItem_Click);
             // 
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // alumnoToolStripMenuItem
             // 
             this.alumnoToolStripMenuItem.Name = "alumnoToolStripMenuItem";
-            this.alumnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alumnoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.alumnoToolStripMenuItem.Text = "Alumno";
             this.alumnoToolStripMenuItem.Click += new System.EventHandler(this.alumnoToolStripMenuItem_Click);
             // 
             // grupoMuscularToolStripMenuItem
             // 
             this.grupoMuscularToolStripMenuItem.Name = "grupoMuscularToolStripMenuItem";
-            this.grupoMuscularToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grupoMuscularToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.grupoMuscularToolStripMenuItem.Text = "Grupo Muscular";
             this.grupoMuscularToolStripMenuItem.Click += new System.EventHandler(this.grupoMuscularToolStripMenuItem_Click);
             // 
@@ -88,7 +88,7 @@
             this.planesToolStripMenuItem1,
             this.ejerciciosToolStripMenuItem});
             this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(57, 21);
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.planesToolStripMenuItem.Text = "Planes";
             // 
             // planesToolStripMenuItem1
@@ -96,6 +96,7 @@
             this.planesToolStripMenuItem1.Name = "planesToolStripMenuItem1";
             this.planesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.planesToolStripMenuItem1.Text = "Planes";
+            this.planesToolStripMenuItem1.Click += new System.EventHandler(this.planesToolStripMenuItem1_Click);
             // 
             // ejerciciosToolStripMenuItem
             // 

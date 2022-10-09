@@ -84,6 +84,8 @@
             // 
             this.grdAlumno.AllowUserToAddRows = false;
             this.grdAlumno.AllowUserToDeleteRows = false;
+            this.grdAlumno.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.grdAlumno.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdAlumno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdAlumno.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNombre,

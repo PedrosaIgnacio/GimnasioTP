@@ -49,5 +49,12 @@ namespace GymApp.Presentacion
             frmAlumno.Show();
             this.Hide();
         }
+
+        private void planesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmPlanes frmPlanes = new frmPlanes();
+            frmPlanes.Show();
+            this.Hide();
+        }
     }
 }

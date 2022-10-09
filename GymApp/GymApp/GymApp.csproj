@@ -84,6 +84,12 @@
     <Compile Include="Presentacion\frmAlumnoAM.Designer.cs">
       <DependentUpon>frmAlumnoAM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\frmEjercicioPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmEjercicioPlan.Designer.cs">
+      <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\frmEjercicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,18 @@
     </Compile>
     <Compile Include="Presentacion\frmGrupoMuscularAM.Designer.cs">
       <DependentUpon>frmGrupoMuscularAM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmPlanAM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmPlanAM.Designer.cs">
+      <DependentUpon>frmPlanAM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmPlanes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmPlanes.Designer.cs">
+      <DependentUpon>frmPlanes.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -156,6 +174,9 @@
     <EmbeddedResource Include="Presentacion\frmAlumnoAM.resx">
       <DependentUpon>frmAlumnoAM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmEjercicioPlan.resx">
+      <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEjercicios.resx">
       <DependentUpon>frmEjercicios.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +188,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmGrupoMuscularAM.resx">
       <DependentUpon>frmGrupoMuscularAM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmPlanAM.resx">
+      <DependentUpon>frmPlanAM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmPlanes.resx">
+      <DependentUpon>frmPlanes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
