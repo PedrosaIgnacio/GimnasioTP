@@ -50,6 +50,11 @@ namespace GymApp.Presentacion
             this.Hide();
         }
 
+        private void planesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmPlanes frmPlanes = new frmPlanes();
+            frmPlanes.Show();
+        }
         private void barrioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBarrio frmBarrio =  new frmBarrio();

@@ -86,12 +86,13 @@
     <Compile Include="Presentacion\frmAlumnoAM.Designer.cs">
       <DependentUpon>frmAlumnoAM.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Presentacion\frmEjercicioPlan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\frmEjercicioPlan.Designer.cs">
       <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
-
+=======
     <Compile Include="Presentacion\frmBarrio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +104,7 @@
     </Compile>
     <Compile Include="Presentacion\frmBarrioAM.Designer.cs">
       <DependentUpon>frmBarrioAM.cs</DependentUpon>
+>>>>>>> f785587e8f0045e19deffa6a0f3106aae72a70e0
     </Compile>
     <Compile Include="Presentacion\frmEjercicios.cs">
       <SubType>Form</SubType>
@@ -128,6 +130,7 @@
     <Compile Include="Presentacion\frmGrupoMuscularAM.Designer.cs">
       <DependentUpon>frmGrupoMuscularAM.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Presentacion\frmPlanAM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +142,7 @@
     </Compile>
     <Compile Include="Presentacion\frmPlanes.Designer.cs">
       <DependentUpon>frmPlanes.cs</DependentUpon>
+=======
     <Compile Include="Presentacion\frmLocalidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +154,7 @@
     </Compile>
     <Compile Include="Presentacion\frmLocalidadAM.Designer.cs">
       <DependentUpon>frmLocalidadAM.cs</DependentUpon>
+>>>>>>> f785587e8f0045e19deffa6a0f3106aae72a70e0
     </Compile>
     <Compile Include="Presentacion\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -201,13 +206,16 @@
     <EmbeddedResource Include="Presentacion\frmAlumnoAM.resx">
       <DependentUpon>frmAlumnoAM.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Presentacion\frmEjercicioPlan.resx">
       <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
+=======
     <EmbeddedResource Include="Presentacion\frmBarrio.resx">
       <DependentUpon>frmBarrio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmBarrioAM.resx">
       <DependentUpon>frmBarrioAM.cs</DependentUpon>
+>>>>>>> f785587e8f0045e19deffa6a0f3106aae72a70e0
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEjercicios.resx">
       <DependentUpon>frmEjercicios.cs</DependentUpon>
@@ -221,16 +229,19 @@
     <EmbeddedResource Include="Presentacion\frmGrupoMuscularAM.resx">
       <DependentUpon>frmGrupoMuscularAM.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Presentacion\frmPlanAM.resx">
       <DependentUpon>frmPlanAM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmPlanes.resx">
       <DependentUpon>frmPlanes.cs</DependentUpon>
+=======
     <EmbeddedResource Include="Presentacion\frmLocalidad.resx">
       <DependentUpon>frmLocalidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmLocalidadAM.resx">
       <DependentUpon>frmLocalidadAM.cs</DependentUpon>
+>>>>>>> f785587e8f0045e19deffa6a0f3106aae72a70e0
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
