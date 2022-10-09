@@ -30,7 +30,8 @@ namespace GymApp.Servicios.Implementaciones
 
         public List<Barrio> EliminarBarrio()
         {
-            return dao.EliminarBarrio();
+            //return dao.EliminarBarrio();
+            throw new NotImplementedException();
         }
     }
 }
