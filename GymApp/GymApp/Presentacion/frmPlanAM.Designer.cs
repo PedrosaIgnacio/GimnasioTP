@@ -140,6 +140,7 @@
             this.cbxAlumnos.Name = "cbxAlumnos";
             this.cbxAlumnos.Size = new System.Drawing.Size(208, 21);
             this.cbxAlumnos.TabIndex = 0;
+            this.cbxAlumnos.SelectionChangeCommitted += new System.EventHandler(this.cbxAlumnos_SelectionChangeCommitted);
             // 
             // txtDescripcion
             // 
@@ -276,6 +277,7 @@
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAddEjercicio
             // 
@@ -303,6 +305,7 @@
             this.Controls.Add(this.gbxPlan);
             this.Name = "frmPlanAM";
             this.Text = "frmPlanAM";
+            this.Load += new System.EventHandler(this.frmPlanAM_Load);
             this.gbxPlan.ResumeLayout(false);
             this.gbxPlan.PerformLayout();
             this.gbxAlumno.ResumeLayout(false);

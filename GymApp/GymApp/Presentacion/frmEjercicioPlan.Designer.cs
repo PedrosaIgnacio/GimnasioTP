@@ -32,6 +32,9 @@
             this.txtGrupoMuscular = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.gbxEjercicio = new System.Windows.Forms.GroupBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblGrupoMuscular = new System.Windows.Forms.Label();
+            this.lblEjercicio = new System.Windows.Forms.Label();
             this.gbxDetalleEjercicio = new System.Windows.Forms.GroupBox();
             this.lblRepeticiones = new System.Windows.Forms.Label();
             this.lblSerie = new System.Windows.Forms.Label();
@@ -39,9 +42,6 @@
             this.txtSerie = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.lblEjercicio = new System.Windows.Forms.Label();
-            this.lblGrupoMuscular = new System.Windows.Forms.Label();
-            this.lblDescripcion = new System.Windows.Forms.Label();
             this.gbxEjercicio.SuspendLayout();
             this.gbxDetalleEjercicio.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,7 @@
             this.cmbEjercicio.Name = "cmbEjercicio";
             this.cmbEjercicio.Size = new System.Drawing.Size(255, 21);
             this.cmbEjercicio.TabIndex = 0;
+            this.cmbEjercicio.SelectionChangeCommitted += new System.EventHandler(this.cmbEjercicio_SelectionChangeCommitted);
             // 
             // txtGrupoMuscular
             // 
@@ -83,6 +84,33 @@
             this.gbxEjercicio.TabIndex = 3;
             this.gbxEjercicio.TabStop = false;
             this.gbxEjercicio.Text = "Ejercicio";
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(22, 120);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
+            this.lblDescripcion.TabIndex = 5;
+            this.lblDescripcion.Text = "Descripción:";
+            // 
+            // lblGrupoMuscular
+            // 
+            this.lblGrupoMuscular.AutoSize = true;
+            this.lblGrupoMuscular.Location = new System.Drawing.Point(22, 78);
+            this.lblGrupoMuscular.Name = "lblGrupoMuscular";
+            this.lblGrupoMuscular.Size = new System.Drawing.Size(85, 13);
+            this.lblGrupoMuscular.TabIndex = 4;
+            this.lblGrupoMuscular.Text = "Grupo Muscular:";
+            // 
+            // lblEjercicio
+            // 
+            this.lblEjercicio.AutoSize = true;
+            this.lblEjercicio.Location = new System.Drawing.Point(22, 31);
+            this.lblEjercicio.Name = "lblEjercicio";
+            this.lblEjercicio.Size = new System.Drawing.Size(50, 13);
+            this.lblEjercicio.TabIndex = 3;
+            this.lblEjercicio.Text = "Ejercicio:";
             // 
             // gbxDetalleEjercicio
             // 
@@ -137,6 +165,7 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -146,33 +175,7 @@
             this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // lblEjercicio
-            // 
-            this.lblEjercicio.AutoSize = true;
-            this.lblEjercicio.Location = new System.Drawing.Point(44, 31);
-            this.lblEjercicio.Name = "lblEjercicio";
-            this.lblEjercicio.Size = new System.Drawing.Size(50, 13);
-            this.lblEjercicio.TabIndex = 3;
-            this.lblEjercicio.Text = "Ejercicio:";
-            // 
-            // lblGrupoMuscular
-            // 
-            this.lblGrupoMuscular.AutoSize = true;
-            this.lblGrupoMuscular.Location = new System.Drawing.Point(38, 78);
-            this.lblGrupoMuscular.Name = "lblGrupoMuscular";
-            this.lblGrupoMuscular.Size = new System.Drawing.Size(85, 13);
-            this.lblGrupoMuscular.TabIndex = 4;
-            this.lblGrupoMuscular.Text = "Grupo Muscular:";
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(38, 120);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
-            this.lblDescripcion.TabIndex = 5;
-            this.lblDescripcion.Text = "Descripción:";
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // frmEjercicioPlan
             // 
@@ -185,6 +188,7 @@
             this.Controls.Add(this.gbxEjercicio);
             this.Name = "frmEjercicioPlan";
             this.Text = "Agregar Ejercicio";
+            this.Load += new System.EventHandler(this.frmEjercicioPlan_Load);
             this.gbxEjercicio.ResumeLayout(false);
             this.gbxEjercicio.PerformLayout();
             this.gbxDetalleEjercicio.ResumeLayout(false);

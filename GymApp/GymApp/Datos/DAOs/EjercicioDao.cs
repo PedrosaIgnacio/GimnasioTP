@@ -18,7 +18,7 @@ namespace GymApp.Datos.DAOs
         }
         public List<Ejercicio> RecuperarFiltrados(string Ejercicio, int? IdGM)
         {
-            string consulta = "SELECT e.IdEJ, e.Nombre, e.Descripcion, gm.IdGM, gm.Nombre as 'NombreGM', gm.Descripcion as 'DescripcionGM' FROM Ejercicio e  JOIN GrupoMuscular gm ON gm.IdGM = e.IdGM ";
+            string consulta = "SELECT e.IdEJ, e.Nombre, e.Descripcion, gm.IdGM, gm.Nombre as 'NombreGM', gm.Descripcion as 'DescripcionGM' FROM Ejercicio e JOIN GrupoMuscular gm ON gm.IdGM = e.IdGM ";
             if (Ejercicio != "" && IdGM != null)
             {
                 consulta = consulta + "WHERE e.Nombre LIKE '%" + Ejercicio + "%' AND gm.IdGM =" + IdGM;
@@ -34,7 +34,7 @@ namespace GymApp.Datos.DAOs
                     consulta = consulta + "WHERE gm.IdGM =" + IdGM;
                 }
             }
-            consulta = consulta + ",e.IdEstado = 1";
+            consulta = consulta + " AND e.IdEstado = 1";
             return MapeoAListaDeEjercicio(DBHelper.obtenerInstancia().consultar(consulta));
 
         }
