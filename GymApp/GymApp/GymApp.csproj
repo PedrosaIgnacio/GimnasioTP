@@ -91,7 +91,7 @@
     </Compile>
     <Compile Include="Presentacion\frmEjercicioPlan.Designer.cs">
       <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
-
+</Compile>
     <Compile Include="Presentacion\frmBarrio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +139,7 @@
     </Compile>
     <Compile Include="Presentacion\frmPlanes.Designer.cs">
       <DependentUpon>frmPlanes.cs</DependentUpon>
+</Compile>
     <Compile Include="Presentacion\frmLocalidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +204,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmEjercicioPlan.resx">
       <DependentUpon>frmEjercicioPlan.cs</DependentUpon>
+</EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmBarrio.resx">
       <DependentUpon>frmBarrio.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +228,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmPlanes.resx">
       <DependentUpon>frmPlanes.cs</DependentUpon>
+</EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmLocalidad.resx">
       <DependentUpon>frmLocalidad.cs</DependentUpon>
     </EmbeddedResource>
