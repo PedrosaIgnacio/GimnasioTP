@@ -16,6 +16,13 @@ namespace GymApp.Presentacion
     public partial class frmPlanes : Form
     {
         ITipoDocumentoService tipoDocumentoService = new TipoDocumentoService();
+        enum Acciones
+        {
+            Alta,
+            Modificacion,
+            Consulta
+        }
+        private Acciones miAccion;
         public frmPlanes()
         {
             InitializeComponent();
@@ -43,7 +50,8 @@ namespace GymApp.Presentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmPlanAM frmPlanAM = new frmPlanAM();
+            miAccion = Acciones.Alta;
+            frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), null);
             frmPlanAM.Show();
         }
 

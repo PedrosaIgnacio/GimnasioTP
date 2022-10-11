@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymApp.Entidades
 {
-    public  class Alumno
+    public  class DetallePlan
     {
         public long NroDocumento { get; set; }
         public TipoDocumento TipoDoc { get; set; }

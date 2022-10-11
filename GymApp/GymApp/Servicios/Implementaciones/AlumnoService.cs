@@ -19,27 +19,27 @@ namespace GymApp.Servicios.Implementaciones
             dao = new AlumnoDao();
         }
 
-        public int Modificar(Alumno alumno)
+        public int Modificar(DetallePlan alumno)
         {
             return dao.Modificar(alumno);
         }
 
-        public List<Alumno> RecuperarFiltrados(string nombre, int? dni)
+        public List<DetallePlan> RecuperarFiltrados(string nombre, int? dni)
         {
             return dao.RecuperarFiltrados(nombre, dni);
         }
 
-        public List<Alumno> RecuperarTodos()
+        public List<DetallePlan> RecuperarTodos()
         {
             return dao.RecuperarTodos();
         }
 
-        public Alumno RecuperarUno(long documento)
+        public DetallePlan RecuperarUno(long documento)
         {
             return dao.RecuperarUno(documento);
         }
 
-        public int Insertar(Alumno a)
+        public int Insertar(DetallePlan a)
         {
             return dao.Insertar(a);
         }

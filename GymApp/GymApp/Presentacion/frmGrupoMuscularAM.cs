@@ -49,21 +49,28 @@ namespace GymApp.Presentacion
             GrupoMuscular gm = new GrupoMuscular();
             gm.Nombre = txtNombreGrupoMuscular.Text;
             gm.Descripcion = txtDescripcion.Text;
-            if (Accion == "Alta")
+            if (txtNombreGrupoMuscular.Text == "")
             {
-                if (GMservice.AgregarGrupoMuscular(gm) == 1)
-                    MessageBox.Show("Grupo Muscular: " + gm.Nombre + " agregado con exito");
-                else
-                    MessageBox.Show("Error, no se pudo agregar el Grupo Muscular");
+                MessageBox.Show("Debe ingresar un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                gm.IdGM = (int)IdGrupoMuscular;
-                int resultado = GMservice.ActualizarGrupoMuscular(gm);
-                if (resultado == 1)
-                    MessageBox.Show("Grupo Muscular: " + gm.Nombre + " actualizado con exito");
+                if (Accion == "Alta")
+                {
+                    if (GMservice.AgregarGrupoMuscular(gm) == 1)
+                        MessageBox.Show("Grupo Muscular: " + gm.Nombre + " agregado con exito");
+                    else
+                        MessageBox.Show("Error, no se pudo agregar el Grupo Muscular");
+                }
                 else
-                    MessageBox.Show("Error, no se pudo actualizar el Grupo Muscular");
+                {
+                    gm.IdGM = (int)IdGrupoMuscular;
+                    int resultado = GMservice.ActualizarGrupoMuscular(gm);
+                    if (resultado == 1)
+                        MessageBox.Show("Grupo Muscular: " + gm.Nombre + " actualizado con exito");
+                    else
+                        MessageBox.Show("Error, no se pudo actualizar el Grupo Muscular");
+                }
             }
         }
 

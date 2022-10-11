@@ -9,11 +9,11 @@ namespace GymApp.Datos.Interfaces
 {
     internal interface IAlumno
     {
-        List<Alumno> RecuperarTodos();
-        List<Alumno> RecuperarFiltrados(string nombre, int? dni);
-        Alumno RecuperarUno(long documento);
-        int Modificar(Alumno alumno);
-        int Insertar(Alumno alumno);
+        List<DetallePlan> RecuperarTodos();
+        List<DetallePlan> RecuperarFiltrados(string nombre, int? dni);
+        DetallePlan RecuperarUno(long documento);
+        int Modificar(DetallePlan alumno);
+        int Insertar(DetallePlan alumno);
         int BajaLogica(long alumno);
     }
 }

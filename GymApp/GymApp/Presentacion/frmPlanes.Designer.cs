@@ -48,6 +48,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxAlumno.SuspendLayout();
             this.gbxPeriodo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdEjercicio)).BeginInit();
@@ -105,7 +106,7 @@
             this.gbxPeriodo.Controls.Add(this.lblFechaDesde);
             this.gbxPeriodo.Controls.Add(this.dtpHasta);
             this.gbxPeriodo.Controls.Add(this.dtpDesde);
-            this.gbxPeriodo.Location = new System.Drawing.Point(397, 19);
+            this.gbxPeriodo.Location = new System.Drawing.Point(335, 19);
             this.gbxPeriodo.Name = "gbxPeriodo";
             this.gbxPeriodo.Size = new System.Drawing.Size(299, 71);
             this.gbxPeriodo.TabIndex = 1;
@@ -254,11 +255,21 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::GymApp.Properties.Resources.buscar1;
+            this.btnBuscar.Location = new System.Drawing.Point(661, 35);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(46, 38);
+            this.btnBuscar.TabIndex = 41;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
             // frmPlanes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 450);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEditar);
@@ -299,5 +310,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

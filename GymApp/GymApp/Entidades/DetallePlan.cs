@@ -9,8 +9,8 @@ namespace GymApp.Entidades
     public class DetallePlan
     {
         public int IdPlan { get; set; }
-        public int IdEjercicio { get; set; }
-        public string Repeticiones { get; set; }
-        public string Series { get; set; }
+        public Ejercicio Ejercicio { get; set; }
+        public int Repeticiones { get; set; }
+        public int Series { get; set; }
     }
 }
