@@ -227,6 +227,7 @@
             this.btnSalir.Size = new System.Drawing.Size(46, 47);
             this.btnSalir.TabIndex = 39;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
@@ -267,6 +268,7 @@
             this.Controls.Add(this.gbxAlumno);
             this.Name = "frmPlanes";
             this.Text = "Administrador de Planes";
+            this.Load += new System.EventHandler(this.frmPlanes_Load);
             this.gbxAlumno.ResumeLayout(false);
             this.gbxAlumno.PerformLayout();
             this.gbxPeriodo.ResumeLayout(false);
