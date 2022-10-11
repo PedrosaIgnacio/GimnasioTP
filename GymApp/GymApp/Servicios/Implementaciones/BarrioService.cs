@@ -28,9 +28,25 @@ namespace GymApp.Servicios.Implementaciones
             return dao.RecuperarFiltrados(Nombre,IdLoc);
         }
 
+
+        public int InsertarUno(Barrio b)
+        {
+            return dao.InsertarUno(b);
+        }
+
+        public int ActualizarBarrio(Barrio ej)
+        {
+            return dao.ActualizarBarrio(ej);
+        }
+
+
+
+
+
+
+        // Este esta de mas
         public List<Barrio> EliminarBarrio()
         {
-            //return dao.EliminarBarrio();
             throw new NotImplementedException();
         }
     }

@@ -25,5 +25,14 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.RecuperarFiltrados();
         }
+        public int InsertarUno(Localidad l)
+        {
+            return dao.InsertarUno(l);
+        }
+
+        public int ActualizarLocalidad(Localidad l)
+        {
+            return dao.ActualizarLocalidad(l);
+        }
     }
 }

@@ -66,9 +66,17 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            MiAccion = Acciones.Modificacion;
-            frmLocalidadAM frmLocalidadAM = new frmLocalidadAM(MiAccion.ToString());
-            frmLocalidadAM.Show();
+            if (grdLocalidad.CurrentRow != null)
+            {
+                MiAccion = Acciones.Modificacion;
+                frmLocalidadAM frmLocalidadAM = new frmLocalidadAM(MiAccion.ToString());
+                frmLocalidadAM.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error debe elegir una localidad primero.");
+            }
+       
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

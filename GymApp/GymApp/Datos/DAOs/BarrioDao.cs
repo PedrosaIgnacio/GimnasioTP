@@ -54,11 +54,17 @@ namespace GymApp.Datos.DAOs
             return MapToListBarrio(DBHelper.obtenerInstancia().consultar(consulta));
 
         }
-        public int EliminarBarrio(int idEj)
+     
+        public int InsertarUno(Barrio b)
         {
-            string consulta = "UPDATE Ejercicio SET IdEstado = 0 WHERE IdEJ = " + idEj;
+            string consulta = "INSERT INTO Barrio (IdBarrio, Nombre, IdLocalidad) VALUES ('" + b.IdBarrio + "','" + b.Nombre + "'," + b.Localidad + ")";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
+        public int ActualizarBarrio(Barrio b)
+        {
+            string consulta = "UPDATE Barrio SET Nombre = '"+ b.Nombre +"', Localidad = '" + b.Localidad.IdLocalidad + " WHERE IdBarrio = " + b.IdBarrio;
+            return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
     }
 }
