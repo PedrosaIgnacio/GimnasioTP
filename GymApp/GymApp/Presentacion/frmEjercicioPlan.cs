@@ -41,6 +41,7 @@ namespace GymApp.Presentacion
 
         }
 
+        //ADD COMENTARIO
         private void cmbEjercicio_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var ejercicio = cmbEjercicio.SelectedItem as Ejercicio;
