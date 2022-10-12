@@ -15,7 +15,9 @@ namespace GymApp.Datos.Interfaces
 
         int InsertarUno(Barrio b);
 
-        int ActualizarBarrio(Barrio b);  
+        int ActualizarBarrio(Barrio b);
+
+        Barrio RecuperarUno(int idBr);
 
     }
 }

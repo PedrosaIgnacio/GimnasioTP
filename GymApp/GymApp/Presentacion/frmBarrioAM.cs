@@ -20,20 +20,31 @@ namespace GymApp.Presentacion
         private int? idBar;
         IBarrioService Brservice = new BarrioService();
         ILocalidadService LService = new LocalidadService();
-        public frmBarrioAM(string MiAccion)
+        public frmBarrioAM(string MiAccion, int? IdBr)
         {
             InitializeComponent();
             Accion = MiAccion;
             this.Text = MiAccion;
-            //if (IdBr != null)
-            //{
-            //    idBar = IdBr;
-            //}
+            if (IdBr != null)
+            {
+                idBar = IdBr;
+            }
         }
 
         private void frmBarrioAM_Load(object sender, EventArgs e)
         {
             CargarCombo(cmbLocalidad, LService.RecuperarTodos());
+            if (Accion == "Modificacion")
+            {
+                CargarCampos(Brservice.RecuperarUno((int)idBar));
+            }
+        }
+
+        private void CargarCampos(Barrio br)
+        {
+            txtIdBarrio.Text = br.IdBarrio.ToString();
+            txtNombreBarrio.Text = br.Nombre.ToString();
+            //cmbLocalidad.SelectedValue = br.Localidad.IdLocalidad;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -48,16 +59,23 @@ namespace GymApp.Presentacion
                 if (rowsAff > 0)
                 {
                     MessageBox.Show("Barrio Creado");
+                    this.Close();
                 }
 
             }
             else
             {
                 Barrio br = new Barrio();
+                br.IdBarrio = int.Parse( txtIdBarrio.Text);
                 br.Nombre = txtNombreBarrio.Text.ToString();
                 br.Localidad = new Localidad();
                 br.Localidad.IdLocalidad = (int)cmbLocalidad.SelectedValue;
                 int rowsAff = Brservice.ActualizarBarrio(br);
+                if (rowsAff > 0)
+                {
+                    MessageBox.Show("Barrio Modificado");
+                    this.Close();
+                }
 
             }
         }

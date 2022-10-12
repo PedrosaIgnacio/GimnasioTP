@@ -39,6 +39,10 @@ namespace GymApp.Servicios.Implementaciones
             return dao.ActualizarBarrio(ej);
         }
 
+        public Barrio RecuperarUno(int idBr)
+        {
+            return dao.RecuperarUno(idBr);
+        }
 
 
 
