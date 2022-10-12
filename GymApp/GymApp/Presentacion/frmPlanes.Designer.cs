@@ -39,7 +39,7 @@
             this.lblFechaDesde = new System.Windows.Forms.Label();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-            this.grdEjercicio = new System.Windows.Forms.DataGridView();
+            this.grdPlan = new System.Windows.Forms.DataGridView();
             this.ColIdPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFechaDesde = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,9 +48,10 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxAlumno.SuspendLayout();
             this.gbxPeriodo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdEjercicio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPlan)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxAlumno
@@ -105,7 +106,7 @@
             this.gbxPeriodo.Controls.Add(this.lblFechaDesde);
             this.gbxPeriodo.Controls.Add(this.dtpHasta);
             this.gbxPeriodo.Controls.Add(this.dtpDesde);
-            this.gbxPeriodo.Location = new System.Drawing.Point(397, 19);
+            this.gbxPeriodo.Location = new System.Drawing.Point(335, 19);
             this.gbxPeriodo.Name = "gbxPeriodo";
             this.gbxPeriodo.Size = new System.Drawing.Size(299, 71);
             this.gbxPeriodo.TabIndex = 1;
@@ -150,29 +151,29 @@
             this.dtpDesde.TabIndex = 2;
             this.dtpDesde.ValueChanged += new System.EventHandler(this.dtpDesde_ValueChanged);
             // 
-            // grdEjercicio
+            // grdPlan
             // 
-            this.grdEjercicio.AllowUserToAddRows = false;
-            this.grdEjercicio.AllowUserToDeleteRows = false;
-            this.grdEjercicio.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.grdEjercicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdEjercicio.ColumnHeadersHeight = 30;
-            this.grdEjercicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdPlan.AllowUserToAddRows = false;
+            this.grdPlan.AllowUserToDeleteRows = false;
+            this.grdPlan.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.grdPlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdPlan.ColumnHeadersHeight = 30;
+            this.grdPlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColIdPlan,
             this.ColNombreAlumno,
             this.ColFechaDesde,
             this.ColFechaHasta});
-            this.grdEjercicio.GridColor = System.Drawing.SystemColors.Control;
-            this.grdEjercicio.Location = new System.Drawing.Point(70, 117);
-            this.grdEjercicio.Margin = new System.Windows.Forms.Padding(2);
-            this.grdEjercicio.Name = "grdEjercicio";
-            this.grdEjercicio.ReadOnly = true;
-            this.grdEjercicio.RowHeadersWidth = 51;
-            this.grdEjercicio.RowTemplate.Height = 24;
-            this.grdEjercicio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grdEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdEjercicio.Size = new System.Drawing.Size(580, 238);
-            this.grdEjercicio.TabIndex = 23;
+            this.grdPlan.GridColor = System.Drawing.SystemColors.Control;
+            this.grdPlan.Location = new System.Drawing.Point(70, 117);
+            this.grdPlan.Margin = new System.Windows.Forms.Padding(2);
+            this.grdPlan.Name = "grdPlan";
+            this.grdPlan.ReadOnly = true;
+            this.grdPlan.RowHeadersWidth = 51;
+            this.grdPlan.RowTemplate.Height = 24;
+            this.grdPlan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdPlan.Size = new System.Drawing.Size(580, 238);
+            this.grdPlan.TabIndex = 23;
             // 
             // ColIdPlan
             // 
@@ -240,6 +241,7 @@
             this.btnEditar.Size = new System.Drawing.Size(46, 47);
             this.btnEditar.TabIndex = 38;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -254,16 +256,27 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::GymApp.Properties.Resources.buscar1;
+            this.btnBuscar.Location = new System.Drawing.Point(661, 35);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(46, 38);
+            this.btnBuscar.TabIndex = 41;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // frmPlanes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 450);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.grdEjercicio);
+            this.Controls.Add(this.grdPlan);
             this.Controls.Add(this.gbxPeriodo);
             this.Controls.Add(this.gbxAlumno);
             this.Name = "frmPlanes";
@@ -273,7 +286,7 @@
             this.gbxAlumno.PerformLayout();
             this.gbxPeriodo.ResumeLayout(false);
             this.gbxPeriodo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdEjercicio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPlan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,7 +303,7 @@
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.DateTimePicker dtpDesde;
-        private System.Windows.Forms.DataGridView grdEjercicio;
+        private System.Windows.Forms.DataGridView grdPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreAlumno;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColFechaDesde;
@@ -299,5 +312,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

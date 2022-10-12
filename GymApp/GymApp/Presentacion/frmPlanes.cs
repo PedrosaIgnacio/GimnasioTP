@@ -16,11 +16,19 @@ namespace GymApp.Presentacion
     public partial class frmPlanes : Form
     {
         ITipoDocumentoService tipoDocumentoService = new TipoDocumentoService();
+        IPlanGymService svPlanGym = new PlanGymService();
+        enum Acciones
+        {
+            Alta,
+            Modificacion,
+            Consulta
+        }
+        private Acciones miAccion;
         public frmPlanes()
         {
             InitializeComponent();
         }
-        
+
         private void lblFechaHasta_Click(object sender, EventArgs e)
         {
 
@@ -43,7 +51,8 @@ namespace GymApp.Presentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmPlanAM frmPlanAM = new frmPlanAM();
+            miAccion = Acciones.Alta;
+            frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), null);
             frmPlanAM.Show();
         }
 
@@ -65,6 +74,52 @@ namespace GymApp.Presentacion
             frmPrincipal frmPrincipal = new frmPrincipal();
             frmPrincipal.Show();
             this.Hide();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtNroDoc.Text == "" && cmbTipoDoc.SelectedIndex == -1)
+            {
+                CargarGrilla(grdPlan, svPlanGym.recuperarTodos(dtpDesde.Value.ToString("yyyy/MM/dd"), dtpHasta.Value.ToString("yyyy/MM/dd")));
+
+            }
+
+            else
+            {
+                CargarGrilla(grdPlan, svPlanGym.recuperarFiltrados(long.Parse(txtNroDoc.Text), dtpDesde.Value.ToString("yyyy/MM/dd"), dtpHasta.Value.ToString("yyyy/MM/dd")));
+            }
+
+        }
+        public void CargarGrilla(DataGridView grilla, List<PlanGym> lista)
+        {
+            grilla.Rows.Clear();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                grilla.Rows.Add(
+                    lista[i].IdPlan,
+                    lista[i].Alumno.Nombre + " " + lista[i].Alumno.Apellido,
+                    lista[i].FechaDesde,
+                    lista[i].FechaHasta
+                    );
+            }
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (grdPlan.CurrentRow != null)
+            {
+                miAccion = Acciones.Modificacion;
+                frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), (int)grdPlan.CurrentRow.Cells[0].Value);
+                frmPlanAM.Show();
+                
+            }
+            else
+            {
+
+                MessageBox.Show("Error, debe elegir un ejercicio primero.");
+
+            }
         }
     }
 }

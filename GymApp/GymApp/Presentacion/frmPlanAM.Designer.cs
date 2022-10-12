@@ -44,7 +44,7 @@
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.gbxDetallePlan = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDetallePlan = new System.Windows.Forms.DataGridView();
             this.ColIdEjercicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreEjercicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@
             this.gbxAlumno.SuspendLayout();
             this.gbxPeriodo.SuspendLayout();
             this.gbxDetallePlan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePlan)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxPlan
@@ -193,13 +193,15 @@
             // 
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDesde.Location = new System.Drawing.Point(47, 29);
+            this.dtpDesde.MinDate = new System.DateTime(2022, 10, 11, 0, 0, 0, 0);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(128, 20);
             this.dtpDesde.TabIndex = 0;
+            this.dtpDesde.Value = new System.DateTime(2022, 10, 11, 16, 53, 29, 0);
             // 
             // gbxDetallePlan
             // 
-            this.gbxDetallePlan.Controls.Add(this.dataGridView1);
+            this.gbxDetallePlan.Controls.Add(this.dgvDetallePlan);
             this.gbxDetallePlan.Location = new System.Drawing.Point(38, 428);
             this.gbxDetallePlan.Name = "gbxDetallePlan";
             this.gbxDetallePlan.Size = new System.Drawing.Size(402, 169);
@@ -207,23 +209,23 @@
             this.gbxDetallePlan.TabStop = false;
             this.gbxDetallePlan.Text = "Detalle";
             // 
-            // dataGridView1
+            // dgvDetallePlan
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDetallePlan.AllowUserToAddRows = false;
+            this.dgvDetallePlan.AllowUserToDeleteRows = false;
+            this.dgvDetallePlan.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDetallePlan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDetallePlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetallePlan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColIdEjercicio,
             this.ColNombreEjercicio,
             this.ColSeries,
             this.ColRepeticiones});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(390, 133);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvDetallePlan.Location = new System.Drawing.Point(6, 19);
+            this.dgvDetallePlan.Name = "dgvDetallePlan";
+            this.dgvDetallePlan.ReadOnly = true;
+            this.dgvDetallePlan.Size = new System.Drawing.Size(390, 133);
+            this.dgvDetallePlan.TabIndex = 0;
             // 
             // ColIdEjercicio
             // 
@@ -268,6 +270,7 @@
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -313,7 +316,7 @@
             this.gbxPeriodo.ResumeLayout(false);
             this.gbxPeriodo.PerformLayout();
             this.gbxDetallePlan.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePlan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,7 +329,7 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.GroupBox gbxPeriodo;
         private System.Windows.Forms.GroupBox gbxDetallePlan;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDetallePlan;
         private System.Windows.Forms.TextBox txtIdPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdEjercicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreEjercicio;
