@@ -66,6 +66,25 @@ namespace GymApp.Datos.DAOs
         {
             throw new NotImplementedException();
         }
+
+
+        //public int InsertarUno(Localidad l)
+        //{
+        //    string consulta = "INSERT INTO Localidad (IdLocalidad, Nombre) VALUES ('" + l.IdLocalidad + "','" + l.Nombre + ", 1)";
+        //    return DBHelper.obtenerInstancia().actualizar(consulta);
+        //}
+
+        public int InsertarUno(Localidad l)
+        {
+            string consulta = "INSERT INTO Localidad (IdLocalidad, Nombre) VALUES ('" + l.IdLocalidad + "','" + l.Nombre + ", 1)";
+            return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
+
+        public int ActualizarLocalidad(Localidad l)
+        {
+            string consulta = "INSERT INTO Localidad";
+            return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
     }
 
 }

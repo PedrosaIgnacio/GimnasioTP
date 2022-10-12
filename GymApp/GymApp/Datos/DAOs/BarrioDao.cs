@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GymApp.Datos.DAOs
 {
@@ -54,11 +55,33 @@ namespace GymApp.Datos.DAOs
             return MapToListBarrio(DBHelper.obtenerInstancia().consultar(consulta));
 
         }
-        public int EliminarBarrio(int idEj)
+     
+        public int InsertarUno(Barrio b)
         {
-            string consulta = "UPDATE Ejercicio SET IdEstado = 0 WHERE IdEJ = " + idEj;
+            string consulta = "INSERT INTO Barrio (Nombre, IdLocalidad) VALUES ('" + b.Nombre + "'," + b.Localidad.IdLocalidad + ")";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
+        public int ActualizarBarrio(Barrio b)
+        {
+            string consulta = "UPDATE Barrio SET Nombre = '"+ b.Nombre +"', IdLocalidad = '" + b.Localidad.IdLocalidad + "' WHERE IdBarrio = " + b.IdBarrio;
+            return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
+
+        public Barrio RecuperarUno(int Idbr)
+        {
+            string consulta = "SELECT b.IdBarrio, b.Nombre, l.IdLocalidad FROM Barrio b JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad Where b.IdBarrio =" +Idbr;
+            return MapToObjetoBarrio(DBHelper.obtenerInstancia().consultar(consulta));
+        }
+
+        private Barrio MapToObjetoBarrio(DataTable tabla)
+        {
+            Barrio br = new Barrio();
+            br.IdBarrio = (int)tabla.Rows[0][0];
+            br.Nombre = tabla.Rows[0][1].ToString();
+            //br.Localidad = (int)tabla.Rows[0][2];
+            return br;
+
+        }
     }
 }

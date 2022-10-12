@@ -97,15 +97,23 @@ namespace GymApp.Presentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             MiAccion = Acciones.Alta;
-            frmBarrioAM frmBarrio = new frmBarrioAM(MiAccion.ToString());
+            frmBarrioAM frmBarrio = new frmBarrioAM(MiAccion.ToString(), null);
             frmBarrio.Show();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            MiAccion = Acciones.Modificacion;
-            frmBarrioAM frmbarrioAM = new frmBarrioAM(MiAccion.ToString());
-            frmbarrioAM.Show();
+            if (grdBarrio.CurrentRow != null)
+            {
+                MiAccion = Acciones.Modificacion;
+                frmBarrioAM frmbarrioAM = new frmBarrioAM(MiAccion.ToString(), (int)grdBarrio.CurrentRow.Cells[0].Value);
+                frmbarrioAM.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error debe elegir un Barrio primero");
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

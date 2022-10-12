@@ -14,5 +14,10 @@ namespace GymApp.Servicios.Interfaces
 
         List<Barrio> EliminarBarrio();
 
+        int InsertarUno(Barrio b);
+
+        int ActualizarBarrio(Barrio ej);
+
+        Barrio RecuperarUno(int Idbr);
     }
 }

@@ -11,5 +11,9 @@ namespace GymApp.Servicios.Interfaces
     {
         List<Localidad> RecuperarTodos();
         List<Localidad> RecuperarFiltrados();
+
+        int InsertarUno(Localidad l);
+
+        int ActualizarLocalidad(Localidad l);
     }
 }
