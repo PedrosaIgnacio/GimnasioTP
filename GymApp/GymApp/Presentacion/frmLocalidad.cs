@@ -36,6 +36,11 @@ namespace GymApp.Presentacion
                 CargarGrilla(grdLocalidad, LService.RecuperarTodos());
 
             }
+            else
+            {
+                CargarGrilla(grdLocalidad, LService.RecuperarFiltrados(txtNombreLocalidad.Text));
+            }
+
         }
 
         private void CargarGrilla(DataGridView grdLocalidad, List<Localidad> lista)
@@ -44,6 +49,7 @@ namespace GymApp.Presentacion
             for (int i = 0; i < lista.Count; i++)
             {
                 grdLocalidad.Rows.Add(
+                    lista[i].IdLocalidad,
                     lista[i].Nombre
                     );
             }
@@ -60,7 +66,7 @@ namespace GymApp.Presentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             MiAccion = Acciones.Alta;
-            frmLocalidadAM frmLocalidad = new frmLocalidadAM(MiAccion.ToString());
+            frmLocalidadAM frmLocalidad = new frmLocalidadAM(MiAccion.ToString(),null);
             frmLocalidad.Show();
         }
 
@@ -69,7 +75,8 @@ namespace GymApp.Presentacion
             if (grdLocalidad.CurrentRow != null)
             {
                 MiAccion = Acciones.Modificacion;
-                frmLocalidadAM frmLocalidadAM = new frmLocalidadAM(MiAccion.ToString());
+                frmLocalidadAM frmLocalidadAM = new frmLocalidadAM(MiAccion.ToString(),(int) grdLocalidad.CurrentRow.Cells[0].Value);
+
                 frmLocalidadAM.Show();
             }
             else
@@ -79,10 +86,7 @@ namespace GymApp.Presentacion
        
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {

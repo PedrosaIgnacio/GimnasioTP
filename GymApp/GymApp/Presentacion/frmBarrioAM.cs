@@ -17,7 +17,7 @@ namespace GymApp.Presentacion
     public partial class frmBarrioAM : Form
     {
         private string Accion;
-        private int? idBar;
+        //private int? IdBr;
         IBarrioService Brservice = new BarrioService();
         ILocalidadService LService = new LocalidadService();
         public frmBarrioAM(string MiAccion)
