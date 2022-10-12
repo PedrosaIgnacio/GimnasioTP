@@ -9,11 +9,11 @@ namespace GymApp.Servicios.Interfaces
 {
     internal interface IAlumnoService
     {
-        List<DetallePlan> RecuperarTodos();
-        List<DetallePlan> RecuperarFiltrados(string nombre, int? dni);
-        DetallePlan RecuperarUno(long documento);
-        int Modificar(DetallePlan alumno);
-        int Insertar(DetallePlan alumno);
+        List<Alumno> RecuperarTodos();
+        List<Alumno> RecuperarFiltrados(string nombre, int? dni);
+        Alumno RecuperarUno(long documento);
+        int Modificar(Alumno alumno);
+        int Insertar(Alumno alumno);
         int BajaLogica(long idAlumno);
     }
 }

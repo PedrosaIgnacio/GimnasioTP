@@ -67,7 +67,7 @@ namespace GymApp.Presentacion
             }
         }
 
-        private void CargarGrilla(DataGridView grdAlumno, List<DetallePlan> alumnos)
+        private void CargarGrilla(DataGridView grdAlumno, List<Alumno> alumnos)
         {
             grdAlumno.Rows.Clear();
             string FechaNacimiento;
@@ -134,7 +134,7 @@ namespace GymApp.Presentacion
         {
             txtNombre.Text = "";
             txtNroDni.Text = "";
-            List<DetallePlan> lstAl = new List<DetallePlan>();
+            List<Alumno> lstAl = new List<Alumno>();
             CargarGrilla(grdAlumno, lstAl);
             txtNombre.Focus();
         }

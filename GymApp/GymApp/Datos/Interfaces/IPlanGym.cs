@@ -10,5 +10,8 @@ namespace GymApp.Datos.Interfaces
     internal interface IPlanGym
     {
         PlanGym recuperarUno(int idPlan);
+        List<PlanGym> recuperarTodos(string fechaDesde, string fechaHasta);
+        List<PlanGym> recuperarFiltrados(long nroDoc, string fechaDesde, string fechaHasta);
+        int Modificar(PlanGym plan);
     }
 }

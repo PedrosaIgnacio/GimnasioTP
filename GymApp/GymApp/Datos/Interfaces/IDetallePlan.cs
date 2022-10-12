@@ -9,6 +9,6 @@ namespace GymApp.Datos.Interfaces
 {
     internal interface IDetallePlan
     {
-        List<DetallePlan> RecuperarTodos(int idPlan);
+        List<DetallePlanGimnasio> RecuperarTodos(int idPlan);
     }
 }

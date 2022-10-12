@@ -60,7 +60,7 @@ namespace GymApp.Presentacion
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        public void CargarCampos(DetallePlan alumno)
+        public void CargarCampos(Alumno alumno)
         {
             txtNombre.Text = alumno.Nombre;
             txtApellido.Text = alumno.Apellido;
@@ -85,7 +85,7 @@ namespace GymApp.Presentacion
         private void btnAceptar_Click(object sender, EventArgs e)
         {
 
-            DetallePlan alumno = new DetallePlan();
+            Alumno alumno = new Alumno();
             int Dia = int.Parse(txtDiaNacimiento.Text);
             if (1 <= Dia && Dia <= 31)
             {

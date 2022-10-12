@@ -11,19 +11,19 @@ namespace GymApp.Datos.DAOs
 {
     internal class AlumnoDao : IAlumno
     {
-        public List<DetallePlan> RecuperarTodos()
+        public List<Alumno> RecuperarTodos()
         {
             string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento, a.MesNacimiento, a.AnioNacimiento, a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.IdEstado = 1";
             return MapeoAListaDeAlumno(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
         //MÉTODOS AUXILIARES
-        public List<DetallePlan> MapeoAListaDeAlumno(DataTable tabla)
+        public List<Alumno> MapeoAListaDeAlumno(DataTable tabla)
         {
-            List<DetallePlan> listAlumno = new List<DetallePlan>();
+            List<Alumno> listAlumno = new List<Alumno>();
             foreach (DataRow row in tabla.Rows)
             {
-                DetallePlan alumno = new DetallePlan();
+                Alumno alumno = new Alumno();
                 alumno.NroDocumento = (long)row["NumDoc"];
                 alumno.TipoDoc = new TipoDocumento();
                 alumno.TipoDoc.IdTipoDoc = (int)row["IdTipoDoc"];
@@ -50,7 +50,7 @@ namespace GymApp.Datos.DAOs
             return listAlumno;
         }
 
-        public List<DetallePlan> RecuperarFiltrados(string nombre, int? dni)
+        public List<Alumno> RecuperarFiltrados(string nombre, int? dni)
         {
             string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento, a.MesNacimiento, a.AnioNacimiento , a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.IdEstado = 1";
 
@@ -74,15 +74,15 @@ namespace GymApp.Datos.DAOs
             return MapeoAListaDeAlumno(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
-        public DetallePlan RecuperarUno(long documento)
+        public Alumno RecuperarUno(long documento)
         {
             string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento, a.MesNacimiento, a.AnioNacimiento, a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.NumDoc = " + documento;
             return MapeoAlumno(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
-        private DetallePlan MapeoAlumno(DataTable tabla)
+        private Alumno MapeoAlumno(DataTable tabla)
         {
-            DetallePlan alumno = new DetallePlan();
+            Alumno alumno = new Alumno();
             alumno.Nombre = tabla.Rows[0]["Nombre"].ToString();
             alumno.Apellido = tabla.Rows[0]["Apellido"].ToString();
             alumno.NroDocumento = (long)tabla.Rows[0]["NumDoc"];
@@ -107,13 +107,13 @@ namespace GymApp.Datos.DAOs
             
         }
 
-        public int Modificar(DetallePlan a)
+        public int Modificar(Alumno a)
         {
           string consulta = "UPDATE Alumno SET Nombre = '" +a.Nombre +"', Apellido = '" + a.Apellido + "',DiaNacimiento = " + a.DiaNacimiento + ", MesNacimiento = " + a.MesNacimiento+", AnioNacimiento = "+ a.AnioNacimiento+",Telefono="+ a.Telefono+",Email='"+a.Email+"',TelefonoEmergencia="+a.TelefonoEmergencia+",Numero="+a.Numero+",Calle='"+a.Calle+"',IdBarrio="+a.Barrio.IdBarrio+ " WHERE NumDoc =" + a.NroDocumento + " AND TipoDoc =" + a.TipoDoc.IdTipoDoc;
           return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
-        public int Insertar(DetallePlan a)
+        public int Insertar(Alumno a)
         {
             string consulta = "INSERT INTO Alumno (NumDoc, TipoDoc, Nombre,Apellido,DiaNacimiento, MesNacimiento, AnioNacimiento,Telefono,Email,TelefonoEmergencia,Numero,Calle,IdBarrio,IdEstado) VALUES (" + a.NroDocumento + "," + a.TipoDoc.IdTipoDoc + ",'" + a.Nombre + "','" + a.Apellido + "'," + a.DiaNacimiento + "," + a.MesNacimiento + "," + a.AnioNacimiento + "," + a.Telefono + ",'" + a.Email + "'," + a.TelefonoEmergencia + "," + a.Numero + ",'" + a.Calle + "'," + a.Barrio.IdBarrio + ", 1)";
             return DBHelper.obtenerInstancia().actualizar(consulta);

@@ -71,7 +71,7 @@
     <Compile Include="Datos\Interfaces\IUsuario.cs" />
     <Compile Include="Entidades\Alumno.cs" />
     <Compile Include="Entidades\Barrio.cs" />
-    <Compile Include="Entidades\DetallePlan.cs" />
+    <Compile Include="Entidades\DetallePlanGimnasio.cs" />
     <Compile Include="Entidades\Ejercicio.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\GrupoMuscular.cs" />

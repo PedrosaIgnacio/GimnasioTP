@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace GymApp.Entidades
 {
-    internal class PlanGym
+    public class PlanGym
     {
         public int IdPlan { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaDesde{ get; set; }
         public DateTime FechaHasta { get; set; }
-        public DetallePlan Alumno { get; set; }
+        public Alumno Alumno { get; set; }
     }
 }

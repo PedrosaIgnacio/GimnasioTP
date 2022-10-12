@@ -20,7 +20,7 @@ namespace GymApp.Presentacion
         IDetallePlanService svDetallePlan = new DetallePlanService();
         private string miAccion;
         private int? idPlan;
-        private List<DetallePlan> listaDetallePlan;    
+        private List<DetallePlanGimnasio> listaDetallePlan;    
 
 
         public frmPlanAM(string accion, int? plan)
@@ -55,7 +55,7 @@ namespace GymApp.Presentacion
                 btnAddEjercicio.Enabled = false;
             }
         }
-        public void CargarGrilla(DataGridView grilla, List<DetallePlan> lista)
+        public void CargarGrilla(DataGridView grilla, List<DetallePlanGimnasio> lista)
         {
             grilla.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
@@ -71,9 +71,15 @@ namespace GymApp.Presentacion
 
         private void CargarCampos (PlanGym plan)
         {
-
+            txtIdPlan.Text = plan.IdPlan.ToString();
+            txtDescripcion.Text = plan.Descripcion;
+            cbxAlumnos.Text = plan.Alumno.Nombre;
+            txtNumeroDNI.Text = plan.Alumno.TipoDoc.Nombre;
+            txtTipoDocumento.Text = plan.Alumno.NroDocumento.ToString();
+            dtpDesde.Value = plan.FechaDesde;
+            dtpHasta.Value = plan.FechaHasta;
         }
-        private void CargarCombo(ComboBox combo, List<DetallePlan> lista)
+        private void CargarCombo(ComboBox combo, List<Alumno> lista)
         {
             combo.DataSource = lista;
             combo.DisplayMember = "Nombre";
@@ -90,7 +96,7 @@ namespace GymApp.Presentacion
 
         private void cbxAlumnos_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            var alumno = cbxAlumnos.SelectedItem as DetallePlan;
+            var alumno = cbxAlumnos.SelectedItem as Alumno;
             txtNumeroDNI.Text = alumno.NroDocumento.ToString();
             txtTipoDocumento.Text = alumno.TipoDoc.Nombre;
 
@@ -99,6 +105,27 @@ namespace GymApp.Presentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (miAccion == "Modificacion")
+            {
+                PlanGym nuevoPlan = new PlanGym();
+                nuevoPlan.IdPlan = (int)idPlan;
+                nuevoPlan.Descripcion = txtDescripcion.Text;
+                nuevoPlan.FechaHasta = dtpHasta.Value;
+                int rowsAff = svPlanGym.Modificar(nuevoPlan);
+                if (rowsAff > 0)
+                {
+                    MessageBox.Show("Plan Actualizado");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar el plan, porfavor intentelo nuevamente");
+                }
+            }
         }
     }
 }

@@ -15,7 +15,12 @@ namespace GymApp.Servicios.Implementaciones
     {
         IDetallePlan Dao = new DetallePlanDao();
 
-        public List<DetallePlan> RecuperarTodos(int idPlan)
+        public int Modificar(PlanGym plan)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DetallePlanGimnasio> RecuperarTodos(int idPlan)
         {
             return Dao.RecuperarTodos(idPlan);
         }

@@ -11,29 +11,32 @@ namespace GymApp.Datos.DAOs
 {
     internal class DetallePlanDao : IDetallePlan
     {
-        public List<DetallePlan> RecuperarTodos(int idPlan)
+        public List<DetallePlanGimnasio> RecuperarTodos(int idPlan)
         {
-            string consulta = "SELECT d.IdPlan, d.IdEjercicio, d.Repeticiones, d.Series FROM DetallePlan WHERE IdPlan =" + idPlan;
+            string consulta = "SELECT d.IdPlan, d.IdEjercicio, d.Repeticiones, d.Series, e.Nombre FROM DetallePlan d JOIN Ejercicio e ON d.IdEjercicio = e.IdEJ WHERE IdPlan =" + idPlan;
             return MapeoAListaDeDetallePlan(DBHelper.obtenerInstancia().consultar(consulta));
         }
-        private DetallePlan MapeoPlan(DataTable tabla)
+        private DetallePlanGimnasio MapeoPlan(DataTable tabla)
         {
-            DetallePlan DetallePlan = new DetallePlan();
+            DetallePlanGimnasio DetallePlan = new DetallePlanGimnasio();
             DetallePlan.IdPlan = (int)tabla.Rows[0]["IdPlan"];
             DetallePlan.Ejercicio.IdEJ = (int)tabla.Rows[0]["IdEjercicio"];
+            DetallePlan.Ejercicio.Nombre = tabla.Rows[0]["Nombre"].ToString();
             DetallePlan.Repeticiones = (int)tabla.Rows[0]["Repeticiones"];
             DetallePlan.Series = (int)tabla.Rows[0]["Series"];
             return DetallePlan;
         }
 
-        public List<DetallePlan> MapeoAListaDeDetallePlan(DataTable tabla)
+        public List<DetallePlanGimnasio> MapeoAListaDeDetallePlan(DataTable tabla)
         {
-            List<DetallePlan> listDetalle = new List<DetallePlan>();
+            List<DetallePlanGimnasio> listDetalle = new List<DetallePlanGimnasio>();
             foreach (DataRow row in tabla.Rows)
             {
-                DetallePlan DetallePlan = new DetallePlan();
+                DetallePlanGimnasio DetallePlan = new DetallePlanGimnasio();
                 DetallePlan.IdPlan = (int)row["IdPlan"];
+                DetallePlan.Ejercicio = new Ejercicio();
                 DetallePlan.Ejercicio.IdEJ = (int)row["IdEjercicio"];
+                DetallePlan.Ejercicio.Nombre = tabla.Rows[0]["Nombre"].ToString();
                 DetallePlan.Repeticiones = (int)row["Repeticiones"];
                 DetallePlan.Series = (int)row["Series"];
                 listDetalle.Add(DetallePlan);

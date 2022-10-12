@@ -9,6 +9,7 @@ namespace GymApp.Servicios.Interfaces
 {
     internal interface IDetallePlanService
     {
-        List<DetallePlan> RecuperarTodos(int idPlan);
+        List<DetallePlanGimnasio> RecuperarTodos(int idPlan);
+        int Modificar(PlanGym plan);
     }
 }

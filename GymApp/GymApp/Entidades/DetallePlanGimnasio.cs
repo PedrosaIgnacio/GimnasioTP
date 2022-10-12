@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymApp.Entidades
 {
-    public class DetallePlan
+    public class DetallePlanGimnasio
     {
         public int IdPlan { get; set; }
         public Ejercicio Ejercicio { get; set; }
