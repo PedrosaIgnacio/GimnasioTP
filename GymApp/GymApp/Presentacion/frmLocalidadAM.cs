@@ -18,11 +18,16 @@ namespace GymApp.Presentacion
 
         private string Accion;
         ILocalidadService Lservice = new LocalidadService();
-        public frmLocalidadAM(string MiAccion)
+        int? idLoc;
+        public frmLocalidadAM(string MiAccion, int? idLoca)
         {
             InitializeComponent();
             Accion = MiAccion;
             this.Text = MiAccion;
+            if (idLoca.HasValue)
+            {
+                idLoc = idLoca;
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -42,16 +47,18 @@ namespace GymApp.Presentacion
             {
                 Localidad loc = new Localidad();
                 loc.Nombre = txtNombreLocalidad.Text.ToString();
+                loc.IdLocalidad = (int)idLoc;
                 int rowsAff = Lservice.ActualizarLocalidad(loc);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Ejercicio actualizado");
+                    MessageBox.Show("Localidad actualizado");
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo actualizar el cliente");
+                    MessageBox.Show("No se pudo actualizar la Localidad");
                 }
             }
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

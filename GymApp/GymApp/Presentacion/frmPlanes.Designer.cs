@@ -174,6 +174,7 @@
             this.grdPlan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdPlan.Size = new System.Drawing.Size(580, 238);
             this.grdPlan.TabIndex = 23;
+            this.grdPlan.DoubleClick += new System.EventHandler(this.grdPlan_DoubleClick);
             // 
             // ColIdPlan
             // 

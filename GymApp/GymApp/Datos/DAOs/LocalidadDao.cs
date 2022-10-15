@@ -76,13 +76,13 @@ namespace GymApp.Datos.DAOs
 
         public int InsertarUno(Localidad l)
         {
-            string consulta = "INSERT INTO Localidad (IdLocalidad, Nombre) VALUES ('" + l.IdLocalidad + "','" + l.Nombre + ", 1)";
+            string consulta = "INSERT INTO Localidad (Nombre) VALUES ('" + l.Nombre + "')";
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
         public int ActualizarLocalidad(Localidad l)
         {
-            string consulta = "INSERT INTO Localidad";
+            string consulta = "UPDATE Localidad SET Nombre = '" +l.Nombre +"' WHERE IdLocalidad ="+l.IdLocalidad;
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
     }

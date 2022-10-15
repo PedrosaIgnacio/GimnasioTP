@@ -48,6 +48,9 @@ namespace GymApp.Presentacion
             }
             if (miAccion == "Consulta")
             {
+                CargarCampos(svPlanGym.recuperarUno((int)idPlan));
+                CargarGrilla(dgvDetallePlan, svDetallePlan.RecuperarTodos((int)idPlan));
+                dgvDetallePlan.Enabled = false;
                 cbxAlumnos.Enabled = false;
                 dtpDesde.Enabled = false;
                 txtDescripcion.Enabled = false;

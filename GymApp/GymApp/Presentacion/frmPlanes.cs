@@ -117,7 +117,24 @@ namespace GymApp.Presentacion
             else
             {
 
-                MessageBox.Show("Error, debe elegir un ejercicio primero.");
+                MessageBox.Show("Error, debe elegir un Plan primero.");
+
+            }
+        }
+
+        private void grdPlan_DoubleClick(object sender, EventArgs e)
+        {
+            if (grdPlan.CurrentRow != null)
+            {
+                miAccion = Acciones.Consulta;
+                frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), (int)grdPlan.CurrentRow.Cells[0].Value);
+                frmPlanAM.Show();
+
+            }
+            else
+            {
+
+                MessageBox.Show("Error, debe elegir un Plan primero.");
 
             }
         }
