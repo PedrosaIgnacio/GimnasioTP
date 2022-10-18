@@ -57,7 +57,7 @@ namespace GymApp.Presentacion
                 int rowsAff = Lservice.ActualizarLocalidad(loc);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Ejercicio actualizado");
+                    MessageBox.Show("Localidad actualizada");
                 }
                 else
                 {
