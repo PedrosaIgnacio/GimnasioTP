@@ -13,12 +13,12 @@ namespace GymApp.Datos.DAOs
     {
         public List<PlanGym> recuperarTodos(string fechaDesde, string fechaHasta)
         {
-            string consulta = "SELECT p.IdPlan, p.Nombre, p.Descripcion, p.FechaDesde, p.FechaHasta, p.NumDocAl, p.TipoDocAl, a.Nombre as NombreAlumno, a.Apellido FROM PlanGim p JOIN Alumno a ON p.NumDocAl= a.NumDoc WHERE FechaDesde ='" + fechaDesde + "' AND FechaHasta ='" + fechaHasta+"'";
+            string consulta = "SELECT p.IdPlan, p.Nombre, p.Descripcion, p.FechaDesde, p.FechaHasta, p.NumDocAl, p.TipoDocAl, a.Nombre as NombreAlumno, a.Apellido FROM PlanGim p JOIN Alumno a ON p.NumDocAl= a.NumDoc WHERE FechaDesde >='" + fechaDesde + "' AND FechaHasta <='" + fechaHasta+"'";
             return MapeoListaPlan(DBHelper.obtenerInstancia().consultar(consulta));
         }
         public List<PlanGym> recuperarFiltrados(long nroDoc, string fechaDesde, string fechaHasta)
         {
-            string consulta = "SELECT p.IdPlan, p.Nombre, p.Descripcion, p.FechaDesde, p.FechaHasta, p.NumDocAl, p.TipoDocAl, a.Nombre as NombreAlumno, a.Apellido FROM PlanGim p JOIN Alumno a ON p.NumDocAl= a.NumDoc WHERE p.FechaDesde ='" + fechaDesde + "' AND p.FechaHasta ='" + fechaHasta + "' AND p.NumDocAl =" + nroDoc;
+            string consulta = "SELECT p.IdPlan, p.Nombre, p.Descripcion, p.FechaDesde, p.FechaHasta, p.NumDocAl, p.TipoDocAl, a.Nombre as NombreAlumno, a.Apellido FROM PlanGim p JOIN Alumno a ON p.NumDocAl= a.NumDoc WHERE p.FechaDesde >='" + fechaDesde + "' AND p.FechaHasta <='" + fechaHasta + "' AND p.NumDocAl =" + nroDoc;
             return MapeoListaPlan(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
@@ -34,7 +34,33 @@ namespace GymApp.Datos.DAOs
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
+        //Transaccion------------------------------------------------------------
 
+        public bool InsertarPlanConDetalle(PlanGym plan, List<DetallePlanGimnasio> ldp)
+        {
+            bool aux = false;
+
+            //Insertar Plan
+            plan.Nombre = "Nom";
+            string consultaPlan = "INSERT INTO PlanGim (Nombre, Descripcion, FechaDesde, FechaHasta, NumDocAl, TipoDocAl) VALUES ('" + plan.Nombre + "','" + plan.Descripcion + "','" + plan.FechaDesde + "','" + plan.FechaHasta + "'," + plan.Alumno.NroDocumento + "," + plan.Alumno.TipoDoc.IdTipoDoc + ")";
+            DBHelper.obtenerInstancia().conectarConTransaccion();
+            DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consultaPlan);
+            //Recuperar la Id del plan
+            var nuevoId = DBHelper.obtenerInstancia().ConsultaSQLScalar("SELECT @@IDENTITY");
+            plan.IdPlan = Convert.ToInt32(nuevoId);
+            //Insertar detalles:
+            for (int i = 0; i < ldp.Count; i++)
+            {
+                DetallePlanGimnasio detalle = ldp[i];
+                string consultaDetalle = "INSERT INTO DetallePlan (IdPlan,IdEjercicio, Repeticiones, Series) VALUES (" + plan.IdPlan + "," + detalle.Ejercicio.IdEJ + "," + detalle.Repeticiones + "," + detalle.Series + ")";
+                DBHelper.obtenerInstancia().EjecutarSQLConTransaccion(consultaDetalle);
+            }
+            aux = DBHelper.obtenerInstancia().desconectar();
+            return aux;
+        }
+
+
+        //Mapeos-----------------------------------------------------------------
         private PlanGym MapeoPlan(DataTable tabla)
         {
             PlanGym plan = new PlanGym();

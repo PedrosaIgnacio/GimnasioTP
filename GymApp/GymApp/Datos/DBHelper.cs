@@ -14,7 +14,18 @@ namespace GymApp.Datos
         private static DBHelper instancia;
         private SqlConnection conexion;
         private SqlCommand comando;
+        private SqlTransaction transaccion;
         private string cadenaConexion;
+        enum ResultadoTransaccion
+        {
+            exito, fracaso
+        }
+        enum tipoConexion
+        {
+            simple, transaccion
+        }
+        private ResultadoTransaccion miEstado = ResultadoTransaccion.exito;
+        private tipoConexion miTipo = tipoConexion.simple;
         private DBHelper()
         {
             conexion = new SqlConnection();
@@ -56,5 +67,69 @@ namespace GymApp.Datos
             return rowsAff;
         }
 
+
+        public void conectarConTransaccion()
+        {
+            miTipo = tipoConexion.transaccion;
+            miEstado = ResultadoTransaccion.exito;
+
+            conexion.ConnectionString = cadenaConexion;
+            conexion.Open();
+            transaccion = conexion.BeginTransaction();
+            comando.Transaction = transaccion;
+            comando.Connection = conexion;
+        }
+        public bool desconectar()
+        {
+            if (miTipo == tipoConexion.transaccion)
+            {
+                if (miEstado == ResultadoTransaccion.exito)
+                {
+                    transaccion.Commit(); //MessageBox.Show("La trasacción resultó con éxito...");
+                }
+                else
+                {
+                    transaccion.Rollback(); //MessageBox.Show("La trasacción no pudo realizarce...");
+                }
+                miTipo = tipoConexion.simple;
+            }
+            if ((conexion.State == ConnectionState.Open))
+            {
+                conexion.Close();
+            }
+
+            // Dispose() libera los recursos asociados a la conexón
+            conexion.Dispose();
+            if (miEstado.Equals(ResultadoTransaccion.exito))
+                return true;
+            else
+                return false;
+        }
+
+        public void EjecutarSQLConTransaccion(string consultaSql)
+        {
+            //  Se utiliza para sentencias SQL del tipo Insert, Update, Delete con transaccion.
+            try
+            {
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consultaSql;
+                comando.ExecuteNonQuery();
+                miEstado = ResultadoTransaccion.exito;
+            }
+            catch
+            {
+                miEstado = ResultadoTransaccion.fracaso;
+            }
+        }
+        public object ConsultaSQLScalar(string consultaSql)
+        {
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = consultaSql;
+            return comando.ExecuteScalar();
+            //return comando.ExecuteScalar();
+        }
+
     }
+
 }
+

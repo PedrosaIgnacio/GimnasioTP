@@ -14,6 +14,11 @@ namespace GymApp.Servicios.Implementaciones
     {
         IPlanGym dao = new PlanGymDao();
 
+        public bool InsertarPlanConDetalle(PlanGym plan, List<DetallePlanGimnasio> ldp)
+        {
+            return dao.InsertarPlanConDetalle(plan, ldp);
+        }
+
         public int Modificar(PlanGym plan)
         {
             return dao.Modificar(plan);

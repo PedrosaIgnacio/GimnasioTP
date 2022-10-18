@@ -20,7 +20,7 @@ namespace GymApp.Presentacion
         IDetallePlanService svDetallePlan = new DetallePlanService();
         private string miAccion;
         private int? idPlan;
-        private List<DetallePlanGimnasio> listaDetallePlan;    
+        List<DetallePlanGimnasio> listaDP ;    
 
 
         public frmPlanAM(string accion, int? plan)
@@ -35,6 +35,7 @@ namespace GymApp.Presentacion
         }
         private void frmPlanAM_Load(object sender, EventArgs e)
         {
+            listaDP = new List<DetallePlanGimnasio>();
             CargarCombo(cbxAlumnos, svAlumno.RecuperarTodos());
             txtNumeroDNI.Enabled = false;
             txtTipoDocumento.Enabled = false;
@@ -93,8 +94,14 @@ namespace GymApp.Presentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmEjercicioPlan frmEjercicioPlan = new frmEjercicioPlan();
-            frmEjercicioPlan.Show();
+            frmEjercicioPlan frmEP = new frmEjercicioPlan();
+            DialogResult res = frmEP.ShowDialog();
+            if (frmEP.flag)
+            {
+                listaDP.Add(frmEP.detalle);
+                CargarGrilla(dgvDetallePlan, listaDP);
+            }
+            
         }
 
         private void cbxAlumnos_SelectionChangeCommitted(object sender, EventArgs e)
@@ -112,21 +119,47 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (miAccion == "Modificacion")
+            if (miAccion == "Consulta")
+            {
+                this.Close();
+            }
+            else
             {
                 PlanGym nuevoPlan = new PlanGym();
-                nuevoPlan.IdPlan = (int)idPlan;
                 nuevoPlan.Descripcion = txtDescripcion.Text;
                 nuevoPlan.FechaHasta = dtpHasta.Value;
-                int rowsAff = svPlanGym.Modificar(nuevoPlan);
-                if (rowsAff > 0)
+                nuevoPlan.FechaDesde = dtpDesde.Value;
+                nuevoPlan.Alumno = new Alumno();
+                nuevoPlan.Alumno.NroDocumento =  Int32.Parse(txtNumeroDNI.Text);
+                nuevoPlan.Alumno.TipoDoc = new TipoDocumento();
+                nuevoPlan.Alumno.TipoDoc.IdTipoDoc = 1;
+                if (miAccion == "Modificacion")
                 {
-                    MessageBox.Show("Plan Actualizado");
-                    this.Close();
+                    nuevoPlan.IdPlan = (int)idPlan;
+                    int rowsAff = svPlanGym.Modificar(nuevoPlan);
+                    if (rowsAff > 0)
+                    {
+                        MessageBox.Show("Plan Actualizado");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el plan, porfavor intentelo nuevamente");
+                    }
                 }
-                else
+
+                if (miAccion == "Alta")
                 {
-                    MessageBox.Show("No se pudo actualizar el plan, porfavor intentelo nuevamente");
+                    if (svPlanGym.InsertarPlanConDetalle(nuevoPlan, listaDP))
+                    {
+                        MessageBox.Show("Plan agregado con exito!");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, porfavor volver a reintentar");
+                        this.Close();
+                    }
                 }
             }
         }
