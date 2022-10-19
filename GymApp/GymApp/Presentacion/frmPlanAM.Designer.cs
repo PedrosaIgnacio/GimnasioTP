@@ -53,6 +53,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAddEjercicio = new System.Windows.Forms.Button();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.gbxPlan.SuspendLayout();
             this.gbxAlumno.SuspendLayout();
             this.gbxPeriodo.SuspendLayout();
@@ -144,10 +146,10 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(113, 202);
+            this.txtDescripcion.Location = new System.Drawing.Point(113, 232);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(327, 118);
+            this.txtDescripcion.Size = new System.Drawing.Size(327, 88);
             this.txtDescripcion.TabIndex = 2;
             // 
             // gbxPeriodo
@@ -226,6 +228,7 @@
             this.dgvDetallePlan.ReadOnly = true;
             this.dgvDetallePlan.Size = new System.Drawing.Size(390, 133);
             this.dgvDetallePlan.TabIndex = 0;
+            this.dgvDetallePlan.DoubleClick += new System.EventHandler(this.dgvDetallePlan_DoubleClick);
             // 
             // ColIdEjercicio
             // 
@@ -256,7 +259,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(41, 202);
+            this.lblDescripcion.Location = new System.Drawing.Point(35, 232);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 4;
@@ -292,11 +295,29 @@
             this.btnAddEjercicio.UseVisualStyleBackColor = true;
             this.btnAddEjercicio.Click += new System.EventHandler(this.button3_Click);
             // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(38, 197);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 9;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(113, 193);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(321, 20);
+            this.txtNombre.TabIndex = 8;
+            // 
             // frmPlanAM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 707);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnAddEjercicio);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -349,5 +370,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAddEjercicio;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }

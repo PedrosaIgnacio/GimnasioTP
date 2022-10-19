@@ -14,9 +14,14 @@ namespace GymApp.Servicios.Implementaciones
     {
         IPlanGym dao = new PlanGymDao();
 
-        public int Modificar(PlanGym plan)
+        public bool InsertarPlanConDetalle(PlanGym plan, List<DetallePlanGimnasio> ldp)
         {
-            return dao.Modificar(plan);
+            return dao.InsertarPlanConDetalle(plan, ldp);
+        }
+
+        public bool ModificarConDetalle(PlanGym plan, List<DetallePlanGimnasio> ld)
+        {
+            return dao.ModificarConDetalle(plan,ld);
         }
 
         public List<PlanGym> recuperarFiltrados(long nroDoc, string FechaDesde, string FechaHasta)
@@ -32,6 +37,10 @@ namespace GymApp.Servicios.Implementaciones
         public PlanGym recuperarUno(int idPlan)
         {
             return dao.recuperarUno(idPlan);
+        }
+        public bool DarBajaPlan(int plan)
+        {
+            return dao.DarBajaPlan(plan);
         }
     }
 }

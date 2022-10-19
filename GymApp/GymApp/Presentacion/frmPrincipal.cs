@@ -54,6 +54,7 @@ namespace GymApp.Presentacion
         {
             frmPlanes frmPlanes = new frmPlanes();
             frmPlanes.Show();
+            this.Hide();
         }
         private void barrioToolStripMenuItem_Click(object sender, EventArgs e)
         {

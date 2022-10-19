@@ -20,7 +20,7 @@ namespace GymApp.Presentacion
         IDetallePlanService svDetallePlan = new DetallePlanService();
         private string miAccion;
         private int? idPlan;
-        private List<DetallePlanGimnasio> listaDetallePlan;    
+        List<DetallePlanGimnasio> listaDP ;    
 
 
         public frmPlanAM(string accion, int? plan)
@@ -35,16 +35,20 @@ namespace GymApp.Presentacion
         }
         private void frmPlanAM_Load(object sender, EventArgs e)
         {
+            listaDP = new List<DetallePlanGimnasio>();
             CargarCombo(cbxAlumnos, svAlumno.RecuperarTodos());
             txtNumeroDNI.Enabled = false;
             txtTipoDocumento.Enabled = false;
             txtIdPlan.Enabled = false;
+            
             if (miAccion == "Modificacion")
             {
+                txtNombre.Enabled = false;
                 cbxAlumnos.Enabled = false;
                 dtpDesde.Enabled = false;
                 CargarCampos(svPlanGym.recuperarUno((int)idPlan));
                 CargarGrilla(dgvDetallePlan, svDetallePlan.RecuperarTodos((int)idPlan));
+                listaDP = svDetallePlan.RecuperarTodos((int)idPlan);
             }
             if (miAccion == "Consulta")
             {
@@ -56,6 +60,7 @@ namespace GymApp.Presentacion
                 txtDescripcion.Enabled = false;
                 dtpHasta.Enabled = false;
                 btnAddEjercicio.Enabled = false;
+                txtNombre.Enabled = false;
             }
         }
         public void CargarGrilla(DataGridView grilla, List<DetallePlanGimnasio> lista)
@@ -74,11 +79,12 @@ namespace GymApp.Presentacion
 
         private void CargarCampos (PlanGym plan)
         {
+            txtNombre.Text = plan.Nombre;
             txtIdPlan.Text = plan.IdPlan.ToString();
             txtDescripcion.Text = plan.Descripcion;
             cbxAlumnos.Text = plan.Alumno.Nombre;
-            txtNumeroDNI.Text = plan.Alumno.TipoDoc.Nombre;
-            txtTipoDocumento.Text = plan.Alumno.NroDocumento.ToString();
+            txtTipoDocumento.Text = plan.Alumno.TipoDoc.Nombre;
+            txtNumeroDNI.Text = plan.Alumno.NroDocumento.ToString();
             dtpDesde.Value = plan.FechaDesde;
             dtpHasta.Value = plan.FechaHasta;
         }
@@ -93,8 +99,14 @@ namespace GymApp.Presentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmEjercicioPlan frmEjercicioPlan = new frmEjercicioPlan();
-            frmEjercicioPlan.Show();
+            frmEjercicioPlan frmEP = new frmEjercicioPlan();
+            DialogResult res = frmEP.ShowDialog();
+            if (frmEP.flag)
+            {
+                listaDP.Add(frmEP.detalle);
+                CargarGrilla(dgvDetallePlan, listaDP);
+            }
+            
         }
 
         private void cbxAlumnos_SelectionChangeCommitted(object sender, EventArgs e)
@@ -102,7 +114,6 @@ namespace GymApp.Presentacion
             var alumno = cbxAlumnos.SelectedItem as Alumno;
             txtNumeroDNI.Text = alumno.NroDocumento.ToString();
             txtTipoDocumento.Text = alumno.TipoDoc.Nombre;
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -112,22 +123,67 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (miAccion == "Modificacion")
+            if (miAccion == "Consulta")
+            {
+                this.Close();
+            }
+            else
             {
                 PlanGym nuevoPlan = new PlanGym();
-                nuevoPlan.IdPlan = (int)idPlan;
                 nuevoPlan.Descripcion = txtDescripcion.Text;
                 nuevoPlan.FechaHasta = dtpHasta.Value;
-                int rowsAff = svPlanGym.Modificar(nuevoPlan);
-                if (rowsAff > 0)
+                nuevoPlan.FechaDesde = dtpDesde.Value;
+                nuevoPlan.Alumno = new Alumno();
+                nuevoPlan.Alumno.NroDocumento =  Int32.Parse(txtNumeroDNI.Text);
+                nuevoPlan.Alumno.TipoDoc = new TipoDocumento();
+                nuevoPlan.Alumno.TipoDoc.IdTipoDoc = 1;
+                nuevoPlan.Nombre = txtNombre.Text;
+                if (miAccion == "Modificacion")
                 {
-                    MessageBox.Show("Plan Actualizado");
-                    this.Close();
+                    nuevoPlan.IdPlan = (int)idPlan;
+                   
+                    if (svPlanGym.ModificarConDetalle(nuevoPlan, listaDP))
+                    {
+                        MessageBox.Show("Plan Actualizado");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el plan, porfavor intentelo nuevamente");
+                    }
                 }
-                else
+
+                if (miAccion == "Alta")
                 {
-                    MessageBox.Show("No se pudo actualizar el plan, porfavor intentelo nuevamente");
+                    if (svPlanGym.InsertarPlanConDetalle(nuevoPlan, listaDP))
+                    {
+                        MessageBox.Show("Plan agregado con exito!");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, porfavor volver a reintentar");
+                        this.Close();
+                    }
                 }
+            }
+        }
+
+        private void dgvDetallePlan_DoubleClick(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Desea Eliminar el ejercicio?", "Elimando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int idBorrar = (int)dgvDetallePlan.CurrentRow.Cells[0].Value;
+                int serieBorrar = (int)dgvDetallePlan.CurrentRow.Cells[2].Value;
+                int repeticionesBorrar = (int)dgvDetallePlan.CurrentRow.Cells[3].Value;
+                for (int i = 0; i < listaDP.Count; i++)
+                {
+                    if (listaDP[i].Ejercicio.IdEJ == idBorrar && listaDP[i].Series == serieBorrar && listaDP[i].Repeticiones == repeticionesBorrar)
+                    {
+                        listaDP.Remove(listaDP[i]);
+                    }
+                }
+                CargarGrilla(dgvDetallePlan, listaDP);
             }
         }
     }

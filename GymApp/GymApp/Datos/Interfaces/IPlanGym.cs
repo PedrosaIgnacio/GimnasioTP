@@ -12,6 +12,8 @@ namespace GymApp.Datos.Interfaces
         PlanGym recuperarUno(int idPlan);
         List<PlanGym> recuperarTodos(string fechaDesde, string fechaHasta);
         List<PlanGym> recuperarFiltrados(long nroDoc, string fechaDesde, string fechaHasta);
-        int Modificar(PlanGym plan);
+        bool DarBajaPlan(int plan);
+        bool ModificarConDetalle(PlanGym plan, List<DetallePlanGimnasio> ld);
+        bool InsertarPlanConDetalle(PlanGym plan, List<DetallePlanGimnasio> ldp);
     }
 }

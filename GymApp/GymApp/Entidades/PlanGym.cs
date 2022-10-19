@@ -14,5 +14,6 @@ namespace GymApp.Entidades
         public DateTime FechaDesde{ get; set; }
         public DateTime FechaHasta { get; set; }
         public Alumno Alumno { get; set; }
+       
     }
 }
