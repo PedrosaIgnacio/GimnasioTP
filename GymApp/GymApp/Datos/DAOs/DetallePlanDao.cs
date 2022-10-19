@@ -36,7 +36,7 @@ namespace GymApp.Datos.DAOs
                 DetallePlan.IdPlan = (int)row["IdPlan"];
                 DetallePlan.Ejercicio = new Ejercicio();
                 DetallePlan.Ejercicio.IdEJ = (int)row["IdEjercicio"];
-                DetallePlan.Ejercicio.Nombre = tabla.Rows[0]["Nombre"].ToString();
+                DetallePlan.Ejercicio.Nombre = row["Nombre"].ToString();
                 DetallePlan.Repeticiones = (int)row["Repeticiones"];
                 DetallePlan.Series = (int)row["Series"];
                 listDetalle.Add(DetallePlan);

@@ -138,5 +138,20 @@ namespace GymApp.Presentacion
 
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Estas seguro de eliminar el Plan", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                if ((svPlanGym.DarBajaPlan((int)grdPlan.CurrentRow.Cells[0].Value)))
+                {
+                    MessageBox.Show("Plan eliminado con exito");
+                }
+                else
+                {
+                    MessageBox.Show("Error, no se pudo eliminar el plan");
+                }
+            }
+        }
     }
 }

@@ -297,6 +297,7 @@
     <Content Include="Imagenes\delete_exit.png" />
     <Content Include="Imagenes\documentediting.png" />
     <Content Include="Imagenes\edit_file.png" />
+    <None Include="Imagenes\engranaje.png" />
     <Content Include="Imagenes\Excel1.ico" />
     <Content Include="Imagenes\excel3.ico" />
     <Content Include="Imagenes\excel4.bmp" />

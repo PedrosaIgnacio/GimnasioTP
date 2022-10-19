@@ -40,12 +40,15 @@ namespace GymApp.Presentacion
             txtNumeroDNI.Enabled = false;
             txtTipoDocumento.Enabled = false;
             txtIdPlan.Enabled = false;
+            
             if (miAccion == "Modificacion")
             {
+                txtNombre.Enabled = false;
                 cbxAlumnos.Enabled = false;
                 dtpDesde.Enabled = false;
                 CargarCampos(svPlanGym.recuperarUno((int)idPlan));
                 CargarGrilla(dgvDetallePlan, svDetallePlan.RecuperarTodos((int)idPlan));
+                listaDP = svDetallePlan.RecuperarTodos((int)idPlan);
             }
             if (miAccion == "Consulta")
             {
@@ -57,6 +60,7 @@ namespace GymApp.Presentacion
                 txtDescripcion.Enabled = false;
                 dtpHasta.Enabled = false;
                 btnAddEjercicio.Enabled = false;
+                txtNombre.Enabled = false;
             }
         }
         public void CargarGrilla(DataGridView grilla, List<DetallePlanGimnasio> lista)
@@ -75,11 +79,12 @@ namespace GymApp.Presentacion
 
         private void CargarCampos (PlanGym plan)
         {
+            txtNombre.Text = plan.Nombre;
             txtIdPlan.Text = plan.IdPlan.ToString();
             txtDescripcion.Text = plan.Descripcion;
             cbxAlumnos.Text = plan.Alumno.Nombre;
-            txtNumeroDNI.Text = plan.Alumno.TipoDoc.Nombre;
-            txtTipoDocumento.Text = plan.Alumno.NroDocumento.ToString();
+            txtTipoDocumento.Text = plan.Alumno.TipoDoc.Nombre;
+            txtNumeroDNI.Text = plan.Alumno.NroDocumento.ToString();
             dtpDesde.Value = plan.FechaDesde;
             dtpHasta.Value = plan.FechaHasta;
         }
@@ -109,7 +114,6 @@ namespace GymApp.Presentacion
             var alumno = cbxAlumnos.SelectedItem as Alumno;
             txtNumeroDNI.Text = alumno.NroDocumento.ToString();
             txtTipoDocumento.Text = alumno.TipoDoc.Nombre;
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -133,11 +137,12 @@ namespace GymApp.Presentacion
                 nuevoPlan.Alumno.NroDocumento =  Int32.Parse(txtNumeroDNI.Text);
                 nuevoPlan.Alumno.TipoDoc = new TipoDocumento();
                 nuevoPlan.Alumno.TipoDoc.IdTipoDoc = 1;
+                nuevoPlan.Nombre = txtNombre.Text;
                 if (miAccion == "Modificacion")
                 {
                     nuevoPlan.IdPlan = (int)idPlan;
-                    int rowsAff = svPlanGym.Modificar(nuevoPlan);
-                    if (rowsAff > 0)
+                   
+                    if (svPlanGym.ModificarConDetalle(nuevoPlan, listaDP))
                     {
                         MessageBox.Show("Plan Actualizado");
                         this.Close();
@@ -161,6 +166,24 @@ namespace GymApp.Presentacion
                         this.Close();
                     }
                 }
+            }
+        }
+
+        private void dgvDetallePlan_DoubleClick(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Desea Eliminar el ejercicio?", "Elimando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int idBorrar = (int)dgvDetallePlan.CurrentRow.Cells[0].Value;
+                int serieBorrar = (int)dgvDetallePlan.CurrentRow.Cells[2].Value;
+                int repeticionesBorrar = (int)dgvDetallePlan.CurrentRow.Cells[3].Value;
+                for (int i = 0; i < listaDP.Count; i++)
+                {
+                    if (listaDP[i].Ejercicio.IdEJ == idBorrar && listaDP[i].Series == serieBorrar && listaDP[i].Repeticiones == repeticionesBorrar)
+                    {
+                        listaDP.Remove(listaDP[i]);
+                    }
+                }
+                CargarGrilla(dgvDetallePlan, listaDP);
             }
         }
     }

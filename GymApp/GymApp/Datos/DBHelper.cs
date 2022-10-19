@@ -89,7 +89,7 @@ namespace GymApp.Datos
                 }
                 else
                 {
-                    transaccion.Rollback(); //MessageBox.Show("La trasacción no pudo realizarce...");
+                    transaccion.Rollback(); //MessageBox.Show("La trasacción no pudo realizarse...");
                 }
                 miTipo = tipoConexion.simple;
             }
