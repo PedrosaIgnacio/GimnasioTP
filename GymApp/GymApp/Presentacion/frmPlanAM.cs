@@ -103,10 +103,28 @@ namespace GymApp.Presentacion
             DialogResult res = frmEP.ShowDialog();
             if (frmEP.flag)
             {
+                if (noSeEncuentra(frmEP.detalle, listaDP))
+                {
+
+               
                 listaDP.Add(frmEP.detalle);
                 CargarGrilla(dgvDetallePlan, listaDP);
+                }
             }
             
+        }
+
+        private bool noSeEncuentra(DetallePlanGimnasio detalle, List<DetallePlanGimnasio> listaDP)
+        {
+            for (int i = 0; i < listaDP.Count(); i++)
+            {
+                if (detalle.Ejercicio.IdEJ == listaDP[i].Ejercicio.IdEJ)
+                {
+                    MessageBox.Show("No se puede ingresar el mismo ejercicio dos veces");
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void cbxAlumnos_SelectionChangeCommitted(object sender, EventArgs e)
@@ -157,7 +175,7 @@ namespace GymApp.Presentacion
                 {
                     if (svPlanGym.InsertarPlanConDetalle(nuevoPlan, listaDP))
                     {
-                        MessageBox.Show("Plan agregado con exito!");
+                        MessageBox.Show("Plan agregado!");
                         this.Close();
                     }
                     else
