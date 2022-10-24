@@ -72,6 +72,7 @@ namespace GymApp.Presentacion
                         MessageBox.Show("Error, no se pudo actualizar el Grupo Muscular");
                 }
             }
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

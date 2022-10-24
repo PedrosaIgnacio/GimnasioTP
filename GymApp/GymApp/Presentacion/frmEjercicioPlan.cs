@@ -43,14 +43,21 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
-            detalle = new DetallePlanGimnasio();
-            detalle.Ejercicio = new Ejercicio();
-            detalle.Ejercicio = cmbEjercicio.SelectedItem as Ejercicio;
-            detalle.Series = Int32.Parse(txtSerie.Text);
-            detalle.Repeticiones = Int32.Parse(txtRepeticiones.Text);
-            flag = true;
-            this.Close();
+            if (Int32.Parse(txtSerie.Text) <= 0 || Int32.Parse(txtRepeticiones.Text) <= 0)
+            {
+                MessageBox.Show("Error serie o repeticiones no puede ser negativo");
+            }
+            else
+            {
+               
+                detalle = new DetallePlanGimnasio();
+                detalle.Ejercicio = new Ejercicio();
+                detalle.Ejercicio = cmbEjercicio.SelectedItem as Ejercicio;
+                detalle.Series = Int32.Parse(txtSerie.Text);
+                detalle.Repeticiones = Int32.Parse(txtRepeticiones.Text);
+                flag = true;
+                this.Close();
+            }
         }
 
         //ADD COMENTARIO

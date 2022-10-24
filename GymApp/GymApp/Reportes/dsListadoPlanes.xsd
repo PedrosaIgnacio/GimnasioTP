@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsListadoPlanes" targetNamespace="http://tempuri.org/dsListadoPlanes.xsd" xmlns:mstns="http://tempuri.org/dsListadoPlanes.xsd" xmlns="http://tempuri.org/dsListadoPlanes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsListadoPlanes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsListadoPlanes" msprop:Generator_DataSetName="dsListadoPlanes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTPlanes" msprop:Generator_RowEvHandlerName="DTPlanesRowChangeEventHandler" msprop:Generator_RowDeletedName="DTPlanesRowDeleted" msprop:Generator_RowDeletingName="DTPlanesRowDeleting" msprop:Generator_RowEvArgName="DTPlanesRowChangeEvent" msprop:Generator_TablePropName="DTPlanes" msprop:Generator_RowChangedName="DTPlanesRowChanged" msprop:Generator_RowChangingName="DTPlanesRowChanging" msprop:Generator_TableClassName="DTPlanesDataTable" msprop:Generator_RowClassName="DTPlanesRow" msprop:Generator_TableVarName="tableDTPlanes" msprop:Generator_UserTableName="DTPlanes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="numeroPlan" msprop:Generator_ColumnPropNameInRow="numeroPlan" msprop:Generator_ColumnPropNameInTable="numeroPlanColumn" msprop:Generator_ColumnVarNameInTable="columnnumeroPlan" msprop:Generator_UserColumnName="numeroPlan" type="xs:int" minOccurs="0" />
+              <xs:element name="nombrePlan" msprop:Generator_ColumnPropNameInRow="nombrePlan" msprop:Generator_ColumnPropNameInTable="nombrePlanColumn" msprop:Generator_ColumnVarNameInTable="columnnombrePlan" msprop:Generator_UserColumnName="nombrePlan" type="xs:string" minOccurs="0" />
+              <xs:element name="nombreAlumno" msprop:Generator_ColumnPropNameInRow="nombreAlumno" msprop:Generator_ColumnPropNameInTable="nombreAlumnoColumn" msprop:Generator_ColumnVarNameInTable="columnnombreAlumno" msprop:Generator_UserColumnName="nombreAlumno" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaDesde" msprop:Generator_ColumnPropNameInRow="fechaDesde" msprop:Generator_ColumnPropNameInTable="fechaDesdeColumn" msprop:Generator_ColumnVarNameInTable="columnfechaDesde" msprop:Generator_UserColumnName="fechaDesde" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaHasta" msprop:Generator_ColumnPropNameInRow="fechaHasta" msprop:Generator_ColumnPropNameInTable="fechaHastaColumn" msprop:Generator_ColumnVarNameInTable="columnfechaHasta" msprop:Generator_UserColumnName="fechaHasta" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

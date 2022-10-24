@@ -20,7 +20,8 @@ namespace GymApp.Presentacion
         enum Acciones
         {
             Alta,
-            Modificacion
+            Modificacion,
+            Consulta
         }
         private Acciones MiAccion;
         public frmEjercicios()
@@ -131,6 +132,13 @@ namespace GymApp.Presentacion
                 List<Ejercicio> lstej = new List<Ejercicio>();
                 CargarGrilla(grdEjercicio, lstej);
             }
+        }
+
+        private void grdEjercicio_DoubleClick(object sender, EventArgs e)
+        {
+            MiAccion = Acciones.Consulta;
+            frmEjerciciosAM frmEjAM = new frmEjerciciosAM(MiAccion.ToString(), (int)grdEjercicio.CurrentRow.Cells[0].Value);
+            frmEjAM.Show();
         }
     }
 }

@@ -133,6 +133,7 @@
             this.grdEjercicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdEjercicio.Size = new System.Drawing.Size(478, 192);
             this.grdEjercicio.TabIndex = 22;
+            this.grdEjercicio.DoubleClick += new System.EventHandler(this.grdEjercicio_DoubleClick);
             // 
             // ColIdUsuario
             // 

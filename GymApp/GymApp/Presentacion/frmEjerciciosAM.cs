@@ -38,6 +38,14 @@ namespace GymApp.Presentacion
             {
                 CargarCampos(EJservice.RecuperarUno((int)idEjer));
             }
+            if (Accion == "Consulta")
+            {
+                CargarCampos(EJservice.RecuperarUno((int)idEjer));
+                txtDescripcion.Enabled = false;
+                txtNombreEjercicio.Enabled = false;
+                cmbGrupoMuscular.Enabled = false;
+                btnAgregarGrupoMuscular.Enabled = false;
+            }
 
         }
 
@@ -83,8 +91,8 @@ namespace GymApp.Presentacion
                 }
 
             }
-            else
-            {
+            if (Accion == "Modificacion")
+            { 
                 Ejercicio ej = new Ejercicio();
                 ej.IdEJ = int.Parse(txtIdEjercicio.Text);
                 ej.Nombre = txtNombreEjercicio.Text;
@@ -102,6 +110,10 @@ namespace GymApp.Presentacion
                     MessageBox.Show("No se pudo actualizar el cliente");
                 }
             }
+            else
+            {
+                this.Close();
+            }
             this.Close();
         }
 
@@ -109,6 +121,7 @@ namespace GymApp.Presentacion
         {
             frmGrupoMuscularAM frmGrupoMuscularAM = new frmGrupoMuscularAM("Alta",null);
             frmGrupoMuscularAM.Show();
+            CargarCombo(cmbGrupoMuscular, GMservice.RecuperarTodos());
         }
 
         private void grbAltaEjercicios_Enter(object sender, EventArgs e)
