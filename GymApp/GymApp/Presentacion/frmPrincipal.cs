@@ -69,5 +69,12 @@ namespace GymApp.Presentacion
             frmLocalidad.Show();
             this.Hide();
         }
+
+        private void listadoPlanesPorMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteListado frmReporte = new frmReporteListado();
+            frmReporte.Show();
+            this.Hide();
+        }
     }
 }
