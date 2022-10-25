@@ -33,9 +33,9 @@
             this.btnListo = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxMes = new System.Windows.Forms.GroupBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.cmbMes = new System.Windows.Forms.ComboBox();
             this.lblMes = new System.Windows.Forms.Label();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.dsListadoPlanes = new GymApp.Reportes.dsListadoPlanes();
             this.dTPlanesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbxMes.SuspendLayout();
@@ -85,6 +85,16 @@
             this.gbxMes.TabStop = false;
             this.gbxMes.Text = "Mes";
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(281, 15);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(70, 21);
+            this.btnConsultar.TabIndex = 2;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
             // cmbMes
             // 
             this.cmbMes.FormattingEnabled = true;
@@ -102,16 +112,6 @@
             this.lblMes.Size = new System.Drawing.Size(39, 16);
             this.lblMes.TabIndex = 0;
             this.lblMes.Text = "Mes:";
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(281, 15);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(70, 21);
-            this.btnConsultar.TabIndex = 2;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // dsListadoPlanes
             // 

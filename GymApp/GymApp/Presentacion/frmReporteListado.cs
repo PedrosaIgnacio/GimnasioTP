@@ -41,7 +41,8 @@ namespace GymApp.Presentacion
             
             cargarCombo(cmbMes, crearListaMes());
             //this.rpvPlan.RefreshReport();
-            
+
+           
         }
 
         private void cargarCombo(ComboBox combo, List<Mes> lista)

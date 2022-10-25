@@ -459,8 +459,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
-            <Top>0.17639cm</Top>
-            <Left>8.37057cm</Left>
+            <Top>0.14111cm</Top>
+            <Left>7.94724cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>2</ZIndex>
@@ -576,10 +576,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>PageNumber</rd:DefaultName>
-                  <Top>0.0875cm</Top>
-                  <Left>16.16287cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>2.5cm</Width>
+                  <Top>0.12347cm</Top>
+                  <Left>17.6269cm</Left>
+                  <Height>0.56472cm</Height>
+                  <Width>0.96542cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -597,7 +597,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Pag Nº</Value>
+                          <Value>Pag Nº:</Value>
                           <Style />
                         </TextRun>
                       </TextRuns>
@@ -605,8 +605,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox4</rd:DefaultName>
-                  <Top>0.08819cm</Top>
-                  <Left>14.59773cm</Left>
+                  <Top>0.12347cm</Top>
+                  <Left>16.16759cm</Left>
                   <Height>0.6cm</Height>
                   <Width>1.38875cm</Width>
                   <ZIndex>1</ZIndex>
