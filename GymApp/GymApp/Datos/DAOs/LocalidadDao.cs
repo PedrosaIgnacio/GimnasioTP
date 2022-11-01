@@ -11,19 +11,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GymApp.Datos.DAOs
 {
-     class LocalidadDao : ILocalidad
+    class LocalidadDao : ILocalidad
     {
         public List<Localidad> RecuperarFiltrados(string Nombre)
         {
             string consulta = "SELECT * FROM Localidad";
             if (Nombre == "")
             {
-                 consulta = "SELECT * FROM Localidad";
+                consulta = "SELECT * FROM Localidad";
 
             }
             else
             {
-                consulta = consulta + "WHERE Nombre LIKE '%" + Nombre + "%'";
+                consulta = consulta + " WHERE Nombre LIKE '%" + Nombre + "%'";
             }
 
             return MapToListLocalidad(DBHelper.obtenerInstancia().consultar(consulta));
@@ -62,10 +62,7 @@ namespace GymApp.Datos.DAOs
             return lstLocalidad;
         }
 
-        public List<Localidad> RecuperarFiltrados()
-        {
-            throw new NotImplementedException();
-        }
+
 
 
         //public int InsertarUno(Localidad l)
@@ -76,15 +73,39 @@ namespace GymApp.Datos.DAOs
 
         public int InsertarUno(Localidad l)
         {
+<<<<<<< HEAD
             string consulta = "INSERT INTO Localidad (Nombre) VALUES ('" + l.Nombre + "')";
+=======
+            string consulta = "INSERT INTO Localidad  (Nombre) VALUES ( '" + l.Nombre + "')";
+>>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
 
         public int ActualizarLocalidad(Localidad l)
         {
+<<<<<<< HEAD
             string consulta = "UPDATE Localidad SET Nombre = '" +l.Nombre +"' WHERE IdLocalidad ="+l.IdLocalidad;
+=======
+            string consulta = "UPDATE Localidad SET Nombre = '" + l.Nombre + "' WHERE IdLocalidad = " + l.IdLocalidad;
+>>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
-    }
 
+        public Localidad RecuperarUno(int Id)
+        {
+            string consulta = "SELECT l.Nombre,l.IdLocalidad FROM Localidad l WHERE l.IdLocalidad = " + Id;
+            return MapToObjetoEjercicio(DBHelper.obtenerInstancia().consultar(consulta));
+        }
+
+
+        public Localidad MapToObjetoEjercicio(DataTable tabla)
+        {
+            Localidad localidad = new Localidad();
+            localidad.IdLocalidad = (int)tabla.Rows[0]["IdLocalidad"];
+            localidad.Nombre = tabla.Rows[0]["Nombre"].ToString();
+
+            return localidad;
+        }
+    }
 }
+   

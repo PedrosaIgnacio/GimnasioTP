@@ -33,7 +33,6 @@
             this.txtNombreBarrio = new System.Windows.Forms.TextBox();
             this.cmbLocalidad = new System.Windows.Forms.ComboBox();
             this.lblGrupoMuscular = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -82,19 +81,6 @@
             this.lblGrupoMuscular.Size = new System.Drawing.Size(56, 13);
             this.lblGrupoMuscular.TabIndex = 29;
             this.lblGrupoMuscular.Text = "Localidad:";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.SystemColors.Window;
-            this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
-            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Location = new System.Drawing.Point(176, 324);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(46, 47);
-            this.btnEliminar.TabIndex = 37;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
@@ -157,7 +143,7 @@
             this.grdBarrio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdBarrio.Size = new System.Drawing.Size(478, 192);
             this.grdBarrio.TabIndex = 33;
-            
+            // 
             // ColIdUsuario
             // 
             this.ColIdUsuario.HeaderText = "# ID";
@@ -215,7 +201,6 @@
             this.ClientSize = new System.Drawing.Size(590, 386);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
@@ -239,7 +224,6 @@
         private System.Windows.Forms.TextBox txtNombreBarrio;
         private System.Windows.Forms.ComboBox cmbLocalidad;
         private System.Windows.Forms.Label lblGrupoMuscular;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
