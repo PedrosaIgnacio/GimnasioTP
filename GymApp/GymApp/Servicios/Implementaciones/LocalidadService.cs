@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GymApp.Servicios.Implementaciones
 {
@@ -21,9 +22,9 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.RecuperarTodos();
         }
-        public List<Localidad> RecuperarFiltrados()
+        public List<Localidad> RecuperarFiltrados(string Nombre)
         {
-            return dao.RecuperarFiltrados();
+            return dao.RecuperarFiltrados(Nombre);
         }
         public int InsertarUno(Localidad l)
         {
@@ -33,6 +34,10 @@ namespace GymApp.Servicios.Implementaciones
         public int ActualizarLocalidad(Localidad l)
         {
             return dao.ActualizarLocalidad(l);
+        }
+        public Localidad RecuperarUno(int id)
+        {
+            return dao.RecuperarUno(id);
         }
     }
 }

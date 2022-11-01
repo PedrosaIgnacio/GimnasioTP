@@ -76,5 +76,7 @@ namespace GymApp.Presentacion
             frmReporte.Show();
             this.Hide();
         }
+
+       
     }
 }

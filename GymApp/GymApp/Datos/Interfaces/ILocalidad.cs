@@ -10,10 +10,11 @@ namespace GymApp.Datos.Interfaces
     internal interface ILocalidad
     {
         List<Localidad> RecuperarTodos();
-        List<Localidad> RecuperarFiltrados();
+        List<Localidad> RecuperarFiltrados(string Nombre);
 
         int InsertarUno(Localidad l);
 
-        int ActualizarLocalidad(Localidad l);   
+        int ActualizarLocalidad(Localidad l);
+        Localidad RecuperarUno(int id);
     }
 }

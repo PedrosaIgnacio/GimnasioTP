@@ -38,9 +38,9 @@
             this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoPlanesPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -132,15 +132,6 @@
             this.ejerciciosToolStripMenuItem.Text = "Ejercicios";
             this.ejerciciosToolStripMenuItem.Click += new System.EventHandler(this.ejerciciosToolStripMenuItem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::GymApp.Properties.Resources.LogoGim;
-            this.pictureBox1.Location = new System.Drawing.Point(233, 67);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(325, 287);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -155,6 +146,15 @@
             this.listadoPlanesPorMesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.listadoPlanesPorMesToolStripMenuItem.Text = "Listado Planes por Mes";
             this.listadoPlanesPorMesToolStripMenuItem.Click += new System.EventHandler(this.listadoPlanesPorMesToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::GymApp.Properties.Resources.LogoGim;
+            this.pictureBox1.Location = new System.Drawing.Point(233, 67);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(325, 287);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // frmPrincipal
             // 
