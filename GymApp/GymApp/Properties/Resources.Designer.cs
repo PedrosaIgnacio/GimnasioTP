@@ -121,7 +121,7 @@ namespace GymApp.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=FRAN-MENENDEZ\MSSQLSERVER01;Initial Catalog=GimnasioTP;Integrated Security=True.
+        ///   Busca una cadena traducida similar a Data Source=DESKTOP-L2D8I3V\SQLEXPRESS;Initial Catalog=GimnasioTP;Integrated Security=True.
         /// </summary>
         internal static string StringConexion {
             get {
