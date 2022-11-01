@@ -1,6 +1,8 @@
 ﻿using GymApp.Datos;
 using GymApp.Entidades;
 using GymApp.Reportes;
+using GymApp.Servicios.Implementaciones;
+using GymApp.Servicios.Interfaces;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
@@ -16,30 +18,17 @@ namespace GymApp.Presentacion
 {
     public partial class frmReporteListado : Form
     {
+        IPlanGymService svPlanGym = new PlanGymService();
+        IAlumnoService AlumnoService = new AlumnoService();
+
         public frmReporteListado()
         {
             InitializeComponent();
         }
 
-        private List<Mes> crearListaMes()
-        {
-            List<Mes> lista = new List<Mes>();
-            string[] mes = new string[12] { "Enero", "Febero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciemrbe"};
-           
-            for (int i = 0; i < mes.Count(); i++)
-            {
-                Mes mes1 = new Mes();
-                mes1.Nombre = mes[i];
-                mes1.Numero = i+1;
-                lista.Add(mes1);
-            }
-            return lista;
-        }
-
         private void frmReporteListado_Load(object sender, EventArgs e)
         {
             
-            cargarCombo(cmbMes, crearListaMes());
             //this.rpvPlan.RefreshReport();
 
            
@@ -57,10 +46,45 @@ namespace GymApp.Presentacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            rpvPlan.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("MesSeleccionado", cmbMes.SelectedValue.ToString()) });
+            rpvPlan.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("MesSeleccionado", "MesProbando") });
             //DATASOURCE
             rpvPlan.LocalReport.DataSources.Clear();
-            rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar("SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE MONTH(p.FechaDesde) = " + (cmbMes.SelectedIndex + 1))));
+            //       rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar("SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE MONTH(p.FechaDesde) = " + (cmbMes.SelectedIndex + 1))));
+
+
+            string consulta = "SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE p.FechaDesde >= '" + dtpDesde.Value.ToString("yyyy/MM/dd") + "' AND p.FechaHasta <= '" + dtpHasta.Value.ToString("yyyy/MM/dd") + "'";
+            if (txtNombreAlummno.Text == "" && txtNumeroDoc.Text == "" && txtNombrePlan.Text == "" && txtNumeroPlan.Text == "")
+            {
+
+                rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
+
+            }
+            else
+            {
+                if (txtNumeroDoc.Text != "")
+                {
+                    consulta = consulta + " AND a.NumDoc = " + txtNumeroDoc.Text;
+                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
+
+                }
+                if (txtNombreAlummno.Text != "")
+                {
+                    consulta = consulta + " AND ((a.Nombre LIKE '%" + txtNombreAlummno.Text + "%') OR (a.Apellido LIKE '%" + txtNombreAlummno.Text + "%'))";
+                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
+                }
+
+                if (txtNombrePlan.Text != "" )
+                {
+                    consulta = consulta + " AND p.Nombre LIKE '%" + txtNombrePlan.Text + "%'";
+                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
+                }
+
+                if(txtNumeroPlan.Text != "")
+                {
+                    consulta = consulta + " AND p.IdPlan = " + txtNumeroPlan.Text;
+                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
+                }
+            }
             rpvPlan.RefreshReport();
         }
 
