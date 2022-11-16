@@ -13,24 +13,6 @@ namespace GymApp.Presentacion
 {
     public partial class frmPrincipal : Form
     {
-        enum PerfilUsuario
-        {
-            Administrador,
-            Profesor,
-        }
-        private PerfilUsuario miPerfil;
-        public frmPrincipal(int IdTipoUsuario)
-        {
-            InitializeComponent();
-            if (IdTipoUsuario == 1)
-            {
-                miPerfil = PerfilUsuario.Administrador;
-            }
-            else
-            {
-                miPerfil = PerfilUsuario.Profesor;
-            }
-        }
         public frmPrincipal()
         {
             InitializeComponent();
@@ -107,7 +89,7 @@ namespace GymApp.Presentacion
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            if (miPerfil == PerfilUsuario.Administrador)
+            if (Authorization.IdTipoUsuario == 1)
             {
                 usuarioToolStripMenuItem.Visible = true;
             }
