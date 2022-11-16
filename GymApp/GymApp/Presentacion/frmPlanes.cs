@@ -141,5 +141,7 @@ namespace GymApp.Presentacion
                 MessageBox.Show("Debe seleccionar un plan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
+
+       
     }
 }

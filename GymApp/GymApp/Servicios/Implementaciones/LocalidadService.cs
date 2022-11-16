@@ -1,4 +1,4 @@
-﻿using GymApp.Datos.DAOs;
+using GymApp.Datos.DAOs;
 using GymApp.Datos.Interfaces;
 using GymApp.Entidades;
 using GymApp.Servicios.Interfaces;

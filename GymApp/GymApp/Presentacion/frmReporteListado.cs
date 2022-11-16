@@ -29,20 +29,21 @@ namespace GymApp.Presentacion
         private void frmReporteListado_Load(object sender, EventArgs e)
         {
             
-            //this.rpvPlan.RefreshReport();
 
+            //this.rpvPlan.RefreshReport();
+           
            
         }
 
-        private void cargarCombo(ComboBox combo, List<Mes> lista)
-        {
-            combo.DataSource = lista;
-            combo.DisplayMember = "Nombre";
-            combo.ValueMember = "Numero";
-            combo.SelectedIndex = -1;
-            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+        //private void cargarCombo(ComboBox combo, List<Mes> lista)
+        //{
+        //    combo.DataSource = lista;
+        //    combo.DisplayMember = "Nombre";
+        //    combo.ValueMember = "Numero";
+        //    combo.SelectedIndex = -1;
+        //    combo.DropDownStyle = ComboBoxStyle.DropDownList;
 
-        }
+        //}
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -88,6 +89,29 @@ namespace GymApp.Presentacion
             rpvPlan.RefreshReport();
         }
 
+
+                    this.dTPlanesBindingSource.DataSource = (AlumnoService.RecuperarFiltrados(txtNombreAlummno.Text, int.Parse(txtNumeroDoc.Text)));
+                }
+
+            }
+
+            if (txtNombrePlan.Text == "" && txtNumeroPlann.Text == "")
+            {
+                this.dTPlanesBindingSource.DataSource= svPlanGym.recuperarTodos(dtpDesde.Value.ToString("yyyy/MM/dd"), dtpHasta.Value.ToString("yyyy/MM/dd"));
+
+            }
+
+            else
+            {
+                this.dTPlanesBindingSource.DataSource= svPlanGym.recuperarFiltrados(long.Parse(txtNumeroDoc.Text), dtpDesde.Value.ToString("yyyy/MM/dd"), dtpHasta.Value.ToString("yyyy/MM/dd"));
+            }
+
+
+
+
+
+
+        }
         private void btnListo_Click(object sender, EventArgs e)
         {
             frmPrincipal frmPrincipal = new frmPrincipal();
@@ -104,5 +128,6 @@ namespace GymApp.Presentacion
         {
             
         }
+
     }
 }

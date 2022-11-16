@@ -85,6 +85,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+
           <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
@@ -240,7 +241,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>fecha Hasta</Value>
+                                  <Value>Fecha Hasta</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -506,6 +507,7 @@
             <Height>1.2cm</Height>
             <Width>17.11257cm</Width>
             <ZIndex>1</ZIndex>
+
             <Style>
               <Border>
                 <Style>None</Style>
@@ -632,6 +634,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+
         </ReportItems>
         <Height>2.22917in</Height>
         <Style />
@@ -826,6 +829,7 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
+
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>

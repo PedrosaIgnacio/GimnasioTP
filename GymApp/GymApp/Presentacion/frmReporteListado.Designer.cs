@@ -42,6 +42,7 @@
             this.lblNumeroPlan = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNumeroPlan = new System.Windows.Forms.TextBox();
+
             this.gbxPeriodo = new System.Windows.Forms.GroupBox();
             this.lblFechaHasta = new System.Windows.Forms.Label();
             this.lblFechaDesde = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.gbxPlan.SuspendLayout();
             this.gbxPeriodo.SuspendLayout();
             this.gbxAlumno.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // rpvPlan
@@ -67,6 +69,7 @@
             this.rpvPlan.Name = "rpvPlan";
             this.rpvPlan.ServerReport.BearerToken = null;
             this.rpvPlan.Size = new System.Drawing.Size(776, 284);
+
             this.rpvPlan.TabIndex = 0;
             // 
             // btnListo
@@ -95,20 +98,45 @@
             this.btnConsultar.Location = new System.Drawing.Point(591, 162);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(103, 27);
+
             this.btnConsultar.TabIndex = 2;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // dsListadoPlanes
+
             // 
-            this.dsListadoPlanes.DataSetName = "dsListadoPlanes";
-            this.dsListadoPlanes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.lblNombrePlan.AutoSize = true;
+            this.lblNombrePlan.Location = new System.Drawing.Point(213, 18);
+            this.lblNombrePlan.Name = "lblNombrePlan";
+            this.lblNombrePlan.Size = new System.Drawing.Size(44, 13);
+            this.lblNombrePlan.TabIndex = 4;
+            this.lblNombrePlan.Text = "Nombre";
             // 
-            // dTPlanesBindingSource
+            // lblNumeroPlan
             // 
-            this.dTPlanesBindingSource.DataMember = "DTPlanes";
-            this.dTPlanesBindingSource.DataSource = this.dsListadoPlanes;
+            this.lblNumeroPlan.AutoSize = true;
+            this.lblNumeroPlan.Location = new System.Drawing.Point(6, 19);
+            this.lblNumeroPlan.Name = "lblNumeroPlan";
+            this.lblNumeroPlan.Size = new System.Drawing.Size(44, 13);
+            this.lblNumeroPlan.TabIndex = 3;
+            this.lblNumeroPlan.Text = "Número";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 2;
+            // 
+            // txtNumeroPlann
+            // 
+            this.txtNumeroPlann.Location = new System.Drawing.Point(9, 35);
+            this.txtNumeroPlann.Name = "txtNumeroPlann";
+            this.txtNumeroPlann.Size = new System.Drawing.Size(153, 20);
+            this.txtNumeroPlann.TabIndex = 0;
             // 
             // gbxPlan
             // 
@@ -275,6 +303,7 @@
             this.Controls.Add(this.gbxPeriodo);
             this.Controls.Add(this.gbxAlumno);
             this.Controls.Add(this.btnConsultar);
+
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnListo);
             this.Controls.Add(this.rpvPlan);
@@ -290,6 +319,7 @@
             this.gbxPeriodo.PerformLayout();
             this.gbxAlumno.ResumeLayout(false);
             this.gbxAlumno.PerformLayout();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,6 +339,7 @@
         private System.Windows.Forms.Label lblNumeroPlan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNumeroPlan;
+
         private System.Windows.Forms.GroupBox gbxPeriodo;
         private System.Windows.Forms.Label lblFechaHasta;
         private System.Windows.Forms.Label lblFechaDesde;
@@ -320,5 +351,6 @@
         private System.Windows.Forms.Label lblNroDoc;
         private System.Windows.Forms.Label lblTipoDoc;
         private System.Windows.Forms.TextBox txtNumeroDoc;
+
     }
 }

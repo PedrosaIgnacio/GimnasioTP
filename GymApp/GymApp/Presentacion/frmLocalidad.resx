@@ -255,7 +255,11 @@
         PeoAAAAASUVORK5CYII=
 </value>
   </data>
+<<<<<<< HEAD
   <metadata name="colId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+=======
+  <metadata name="colIdLocalidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+>>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
     <value>True</value>
   </metadata>
   <metadata name="ColLocalidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

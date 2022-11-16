@@ -1,4 +1,4 @@
-﻿namespace GymApp.Reportes
+namespace GymApp.Reportes
 {
 }
 
@@ -16,3 +16,4 @@ namespace GymApp.Reportes {
     public partial class dsListadoPlanes {
     }
 }
+

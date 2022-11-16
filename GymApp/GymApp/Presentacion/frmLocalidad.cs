@@ -1,4 +1,4 @@
-﻿using GymApp.Entidades;
+using GymApp.Entidades;
 using GymApp.Servicios.Implementaciones;
 using GymApp.Servicios.Interfaces;
 using System;

@@ -98,5 +98,6 @@ namespace GymApp.Presentacion
                 usuarioToolStripMenuItem.Visible = false;
             }
         }
+
     }
 }

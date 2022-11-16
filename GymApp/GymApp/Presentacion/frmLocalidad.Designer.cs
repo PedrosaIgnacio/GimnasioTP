@@ -1,4 +1,4 @@
-﻿namespace GymApp.Presentacion
+namespace GymApp.Presentacion
 {
     partial class frmLocalidad
     {

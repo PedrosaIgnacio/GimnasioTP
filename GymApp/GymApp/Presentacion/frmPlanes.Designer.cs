@@ -66,6 +66,7 @@
             this.gbxAlumno.TabIndex = 0;
             this.gbxAlumno.TabStop = false;
             this.gbxAlumno.Text = "Alumno";
+           
             // 
             // lblNroDoc
             // 

@@ -13,7 +13,7 @@ namespace GymApp.Datos.DAOs
     {
         public List<Alumno> RecuperarTodos()
         {
-            string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento, a.MesNacimiento, a.AnioNacimiento, a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.IdEstado = 1";
+            string consulta = "SELECT a.Nombre, a.Apellido,a.NumDoc, a.DiaNacimiento,a.MesNacimiento,a.AnioNacimiento a.Telefono, a.Email, a.TelefonoEmergencia, a.Numero, a.Calle,a.IdBarrio, t.IdTipoDoc, t.Nombre as NombreTipoDoc, b.IdBarrio, b.Nombre as NombreBarrio,b.IdLocalidad,l.Nombre as NombreLocalidad FROM TipoDocumento t  JOIN Alumno a ON t.IdTipoDoc = a.TipoDoc JOIN Barrio b ON  a.IdBarrio = b.IdBarrio JOIN Localidad l ON b.IdLocalidad = l.IdLocalidad WHERE a.IdEstado = 1";
             return MapeoAListaDeAlumno(DBHelper.obtenerInstancia().consultar(consulta));
         }
 

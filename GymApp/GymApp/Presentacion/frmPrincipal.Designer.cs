@@ -43,6 +43,7 @@
             this.listadoPlanesPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ejerciciosMasUtilzadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupoMuscularMásAfectadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -165,6 +166,7 @@
             this.grupoMuscularMásAfectadoToolStripMenuItem.Text = "Grupo Muscular más afectado";
             this.grupoMuscularMásAfectadoToolStripMenuItem.Click += new System.EventHandler(this.grupoMuscularMásAfectadoToolStripMenuItem_Click);
             // 
+
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::GymApp.Properties.Resources.LogoGim;

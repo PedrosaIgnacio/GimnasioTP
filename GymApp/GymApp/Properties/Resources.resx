@@ -119,6 +119,7 @@
   </resheader>
   <data name="StringConexion" xml:space="preserve">
     <value>Data Source=DESKTOP-AJIOCC9\SQLEXPRESS;Initial Catalog=GimnasioTP3;Integrated Security=True</value>
+
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buscar1" type="System.Resources.ResXFileRef, System.Windows.Forms">

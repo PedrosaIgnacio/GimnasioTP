@@ -1,4 +1,4 @@
-﻿using GymApp.Datos.Interfaces;
+using GymApp.Datos.Interfaces;
 using GymApp.Entidades;
 using System;
 using System.Collections.Generic;
