@@ -19,7 +19,7 @@ namespace GymApp.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -121,7 +121,8 @@ namespace GymApp.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=DESKTOP-L2D8I3V\SQLEXPRESS;Initial Catalog=GimnasioTP;Integrated Security=True.
+        ///   Busca una cadena traducida similar a Data Source=DESKTOP-AJIOCC9\SQLEXPRESS;Initial Catalog=GimnasioTP3;Integrated Security=True.
+
         /// </summary>
         internal static string StringConexion {
             get {

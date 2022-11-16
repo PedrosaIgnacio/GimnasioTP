@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEjerciciosAM));
             this.grbAltaEjercicios = new System.Windows.Forms.GroupBox();
             this.btnAgregarGrupoMuscular = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.grbAltaEjercicios.TabIndex = 12;
             this.grbAltaEjercicios.TabStop = false;
             this.grbAltaEjercicios.Text = "Ejercicio";
-            this.grbAltaEjercicios.Enter += new System.EventHandler(this.grbAltaEjercicios_Enter);
             // 
             // btnAgregarGrupoMuscular
             // 
@@ -107,7 +107,6 @@
             this.lblNombreEjercicios.Size = new System.Drawing.Size(47, 13);
             this.lblNombreEjercicios.TabIndex = 2;
             this.lblNombreEjercicios.Text = "Nombre:";
-            this.lblNombreEjercicios.Click += new System.EventHandler(this.lblNombreUsuario_Click);
             // 
             // lblIdEjercicio
             // 
@@ -179,6 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 355);
             this.Controls.Add(this.grbAltaEjercicios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEjerciciosAM";
             this.Text = "frmEjerciciosAM";
             this.Load += new System.EventHandler(this.frmEjerciciosAM_Load);

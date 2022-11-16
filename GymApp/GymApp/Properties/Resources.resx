@@ -118,14 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="StringConexion" xml:space="preserve">
-    <value>Data Source=DESKTOP-L2D8I3V\SQLEXPRESS;Initial Catalog=GimnasioTP;Integrated Security=True</value>
-<<<<<<< HEAD
+    <value>Data Source=DESKTOP-AJIOCC9\SQLEXPRESS;Initial Catalog=GimnasioTP3;Integrated Security=True</value>
+
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buscar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buscar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-=======
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
   </data>
   <data name="gym-durango" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gym-durango.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

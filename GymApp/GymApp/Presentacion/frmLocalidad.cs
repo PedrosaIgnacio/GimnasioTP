@@ -1,4 +1,4 @@
-﻿using GymApp.Entidades;
+using GymApp.Entidades;
 using GymApp.Servicios.Implementaciones;
 using GymApp.Servicios.Interfaces;
 using System;
@@ -24,6 +24,7 @@ namespace GymApp.Presentacion
             Modificacion
         }
         private Acciones MiAccion;
+        ILocalidadService servicio = new LocalidadService();
         public frmLocalidad()
         {
             InitializeComponent();
@@ -34,13 +35,7 @@ namespace GymApp.Presentacion
             if (txtNombreLocalidad.Text == "")
             {
                 CargarGrilla(grdLocalidad, LService.RecuperarTodos());
-
             }
-            else
-            {
-                CargarGrilla(grdLocalidad, LService.RecuperarFiltrados(txtNombreLocalidad.Text));
-            }
-
         }
 
         private void CargarGrilla(DataGridView grdLocalidad, List<Localidad> lista)
@@ -66,12 +61,7 @@ namespace GymApp.Presentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             MiAccion = Acciones.Alta;
-<<<<<<< HEAD
-            
             frmLocalidadAM frmLocalidad = new frmLocalidadAM(MiAccion.ToString(), null);
-=======
-            frmLocalidadAM frmLocalidad = new frmLocalidadAM(MiAccion.ToString(),null);
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
             frmLocalidad.Show();
         }
 
@@ -80,31 +70,21 @@ namespace GymApp.Presentacion
             if (grdLocalidad.CurrentRow != null)
             {
                 MiAccion = Acciones.Modificacion;
-<<<<<<< HEAD
                 int idLocalidad = (int)grdLocalidad.CurrentRow.Cells[0].Value;
                 frmLocalidadAM frmLocalidadAM = new frmLocalidadAM(MiAccion.ToString(), idLocalidad);
-=======
-                frmLocalidadAM frmLocalidadAM = new frmLocalidadAM(MiAccion.ToString(),(int) grdLocalidad.CurrentRow.Cells[0].Value);
-
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
                 frmLocalidadAM.Show();
             }
             else
             {
-                MessageBox.Show("Error debe elegir una localidad primero.");
+                MessageBox.Show("Debe seleccionar una localidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-       
         }
-
-
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             frmPrincipal frmPrincipal = new frmPrincipal();
             frmPrincipal.Show();
             this.Hide();
-
-
         }
     }
 }

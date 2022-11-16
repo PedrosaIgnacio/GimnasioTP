@@ -1,4 +1,4 @@
-﻿using GymApp.Datos.DAOs;
+using GymApp.Datos.DAOs;
 using GymApp.Datos.Interfaces;
 using GymApp.Entidades;
 using GymApp.Servicios.Interfaces;
@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GymApp.Servicios.Implementaciones
 {
@@ -22,9 +21,9 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.RecuperarTodos();
         }
-        public List<Localidad> RecuperarFiltrados(string Nombre)
+        public List<Localidad> RecuperarFiltrados()
         {
-            return dao.RecuperarFiltrados(Nombre);
+            return dao.RecuperarFiltrados();
         }
         public int InsertarUno(Localidad l)
         {
@@ -35,9 +34,10 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.ActualizarLocalidad(l);
         }
-        public Localidad RecuperarUno(int id)
+
+        public Localidad RecuperarUna(int idLocalidad)
         {
-            return dao.RecuperarUno(id);
+            return dao.RecuperarUna(idLocalidad);
         }
     }
 }

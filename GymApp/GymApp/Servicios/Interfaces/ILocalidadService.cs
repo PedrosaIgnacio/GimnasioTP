@@ -1,4 +1,4 @@
-﻿using GymApp.Entidades;
+using GymApp.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +10,12 @@ namespace GymApp.Servicios.Interfaces
     interface ILocalidadService
     {
         List<Localidad> RecuperarTodos();
-        List<Localidad> RecuperarFiltrados(string Nombre);
-
+        List<Localidad> RecuperarFiltrados();
+        Localidad RecuperarUna(int idLocalidad);
         int InsertarUno(Localidad l);
 
         int ActualizarLocalidad(Localidad l);
 
-        Localidad RecuperarUno(int Id);
+        
     }
 }

@@ -122,7 +122,6 @@
             this.lblFechaHasta.Size = new System.Drawing.Size(68, 13);
             this.lblFechaHasta.TabIndex = 4;
             this.lblFechaHasta.Text = "Fecha Hasta";
-            this.lblFechaHasta.Click += new System.EventHandler(this.lblFechaHasta_Click);
             // 
             // lblFechaDesde
             // 
@@ -132,7 +131,6 @@
             this.lblFechaDesde.Size = new System.Drawing.Size(71, 13);
             this.lblFechaDesde.TabIndex = 2;
             this.lblFechaDesde.Text = "Fecha Desde";
-            this.lblFechaDesde.Click += new System.EventHandler(this.lblFechaDesde_Click);
             // 
             // dtpHasta
             // 
@@ -141,7 +139,6 @@
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(126, 20);
             this.dtpHasta.TabIndex = 3;
-            this.dtpHasta.ValueChanged += new System.EventHandler(this.dtpHasta_ValueChanged);
             // 
             // dtpDesde
             // 
@@ -150,7 +147,6 @@
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(126, 20);
             this.dtpDesde.TabIndex = 2;
-            this.dtpDesde.ValueChanged += new System.EventHandler(this.dtpDesde_ValueChanged);
             // 
             // grdPlan
             // 
@@ -282,6 +278,7 @@
             this.Controls.Add(this.grdPlan);
             this.Controls.Add(this.gbxPeriodo);
             this.Controls.Add(this.gbxAlumno);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPlanes";
             this.Text = "Administrador de Planes";
             this.Load += new System.EventHandler(this.frmPlanes_Load);

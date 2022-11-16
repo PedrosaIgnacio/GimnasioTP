@@ -1,4 +1,4 @@
-﻿namespace GymApp.Presentacion
+namespace GymApp.Presentacion
 {
     partial class frmLocalidad
     {
@@ -35,14 +35,10 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.grdLocalidad = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNombreEjercicio = new System.Windows.Forms.Label();
             this.txtNombreLocalidad = new System.Windows.Forms.TextBox();
-<<<<<<< HEAD
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-=======
-            this.colIdLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
-            this.ColLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdLocalidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +86,7 @@
             this.btnEditar.BackColor = System.Drawing.SystemColors.Window;
             this.btnEditar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.BackgroundImage")));
             this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEditar.Location = new System.Drawing.Point(117, 331);
+            this.btnEditar.Location = new System.Drawing.Point(102, 331);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(46, 47);
@@ -119,11 +115,7 @@
             this.grdLocalidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdLocalidad.ColumnHeadersHeight = 30;
             this.grdLocalidad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-<<<<<<< HEAD
             this.colId,
-=======
-            this.colIdLocalidad,
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
             this.ColLocalidad});
             this.grdLocalidad.GridColor = System.Drawing.SystemColors.Control;
             this.grdLocalidad.Location = new System.Drawing.Point(28, 97);
@@ -134,12 +126,22 @@
             this.grdLocalidad.RowTemplate.Height = 24;
             this.grdLocalidad.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdLocalidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-<<<<<<< HEAD
             this.grdLocalidad.Size = new System.Drawing.Size(325, 192);
-=======
-            this.grdLocalidad.Size = new System.Drawing.Size(419, 192);
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
             this.grdLocalidad.TabIndex = 44;
+            // 
+            // colId
+            // 
+            this.colId.HeaderText = "#ID";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            // 
+            // ColLocalidad
+            // 
+            this.ColLocalidad.HeaderText = "Nombre Localidad";
+            this.ColLocalidad.MinimumWidth = 6;
+            this.ColLocalidad.Name = "ColLocalidad";
+            this.ColLocalidad.ReadOnly = true;
+            this.ColLocalidad.Width = 300;
             // 
             // lblNombreEjercicio
             // 
@@ -159,33 +161,11 @@
             this.txtNombreLocalidad.Size = new System.Drawing.Size(159, 20);
             this.txtNombreLocalidad.TabIndex = 41;
             // 
-<<<<<<< HEAD
-            // colId
-            // 
-            this.colId.HeaderText = "#ID";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-=======
-            // colIdLocalidad
-            // 
-            this.colIdLocalidad.HeaderText = "IdLocalidad";
-            this.colIdLocalidad.Name = "colIdLocalidad";
-            this.colIdLocalidad.ReadOnly = true;
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
-            // 
-            // ColLocalidad
-            // 
-            this.ColLocalidad.HeaderText = "Nombre Localidad";
-            this.ColLocalidad.MinimumWidth = 6;
-            this.ColLocalidad.Name = "ColLocalidad";
-            this.ColLocalidad.ReadOnly = true;
-            this.ColLocalidad.Width = 300;
-            // 
             // frmLocalidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 401);
+            this.ClientSize = new System.Drawing.Size(380, 401);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.btnSalir);
@@ -194,6 +174,7 @@
             this.Controls.Add(this.grdLocalidad);
             this.Controls.Add(this.lblNombreEjercicio);
             this.Controls.Add(this.txtNombreLocalidad);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLocalidad";
             this.Text = "frmLocalidad";
             ((System.ComponentModel.ISupportInitialize)(this.grdLocalidad)).EndInit();
@@ -212,11 +193,7 @@
         private System.Windows.Forms.DataGridView grdLocalidad;
         private System.Windows.Forms.Label lblNombreEjercicio;
         private System.Windows.Forms.TextBox txtNombreLocalidad;
-<<<<<<< HEAD
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-=======
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdLocalidad;
->>>>>>> 9b4d9ad3b890085baf7132326d80518561673868
         private System.Windows.Forms.DataGridViewTextBoxColumn ColLocalidad;
     }
 }

@@ -43,7 +43,6 @@ namespace GymApp.Presentacion
             txtNombreUsuario.Focus();
             MiAccion = Acciones.None;
             AlternarBotones(false);
-
         }
         public void AlternarBotones(bool to)
         {
@@ -149,24 +148,21 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
-            MiAccion = Acciones.Modificacion;
-            AbrirFrmUsuariosAM(MiAccion.ToString(), (int)grdUsuarios.CurrentRow.Cells[0].Value, this);
+            if (grdUsuarios.CurrentRow != null)
+            {
+                MiAccion = Acciones.Modificacion;
+                AbrirFrmUsuariosAM(MiAccion.ToString(), (int)grdUsuarios.CurrentRow.Cells[0].Value, this);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
             MiAccion = Acciones.Alta;
             AbrirFrmUsuariosAM(MiAccion.ToString(), null, this);
-        }
-
-        private void cmbTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grdUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

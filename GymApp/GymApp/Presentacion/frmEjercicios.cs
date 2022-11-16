@@ -31,7 +31,6 @@ namespace GymApp.Presentacion
 
         private void frmEjercicios_Load(object sender, EventArgs e)
         {
-            
             CargarCombo(cmbGrupoMuscular, GMservice.RecuperarTodos());
         }
         private void CargarCombo(ComboBox combo, List<GrupoMuscular> lista)
@@ -55,10 +54,8 @@ namespace GymApp.Presentacion
                 {
                     CargarGrilla(grdEjercicio, EJservice.RecuperarFiltrados(txtNombreEjercicio.Text, (int)cmbGrupoMuscular.SelectedValue));
                 }
-          
                 else
                 {
-                    // Aca se llama a cargar grilla con filtros donde si el usuario no selecciona algun opcion se pasa null.
                     CargarGrilla(grdEjercicio, EJservice.RecuperarFiltrados(txtNombreEjercicio.Text, null));
                 }
             }
@@ -110,9 +107,8 @@ namespace GymApp.Presentacion
             }
             else
             {
-                MessageBox.Show("Error, debe elegir un ejercicio primero.");
+                MessageBox.Show("Debe seleccionar un ejercicio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -122,11 +118,11 @@ namespace GymApp.Presentacion
                 int rowsAff = EJservice.EliminarEjercicio((int)grdEjercicio.CurrentRow.Cells[0].Value);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Ejercicio eliminado");
+                    MessageBox.Show("Ejercicio eliminado.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo eliminar el ejercicio");
+                    MessageBox.Show("No se pudo eliminar el ejercicio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 //EJService.BajaLogicaUsuario((int)grdUsuarios.CurrentRow.Cells[0].Value);
                 List<Ejercicio> lstej = new List<Ejercicio>();

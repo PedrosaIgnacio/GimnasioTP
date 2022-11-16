@@ -22,16 +22,6 @@ namespace GymApp.Presentacion
             InitializeComponent();
         }
 
-        private void lblClave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picFondoLogIn_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -57,10 +47,10 @@ namespace GymApp.Presentacion
                 if (usuario.Clave == txtClave.Text)
                 {
                     MessageBox.Show("Ingreso correcto", "Ingreso al Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Authorization.IdTipoUsuario = usuario.TipoUsuario.IdTipoUsuario;
                     frmPrincipal frmPrincipal = new frmPrincipal();
                     frmPrincipal.Show();
                     this.Hide();
-                
                 }
                 else
                 {
@@ -76,8 +66,6 @@ namespace GymApp.Presentacion
                 this.txtClave.Text = string.Empty;
                 this.txtUsuario.Focus();
             }
-
-            
         }
     }
 }

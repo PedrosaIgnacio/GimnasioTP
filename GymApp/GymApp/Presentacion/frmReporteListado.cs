@@ -26,26 +26,10 @@ namespace GymApp.Presentacion
             InitializeComponent();
         }
 
-        //private List<Mes> crearListaMes()
-        //{
-        //    List<Mes> lista = new List<Mes>();
-        //    string[] mes = new string[12] { "Enero", "Febero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciemrbe"};
-           
-        //    for (int i = 0; i < mes.Count(); i++)
-        //    {
-        //        Mes mes1 = new Mes();
-        //        mes1.Nombre = mes[i];
-        //        mes1.Numero = i+1;
-        //        lista.Add(mes1);
-        //    }
-        //    return lista;
-        //}
-
         private void frmReporteListado_Load(object sender, EventArgs e)
         {
             
-           // cargarCombo(cmbMes, crearListaMes());
-            //this.dTPlanesBindingSource.DataSource = this.dsListadoPlanes;
+
             //this.rpvPlan.RefreshReport();
            
            
@@ -63,24 +47,48 @@ namespace GymApp.Presentacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            //rpvPlan.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("MesSeleccionado", cmbMes.SelectedValue.ToString()) });
-            ////DATASOURCE
-            //rpvPlan.LocalReport.DataSources.Clear();
-            //rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar("SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE MONTH(p.FechaDesde) = " + (cmbMes.SelectedIndex + 1))));
-            //rpvPlan.RefreshReport();
-            if (txtNombreAlummno.Text == "" && txtNumeroDoc.Text == "")
+            rpvPlan.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Desde", dtpDesde.Value.ToString("dd/MM/yyyy")), new ReportParameter("Hasta",dtpHasta.Value.ToString("dd/MM/yyyy")), new ReportParameter("nombre","--"), new ReportParameter("nro","--") });
+            //DATASOURCE
+            rpvPlan.LocalReport.DataSources.Clear();
+            //       rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar("SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta, p.Estado FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE MONTH(p.FechaDesde) = " + (cmbMes.SelectedIndex + 1))));
+
+
+            string consulta = "SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta, p.Estado FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE p.FechaDesde >= '" + dtpDesde.Value.ToString("yyyy/MM/dd") + "' AND p.FechaHasta <= '" + dtpHasta.Value.ToString("yyyy/MM/dd") + "'";
+            if (txtNombreAlummno.Text == "" && txtNumeroDoc.Text == "" && txtNombrePlan.Text == "" && txtNumeroPlan.Text == "")
             {
-                this.dTPlanesBindingSource.DataSource = ( AlumnoService.RecuperarTodos());
+
+                rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
+
             }
             else
             {
-                if (txtNumeroDoc.Text == "")
+                if (txtNumeroPlan.Text != "")
                 {
-                    this.dTPlanesBindingSource.DataSource = (AlumnoService.RecuperarFiltrados(txtNombreAlummno.Text, null));
-
+                    consulta = consulta + " AND p.IdPlan = " + txtNumeroPlan.Text;
                 }
-                else
+                if (txtNombrePlan.Text != "")
                 {
+                    consulta = consulta + " AND p.Nombre LIKE '%" + txtNombrePlan.Text + "%'";
+                }
+                if (txtNumeroDoc.Text != "")
+                {
+                    consulta = consulta + " AND a.NumDoc = " + txtNumeroDoc.Text;
+                     
+                }
+                if (txtNombreAlummno.Text != "")
+                {
+                    consulta = consulta + " AND ((a.Nombre LIKE '%" + txtNombreAlummno.Text + "%') OR (a.Apellido LIKE '%" + txtNombreAlummno.Text + "%'))";
+                }
+                rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
+
+
+
+
+
+            }
+            rpvPlan.RefreshReport();
+        }
+
 
                     this.dTPlanesBindingSource.DataSource = (AlumnoService.RecuperarFiltrados(txtNombreAlummno.Text, int.Parse(txtNumeroDoc.Text)));
                 }
@@ -106,6 +114,8 @@ namespace GymApp.Presentacion
         }
         private void btnListo_Click(object sender, EventArgs e)
         {
+            frmPrincipal frmPrincipal = new frmPrincipal();
+            frmPrincipal.Show();
             this.Close();
         }
 
@@ -114,6 +124,10 @@ namespace GymApp.Presentacion
 
         }
 
-      
+        private void txtNumeroDoc_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }

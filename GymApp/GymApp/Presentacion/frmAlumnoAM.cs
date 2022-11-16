@@ -84,40 +84,72 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
-            Alumno alumno = new Alumno();
-            int Dia = int.Parse(txtDiaNacimiento.Text);
-            if (1 <= Dia && Dia <= 31)
+            if (txtAnioNacimiento.Text == null || txtApellido.Text == null || txtCalle.Text == null || txtDiaNacimiento.Text == null ||txtEmail.Text == null || txtMesNacimiento.Text == null ||txtNombre.Text == null ||txtNroCalle.Text == null ||txtNroDoc.Text == null ||txtTelefono.Text == null ||txtTelefonoEmergencia.Text == null ||cmbBarrio.SelectedIndex == -1 || cmbTipoDocumento.SelectedIndex == -1)
             {
-                alumno.DiaNacimiento = Dia;
+                MessageBox.Show("Error en la introduccion de datos", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+            Alumno alumno = new Alumno();
+            if (txtDiaNacimiento.Text != null)
+            {
+                int Dia = int.Parse(txtDiaNacimiento.Text);
+                if (1 <= Dia && Dia <= 31)
+                {
+                    alumno.DiaNacimiento = Dia;
+                }
+                else
+                {
+                    MessageBox.Show("El dia esta fuera de rango", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.txtDiaNacimiento.Focus();
+                }
             }
             else
             {
-                MessageBox.Show("Error! El dia esta fuera de rango","Error", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("No introdujo fecha", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 this.txtDiaNacimiento.Focus();
             }
 
-            int Mes = int.Parse(txtMesNacimiento.Text);
+            if (txtMesNacimiento.Text != null)
+            {
+                int Mes = int.Parse(txtMesNacimiento.Text);
 
-            if (1 <= Mes && Mes <= 12)
-            {
-                alumno.MesNacimiento = Mes;
+                if (1 <= Mes && Mes <= 12)
+                {
+                    alumno.MesNacimiento = Mes;
+                }
+                else
+                {
+                    MessageBox.Show("El mes esta fuera de rango", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMesNacimiento.Focus();
+                }
             }
             else
             {
-                MessageBox.Show("Error! El mes esta fuera de rango", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMesNacimiento.Focus();
+
+                MessageBox.Show("No introdujo mes", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                this.txtMesNacimiento.Focus();
             }
-            int Anio = int.Parse(txtAnioNacimiento.Text);
-            if (1930<=Anio && Anio < DateTime.Now.Year)
+
+            if (txtAnioNacimiento.Text != null)
             {
-                alumno.AnioNacimiento = Anio;
+                int Anio = int.Parse(txtAnioNacimiento.Text);
+                if (1930 <= Anio && Anio < DateTime.Now.Year)
+                {
+                    alumno.AnioNacimiento = Anio;
+                }
+                else
+                {
+                    MessageBox.Show("El año esta fuera de rango", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtAnioNacimiento.Focus();
+                }
             }
             else
             {
-                MessageBox.Show("Error! El anio esta fuera de rango", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtAnioNacimiento.Focus();
+                MessageBox.Show("No introdujo año", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                this.txtAnioNacimiento.Focus();
             }
+            
+            
 
             alumno.NroDocumento = long.Parse(txtNroDoc.Text);
             alumno.TipoDoc = new TipoDocumento();
@@ -138,11 +170,11 @@ namespace GymApp.Presentacion
                 int rowsAff = svAlumno.Modificar(alumno);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Datos Modificados");
+                    MessageBox.Show("Datos modificados.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
-                    MessageBox.Show("error");
+                    MessageBox.Show("No se pudieron modificar los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
             else
@@ -150,11 +182,11 @@ namespace GymApp.Presentacion
                 int rowsAff = svAlumno.Insertar(alumno);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("El Alumno: " + alumno.Nombre + " fue agregado con exito!");
+                    MessageBox.Show("El alumno" + alumno.Nombre + "fue agregado con éxito!", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    MessageBox.Show("Error interno del servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
             

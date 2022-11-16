@@ -209,6 +209,7 @@
             this.Controls.Add(this.txtNombreBarrio);
             this.Controls.Add(this.cmbLocalidad);
             this.Controls.Add(this.lblGrupoMuscular);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBarrio";
             this.Text = "Barrio";
             this.Load += new System.EventHandler(this.frmBarrio_Load);
