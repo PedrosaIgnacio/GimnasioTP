@@ -20,6 +20,7 @@ namespace GymApp.Presentacion
         private int? idBar;
         IBarrioService Brservice = new BarrioService();
         ILocalidadService LService = new LocalidadService();
+
         public frmBarrioAM(string MiAccion, int? IdBr)
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace GymApp.Presentacion
         {
             txtIdBarrio.Text = br.IdBarrio.ToString();
             txtNombreBarrio.Text = br.Nombre.ToString();
-            //cmbLocalidad.SelectedValue = br.Localidad.IdLocalidad;
+            cmbLocalidad.SelectedValue = br.Localidad.IdLocalidad;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -61,7 +62,6 @@ namespace GymApp.Presentacion
                     MessageBox.Show("Barrio Creado");
                     this.Close();
                 }
-
             }
             else
             {
@@ -73,10 +73,8 @@ namespace GymApp.Presentacion
                 int rowsAff = Brservice.ActualizarBarrio(br);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Barrio Modificado");
-                    this.Close();
+                    MessageBox.Show("Barrio modificado.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1); this.Close();
                 }
-
             }
         }
 
@@ -85,7 +83,7 @@ namespace GymApp.Presentacion
             this.Close();
         }
 
-        private void CargarCombo(ComboBox combo, List<Localidad> lista) //si la lista es de tipo Localidad da error
+        private void CargarCombo(ComboBox combo, List<Localidad> lista)
         {
             combo.DataSource = lista;
             combo.DisplayMember = "Nombre";

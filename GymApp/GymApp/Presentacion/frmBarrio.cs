@@ -34,7 +34,7 @@ namespace GymApp.Presentacion
             CargarCombo(cmbLocalidad, LService.RecuperarTodos());
         }
 
-        private void CargarCombo(ComboBox combo, List<Localidad> lista) //si la lista es de tipo Localidad da error
+        private void CargarCombo(ComboBox combo, List<Localidad> lista)
         {
             combo.DataSource = lista;
             combo.DisplayMember = "Nombre";
@@ -62,10 +62,8 @@ namespace GymApp.Presentacion
                 {
                     CargarGrilla(grdBarrio, BrService.RecuperarFiltrados(txtNombreBarrio.Text, (int)cmbLocalidad.SelectedValue));
                 }
-
                 else
                 {
-                    // Aca se llama a cargar grilla con filtros donde si el usuario no selecciona algun opcion se pasa null.
                     CargarGrilla(grdBarrio, BrService.RecuperarFiltrados(txtNombreBarrio.Text, null));
                 }
             }
@@ -91,7 +89,6 @@ namespace GymApp.Presentacion
             List<Barrio> listavacia = new List<Barrio>();
             CargarGrilla(grdBarrio, listavacia);
             txtNombreBarrio.Focus();
-            
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -111,30 +108,8 @@ namespace GymApp.Presentacion
             }
             else
             {
-                MessageBox.Show("Error debe elegir un Barrio primero");
+                MessageBox.Show("Debe seleccionar un barrio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-            
         }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            //if (MessageBox.Show("Está seguro de eliminar este Barrio ?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            //{
-            //    int rowsAff = BrService.EliminarEjercicio((int)grdBarrio.CurrentRow.Cells[0].Value);
-            //    if (rowsAff > 0)
-            //    {
-            //        MessageBox.Show("Barrio eliminado");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("No se pudo eliminar el Barrio");
-            //    }
-                
-            //    List<Barrio> lstBr = new List<Barrio>();
-            //    CargarGrilla(grdBarrio, lstBr);
-            //}
-        }
-
-       
     }
 }

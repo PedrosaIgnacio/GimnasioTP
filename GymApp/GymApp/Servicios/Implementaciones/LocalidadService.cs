@@ -34,5 +34,10 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.ActualizarLocalidad(l);
         }
+
+        public Localidad RecuperarUna(int idLocalidad)
+        {
+            return dao.RecuperarUna(idLocalidad);
+        }
     }
 }

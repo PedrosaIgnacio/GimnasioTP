@@ -48,20 +48,6 @@ namespace GymApp.Datos.DAOs
             return MapToListlocalidad(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
-
-        private List<Localidad> MapToListlocalidad(DataTable tabla)
-        {
-            List<Localidad> lstLocalidad = new List<Localidad>();
-            foreach (DataRow row in tabla.Rows)
-            {
-                Localidad localidad = new Localidad();
-                localidad.IdLocalidad = (int)row["IdLocalidad"];
-                localidad.Nombre = row["Nombre"].ToString();
-                lstLocalidad.Add(localidad);
-            }
-            return lstLocalidad;
-        }
-
         public List<Localidad> RecuperarFiltrados()
         {
             throw new NotImplementedException();
@@ -84,6 +70,33 @@ namespace GymApp.Datos.DAOs
         {
             string consulta = "UPDATE Localidad SET Nombre = '" +l.Nombre +"' WHERE IdLocalidad ="+l.IdLocalidad;
             return DBHelper.obtenerInstancia().actualizar(consulta);
+        }
+
+        public Localidad RecuperarUna(int idLocalidad)
+        {
+            string consulta = "Select * from Localidad where IdLocalidad = " + idLocalidad;
+            return MapToLocalidad(DBHelper.obtenerInstancia().consultar(consulta));
+        }
+
+        private Localidad MapToLocalidad(DataTable tabla)
+        {
+            Localidad l = new Localidad();
+            l.IdLocalidad = (int)tabla.Rows[0][0];
+            l.Nombre = tabla.Rows[0][1].ToString();
+            return l;
+        }
+
+        private List<Localidad> MapToListlocalidad(DataTable tabla)
+        {
+            List<Localidad> lstLocalidad = new List<Localidad>();
+            foreach (DataRow row in tabla.Rows)
+            {
+                Localidad localidad = new Localidad();
+                localidad.IdLocalidad = (int)row["IdLocalidad"];
+                localidad.Nombre = row["Nombre"].ToString();
+                lstLocalidad.Add(localidad);
+            }
+            return lstLocalidad;
         }
     }
 

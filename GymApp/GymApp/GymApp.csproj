@@ -88,6 +88,7 @@
     <Compile Include="Datos\Interfaces\ITipoUsuario.cs" />
     <Compile Include="Datos\Interfaces\IUsuario.cs" />
     <Compile Include="Entidades\Alumno.cs" />
+    <Compile Include="Entidades\Authorization.cs" />
     <Compile Include="Entidades\Barrio.cs" />
     <Compile Include="Entidades\DetallePlanGimnasio.cs" />
     <Compile Include="Entidades\Ejercicio.cs" />
@@ -99,6 +100,24 @@
     <Compile Include="Entidades\TipoDocumento.cs" />
     <Compile Include="Entidades\TipoUsuario.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Presentacion\frmGrupoMuscularMasAfectado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmGrupoMuscularMasAfectado.Designer.cs">
+      <DependentUpon>frmGrupoMuscularMasAfectado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmPlanReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmPlanReporte.Designer.cs">
+      <DependentUpon>frmPlanReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmReporteEjercicMasUtilizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmReporteEjercicMasUtilizados.Designer.cs">
+      <DependentUpon>frmReporteEjercicMasUtilizados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\frmAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +228,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\dsGrupoMuscular.cs">
+      <DependentUpon>dsGrupoMuscular.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsGrupoMuscular.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsGrupoMuscular.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsListadoPlanes.cs">
+      <DependentUpon>dsListadoPlanes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\dsListadoPlanes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,6 +267,15 @@
     <Compile Include="Servicios\Interfaces\ITipoUsuarioService.cs" />
     <Compile Include="Servicios\Interfaces\IUsuarioService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Presentacion\frmGrupoMuscularMasAfectado.resx">
+      <DependentUpon>frmGrupoMuscularMasAfectado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmPlanReporte.resx">
+      <DependentUpon>frmPlanReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmReporteEjercicMasUtilizados.resx">
+      <DependentUpon>frmReporteEjercicMasUtilizados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmAlumno.resx">
       <DependentUpon>frmAlumno.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,6 +340,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\rptGrupoMuscular.rdlc" />
+    <EmbeddedResource Include="Reportes\rptPlanDetallado.rdlc" />
+    <EmbeddedResource Include="Reportes\rptEjerciciosMasUsadoEnPeriodo.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoPlan.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -317,6 +359,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\dsGrupoMuscular.xsc">
+      <DependentUpon>dsGrupoMuscular.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsGrupoMuscular.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsGrupoMuscular.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\dsGrupoMuscular.xss">
+      <DependentUpon>dsGrupoMuscular.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\dsListadoPlanes.xsc">
       <DependentUpon>dsListadoPlanes.xsd</DependentUpon>
     </None>

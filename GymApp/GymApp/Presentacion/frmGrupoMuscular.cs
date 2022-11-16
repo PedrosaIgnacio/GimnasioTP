@@ -27,12 +27,6 @@ namespace GymApp.Presentacion
             InitializeComponent();
         }
 
-        private void frmGrupoMuscular_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-
         public void CargarGrilla(DataGridView grilla, List<GrupoMuscular> lista)
         {
             grilla.Rows.Clear();
@@ -54,7 +48,6 @@ namespace GymApp.Presentacion
             else
             {
                 CargarGrilla(grdGrupoMuscular, GMService.RecuperarFiltrados(txtNombreGrupoMuscular.Text));
-
             }
         }
 
@@ -82,26 +75,41 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            MiAccion = Acciones.Modificacion;
-            int idGM = (int)grdGrupoMuscular.CurrentRow.Cells[0].Value;
-            frmGrupoMuscularAM frmGrupoMuscularAM = new frmGrupoMuscularAM(MiAccion.ToString(),idGM);
-            frmGrupoMuscularAM.Show();
+            if (grdGrupoMuscular.CurrentRow != null)
+            {
+
+                MiAccion = Acciones.Modificacion;
+                int idGM = (int)grdGrupoMuscular.CurrentRow.Cells[0].Value;
+                frmGrupoMuscularAM frmGrupoMuscularAM = new frmGrupoMuscularAM(MiAccion.ToString(), idGM);
+                frmGrupoMuscularAM.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un grupo muscular.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
 
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
-            if (MessageBox.Show("Estas seguro de eliminar el Grupo Muscular","Eliminando" ,MessageBoxButtons.YesNo,MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (grdGrupoMuscular.CurrentRow != null)
             {
-                if ((GMService.DarDeBajaGrupoMuscular((int)grdGrupoMuscular.CurrentRow.Cells[0].Value)) == 1)
+
+                if (MessageBox.Show("Estas seguro de eliminar el Grupo Muscular", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Grupo Muscular eliminado con exito");
+                    if ((GMService.DarDeBajaGrupoMuscular((int)grdGrupoMuscular.CurrentRow.Cells[0].Value)) == 1)
+                    {
+                        MessageBox.Show("Grupo muscular eliminado con éxito", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el grupo muscular", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Error, no se pudo eliminar el grupo muscular");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un grupo muscular.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
     }

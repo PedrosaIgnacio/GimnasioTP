@@ -44,14 +44,5 @@ namespace GymApp.Servicios.Implementaciones
             return dao.RecuperarUno(idBr);
         }
 
-
-
-
-
-        // Este esta de mas
-        public List<Barrio> EliminarBarrio()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

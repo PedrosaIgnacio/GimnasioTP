@@ -28,27 +28,6 @@ namespace GymApp.Presentacion
         {
             InitializeComponent();
         }
-
-        private void lblFechaHasta_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFechaDesde_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpHasta_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpDesde_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             miAccion = Acciones.Alta;
@@ -81,14 +60,21 @@ namespace GymApp.Presentacion
             if (txtNroDoc.Text == "" && cmbTipoDoc.SelectedIndex == -1)
             {
                 CargarGrilla(grdPlan, svPlanGym.recuperarTodos(dtpDesde.Value.ToString("yyyy/MM/dd"), dtpHasta.Value.ToString("yyyy/MM/dd")));
-
             }
-
             else
             {
+                if (txtNroDoc.Text == "")
+                {
+                    MessageBox.Show("Debe insertar un Número de Documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1); 
+                    return;
+                }
+                if (cmbTipoDoc.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe elegir un tipo de documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    return;
+                }
                 CargarGrilla(grdPlan, svPlanGym.recuperarFiltrados(long.Parse(txtNroDoc.Text), dtpDesde.Value.ToString("yyyy/MM/dd"), dtpHasta.Value.ToString("yyyy/MM/dd")));
             }
-
         }
         public void CargarGrilla(DataGridView grilla, List<PlanGym> lista)
         {
@@ -102,7 +88,6 @@ namespace GymApp.Presentacion
                     lista[i].FechaHasta
                     );
             }
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -112,13 +97,10 @@ namespace GymApp.Presentacion
                 miAccion = Acciones.Modificacion;
                 frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), (int)grdPlan.CurrentRow.Cells[0].Value);
                 frmPlanAM.Show();
-                
             }
             else
             {
-
-                MessageBox.Show("Error, debe elegir un Plan primero.");
-
+                MessageBox.Show("Debe seleccionar un plan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -126,31 +108,37 @@ namespace GymApp.Presentacion
         {
             if (grdPlan.CurrentRow != null)
             {
-                miAccion = Acciones.Consulta;
-                frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), (int)grdPlan.CurrentRow.Cells[0].Value);
-                frmPlanAM.Show();
-
+                /* miAccion = Acciones.Consulta;
+                 frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), (int)grdPlan.CurrentRow.Cells[0].Value);
+                 frmPlanAM.Show();*/
+                frmPlanReporte frmPlanReporte = new frmPlanReporte((int)grdPlan.CurrentRow.Cells[0].Value);
+                frmPlanReporte.Show();
             }
             else
             {
-
-                MessageBox.Show("Error, debe elegir un Plan primero.");
-
+                MessageBox.Show("Debe elegir un plan primero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Estas seguro de eliminar el Plan", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (grdPlan.CurrentRow != null)
             {
-                if ((svPlanGym.DarBajaPlan((int)grdPlan.CurrentRow.Cells[0].Value)))
+                if (MessageBox.Show("Estas seguro de eliminar el Plan", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Plan eliminado con exito");
+                    if ((svPlanGym.DarBajaPlan((int)grdPlan.CurrentRow.Cells[0].Value)))
+                    {
+                        MessageBox.Show("Plan eliminado.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el plan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Error, no se pudo eliminar el plan");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un plan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
     }

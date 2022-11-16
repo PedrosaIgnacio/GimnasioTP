@@ -46,13 +46,13 @@ namespace GymApp.Presentacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            rpvPlan.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("MesSeleccionado", "MesProbando") });
+            rpvPlan.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Desde", dtpDesde.Value.ToString("dd/MM/yyyy")), new ReportParameter("Hasta",dtpHasta.Value.ToString("dd/MM/yyyy")), new ReportParameter("nombre","--"), new ReportParameter("nro","--") });
             //DATASOURCE
             rpvPlan.LocalReport.DataSources.Clear();
-            //       rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar("SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE MONTH(p.FechaDesde) = " + (cmbMes.SelectedIndex + 1))));
+            //       rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar("SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta, p.Estado FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE MONTH(p.FechaDesde) = " + (cmbMes.SelectedIndex + 1))));
 
 
-            string consulta = "SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE p.FechaDesde >= '" + dtpDesde.Value.ToString("yyyy/MM/dd") + "' AND p.FechaHasta <= '" + dtpHasta.Value.ToString("yyyy/MM/dd") + "'";
+            string consulta = "SELECT p.IdPlan as 'numeroPlan', p.Nombre as 'nombrePlan', a.Nombre + a.Apellido as 'nombreAlumno', p.FechaDesde, p.FechaHasta, p.Estado FROM PlanGim p JOIN Alumno a ON (p.NumDocAl = a.NumDoc) WHERE p.FechaDesde >= '" + dtpDesde.Value.ToString("yyyy/MM/dd") + "' AND p.FechaHasta <= '" + dtpHasta.Value.ToString("yyyy/MM/dd") + "'";
             if (txtNombreAlummno.Text == "" && txtNumeroDoc.Text == "" && txtNombrePlan.Text == "" && txtNumeroPlan.Text == "")
             {
 
@@ -61,41 +61,48 @@ namespace GymApp.Presentacion
             }
             else
             {
+                if (txtNumeroPlan.Text != "")
+                {
+                    consulta = consulta + " AND p.IdPlan = " + txtNumeroPlan.Text;
+                }
+                if (txtNombrePlan.Text != "")
+                {
+                    consulta = consulta + " AND p.Nombre LIKE '%" + txtNombrePlan.Text + "%'";
+                }
                 if (txtNumeroDoc.Text != "")
                 {
                     consulta = consulta + " AND a.NumDoc = " + txtNumeroDoc.Text;
-                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
-
+                     
                 }
                 if (txtNombreAlummno.Text != "")
                 {
                     consulta = consulta + " AND ((a.Nombre LIKE '%" + txtNombreAlummno.Text + "%') OR (a.Apellido LIKE '%" + txtNombreAlummno.Text + "%'))";
-                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
                 }
+                rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
 
-                if (txtNombrePlan.Text != "" )
-                {
-                    consulta = consulta + " AND p.Nombre LIKE '%" + txtNombrePlan.Text + "%'";
-                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
-                }
 
-                if(txtNumeroPlan.Text != "")
-                {
-                    consulta = consulta + " AND p.IdPlan = " + txtNumeroPlan.Text;
-                    rpvPlan.LocalReport.DataSources.Add(new ReportDataSource("DTPlanes", DBHelper.obtenerInstancia().consultar(consulta)));
-                }
+
+
+
             }
             rpvPlan.RefreshReport();
         }
 
         private void btnListo_Click(object sender, EventArgs e)
         {
+            frmPrincipal frmPrincipal = new frmPrincipal();
+            frmPrincipal.Show();
             this.Close();
         }
 
         private void lblTitulo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNumeroDoc_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

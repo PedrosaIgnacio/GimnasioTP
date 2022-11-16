@@ -69,7 +69,6 @@
             this.txtNroDni.Name = "txtNroDni";
             this.txtNroDni.Size = new System.Drawing.Size(100, 20);
             this.txtNroDni.TabIndex = 2;
-            this.txtNroDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // lblNumero
             // 
@@ -217,9 +216,9 @@
             this.Controls.Add(this.txtNroDni);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlumno";
             this.Text = "Administrador Alumno";
-            this.Load += new System.EventHandler(this.frmAlumno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdAlumno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

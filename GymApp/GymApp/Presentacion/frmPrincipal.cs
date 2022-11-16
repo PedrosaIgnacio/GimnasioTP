@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymApp.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,27 @@ namespace GymApp.Presentacion
 {
     public partial class frmPrincipal : Form
     {
+        enum PerfilUsuario
+        {
+            Administrador,
+            Profesor,
+        }
+        private PerfilUsuario miPerfil;
+        public frmPrincipal(int IdTipoUsuario)
+        {
+            InitializeComponent();
+            if (IdTipoUsuario == 1)
+            {
+                miPerfil = PerfilUsuario.Administrador;
+            }
+            else
+            {
+                miPerfil = PerfilUsuario.Profesor;
+            }
+        }
         public frmPrincipal()
         {
             InitializeComponent();
-        }
-
-        private void soporteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ejerciciosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,7 +72,7 @@ namespace GymApp.Presentacion
         }
         private void barrioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBarrio frmBarrio =  new frmBarrio();
+            frmBarrio frmBarrio = new frmBarrio();
             frmBarrio.Show();
             this.Hide();
         }
@@ -75,6 +89,32 @@ namespace GymApp.Presentacion
             frmReporteListado frmReporte = new frmReporteListado();
             frmReporte.Show();
             this.Hide();
+        }
+
+        private void ejerciciosMasUtilzadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteEjercicioMasUtilizados frmReporte = new frmReporteEjercicioMasUtilizados();
+            frmReporte.Show();
+            this.Hide();
+        }
+
+        private void grupoMuscularMásAfectadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGrupoMuscularMasAfectado frmReporteGM = new frmGrupoMuscularMasAfectado();
+            frmReporteGM.Show();
+            this.Hide();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            if (miPerfil == PerfilUsuario.Administrador)
+            {
+                usuarioToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                usuarioToolStripMenuItem.Visible = false;
+            }
         }
     }
 }

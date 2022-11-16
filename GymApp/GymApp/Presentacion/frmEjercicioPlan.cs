@@ -21,7 +21,6 @@ namespace GymApp.Presentacion
         public frmEjercicioPlan()
         {
             InitializeComponent();
-            
         }
 
         private void frmEjercicioPlan_Load(object sender, EventArgs e)
@@ -43,13 +42,17 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (cmbEjercicio.SelectedIndex == -1 || txtSerie.Text == "" || txtRepeticiones.Text == "")
+            {
+                MessageBox.Show("Error en la introduccion de datos", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
             if (Int32.Parse(txtSerie.Text) <= 0 || Int32.Parse(txtRepeticiones.Text) <= 0)
             {
-                MessageBox.Show("Error serie o repeticiones no puede ser negativo");
+                MessageBox.Show("Debe insertar un numero positivo para las series y repeticiones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else
             {
-               
                 detalle = new DetallePlanGimnasio();
                 detalle.Ejercicio = new Ejercicio();
                 detalle.Ejercicio = cmbEjercicio.SelectedItem as Ejercicio;
@@ -60,7 +63,6 @@ namespace GymApp.Presentacion
             }
         }
 
-        //ADD COMENTARIO
         private void cmbEjercicio_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var ejercicio = cmbEjercicio.SelectedItem as Ejercicio;

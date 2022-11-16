@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogIn));
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -85,7 +86,6 @@
             this.lblClave.Size = new System.Drawing.Size(37, 13);
             this.lblClave.TabIndex = 4;
             this.lblClave.Text = "Clave:";
-            this.lblClave.Click += new System.EventHandler(this.lblClave_Click);
             // 
             // lblUsuario
             // 
@@ -105,14 +105,13 @@
             this.picFondoLogIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picFondoLogIn.TabIndex = 6;
             this.picFondoLogIn.TabStop = false;
-            this.picFondoLogIn.Click += new System.EventHandler(this.picFondoLogIn_Click);
             // 
             // picLogoGym
             // 
             this.picLogoGym.Image = global::GymApp.Properties.Resources.LogoGim;
             this.picLogoGym.Location = new System.Drawing.Point(114, 75);
             this.picLogoGym.Name = "picLogoGym";
-            this.picLogoGym.Size = new System.Drawing.Size(110, 90);
+            this.picLogoGym.Size = new System.Drawing.Size(110, 96);
             this.picLogoGym.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogoGym.TabIndex = 7;
             this.picLogoGym.TabStop = false;
@@ -130,6 +129,7 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.btnIngresar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLogIn";
             this.Text = "Iniciar Sesión";

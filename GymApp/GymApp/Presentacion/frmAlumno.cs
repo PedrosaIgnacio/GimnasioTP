@@ -30,16 +30,6 @@ namespace GymApp.Presentacion
             InitializeComponent();
         }
 
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmAlumno_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
             this.LimpiarFiltro();
@@ -49,21 +39,18 @@ namespace GymApp.Presentacion
         {
             if (txtNombre.Text == "" && txtNroDni.Text == "")
             {
-                CargarGrilla(grdAlumno, AlumnoService.RecuperarTodos() );
+                CargarGrilla(grdAlumno, AlumnoService.RecuperarTodos());
             }
             else
             {
                 if (txtNroDni.Text == "")
                 {
                     CargarGrilla(grdAlumno, AlumnoService.RecuperarFiltrados(txtNombre.Text, null));
-
                 }
                 else
                 {
-
-                CargarGrilla(grdAlumno, AlumnoService.RecuperarFiltrados(txtNombre.Text, int.Parse(txtNroDni.Text)));
+                    CargarGrilla(grdAlumno, AlumnoService.RecuperarFiltrados(txtNombre.Text, int.Parse(txtNroDni.Text)));
                 }
-
             }
         }
 
@@ -73,7 +60,7 @@ namespace GymApp.Presentacion
             string FechaNacimiento;
             for (int i = 0; i < alumnos.Count; i++)
             {
-                FechaNacimiento = alumnos[i].DiaNacimiento.ToString() + "/" + alumnos[i].MesNacimiento.ToString() +'/'+ alumnos[i].AnioNacimiento.ToString();
+                FechaNacimiento = alumnos[i].DiaNacimiento.ToString() + "/" + alumnos[i].MesNacimiento.ToString() + '/' + alumnos[i].AnioNacimiento.ToString();
                 grdAlumno.Rows.Add(
                     alumnos[i].Nombre,
                     alumnos[i].Apellido,
@@ -92,7 +79,6 @@ namespace GymApp.Presentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-
             MiAccion = Acciones.Alta;
             frmAlumnoAM frmAlAM = new frmAlumnoAM(MiAccion.ToString(), null);
             frmAlAM.Show();
@@ -100,32 +86,36 @@ namespace GymApp.Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            
             MiAccion = Acciones.Modificacion;
-           if (grdAlumno.CurrentRow != null)
-           {
+            if (grdAlumno.CurrentRow != null)
+            {
                 frmAlumnoAM frmAlumnoAM = new frmAlumnoAM(MiAccion.ToString(), (long)grdAlumno.CurrentRow.Cells[3].Value);
                 this.LimpiarFiltro();
                 frmAlumnoAM.Show();
             }
             else
             {
-               MessageBox.Show("Debe elegir un alumno primero!");
+                MessageBox.Show("Debe seleccionar un alumno.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-
-            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int rowsAff = AlumnoService.BajaLogica((long)grdAlumno.CurrentRow.Cells[3].Value);
-            if (rowsAff > 0)
+            if (grdAlumno.CurrentRow != null)
             {
-                MessageBox.Show("Alumno dado de baja correctamente");
+                int rowsAff = AlumnoService.BajaLogica((long)grdAlumno.CurrentRow.Cells[3].Value);
+                if (rowsAff > 0)
+                {
+                    MessageBox.Show("Alumno dado de baja.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo dar de baja el alumno.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
             }
             else
             {
-                MessageBox.Show("error");
+                MessageBox.Show("Debe seleccionar un alumno.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 

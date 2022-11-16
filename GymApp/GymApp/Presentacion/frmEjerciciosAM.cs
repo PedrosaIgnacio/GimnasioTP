@@ -46,7 +46,6 @@ namespace GymApp.Presentacion
                 cmbGrupoMuscular.Enabled = false;
                 btnAgregarGrupoMuscular.Enabled = false;
             }
-
         }
 
         private void CargarCampos(Ejercicio ej)
@@ -64,10 +63,6 @@ namespace GymApp.Presentacion
             combo.ValueMember = "IdGM";
             combo.SelectedIndex = -1;
             combo.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-        private void lblNombreUsuario_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -87,9 +82,8 @@ namespace GymApp.Presentacion
                 int rowsAff = EJservice.InsertarUno(ej);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Ejercicio creado");
+                    MessageBox.Show("Ejercicio creado.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
-
             }
             if (Accion == "Modificacion")
             { 
@@ -103,11 +97,11 @@ namespace GymApp.Presentacion
                 int rowsAff = EJservice.ActualizarEjercicio(ej);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Ejercicio actualizado");
+                    MessageBox.Show("Ejercicio actualizado.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo actualizar el cliente");
+                    MessageBox.Show("No se pudo actualizar el ejercicio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
             else
@@ -122,11 +116,6 @@ namespace GymApp.Presentacion
             frmGrupoMuscularAM frmGrupoMuscularAM = new frmGrupoMuscularAM("Alta",null);
             frmGrupoMuscularAM.Show();
             CargarCombo(cmbGrupoMuscular, GMservice.RecuperarTodos());
-        }
-
-        private void grbAltaEjercicios_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

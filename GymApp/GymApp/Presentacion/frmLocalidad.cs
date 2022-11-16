@@ -24,6 +24,7 @@ namespace GymApp.Presentacion
             Modificacion
         }
         private Acciones MiAccion;
+        ILocalidadService servicio = new LocalidadService();
         public frmLocalidad()
         {
             InitializeComponent();
@@ -34,7 +35,6 @@ namespace GymApp.Presentacion
             if (txtNombreLocalidad.Text == "")
             {
                 CargarGrilla(grdLocalidad, LService.RecuperarTodos());
-
             }
         }
 
@@ -61,7 +61,6 @@ namespace GymApp.Presentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             MiAccion = Acciones.Alta;
-            
             frmLocalidadAM frmLocalidad = new frmLocalidadAM(MiAccion.ToString(), null);
             frmLocalidad.Show();
         }
@@ -77,14 +76,8 @@ namespace GymApp.Presentacion
             }
             else
             {
-                MessageBox.Show("Error debe elegir una localidad primero.");
+                MessageBox.Show("Debe seleccionar una localidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-       
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -92,8 +85,6 @@ namespace GymApp.Presentacion
             frmPrincipal frmPrincipal = new frmPrincipal();
             frmPrincipal.Show();
             this.Hide();
-
-
         }
     }
 }

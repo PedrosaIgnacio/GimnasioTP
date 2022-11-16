@@ -52,7 +52,6 @@ namespace GymApp.Presentacion
             {
                 CargarCampos(UsuarioS.RecuperarUno((int)IdUsr));
             }
-
         }
 
         private void CargarCombo(ComboBox combo, DataTable tabla)
@@ -73,7 +72,6 @@ namespace GymApp.Presentacion
             cmbEstado.SelectedValue = usr.Estado.IdEstado;
         }
 
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -92,17 +90,33 @@ namespace GymApp.Presentacion
             Usuario usuario = new Usuario();
             usuario.NombreUsuario = txtNombreUsuario.Text;
             usuario.Clave = txtClave.Text;
-            usuario.TipoUsuario = new TipoUsuario();
-            usuario.TipoUsuario.IdTipoUsuario = (int)cmbTipoUsuario.SelectedValue;
-            usuario.Estado = new Estado();
-            usuario.Estado.IdEstado = (int)cmbEstado.SelectedValue;
+            if (cmbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar un estado, por favor intente de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                usuario.Estado = new Estado();
+                usuario.Estado.IdEstado = (int)cmbEstado.SelectedValue;
+            }
+            if (cmbTipoUsuario.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar un tipo de Usuario, por favor intente de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                usuario.TipoUsuario = new TipoUsuario();
+                usuario.TipoUsuario.IdTipoUsuario = (int)cmbTipoUsuario.SelectedValue;
+            }
 
             if (MiAccion == "Modificacion")
             {
                 usuario.IdUsuario = int.Parse(txtIdUsuario.Text);
                 if (UsuarioS.Existe(txtNombreUsuario.Text, usuario.IdUsuario))
                 {
-                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     LimpiarCampos();
                     return;
                 }
@@ -111,16 +125,14 @@ namespace GymApp.Presentacion
                     int rowsAff = UsuarioS.ActualizarUsuario(usuario);
                     if (rowsAff > 0)
                     {
-                        MessageBox.Show("Usuario Actualizado", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        MessageBox.Show("Usuario Actualizado", "Operación Realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         DataGridView grdUsuarios = (DataGridView)AdministrarUsuarios.Controls["grdUsuarios"];
                         AdministrarUsuarios.CargarGrilla2(grdUsuarios, UsuarioS.RecuperarTodos());
-
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("Error al actualizar Usuario", "Actualizacion Fallida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("No se pudo actualizar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         Close();
                     }
                 }
@@ -129,29 +141,24 @@ namespace GymApp.Presentacion
             {
                 if (UsuarioS.Existe(txtNombreUsuario.Text, null))
                 {
-                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Error en la actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     LimpiarCampos();
                     return;
                 }
                 else
                 {
-
                     int rowsAff = UsuarioS.InsertarUsuario(usuario);
                     if (rowsAff > 0)
                     {
-                        MessageBox.Show("Usuario Insertado");
-
-
+                        MessageBox.Show("Usuario insertado.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         DataGridView grdUsuarios = (DataGridView)AdministrarUsuarios.Controls["grdUsuarios"];
                         AdministrarUsuarios.CargarGrilla2(grdUsuarios, UsuarioS.RecuperarTodos());
                         AdministrarUsuarios.AlternarBotones(true);
                         Close();
-
                     }
                     else
                     {
-                        MessageBox.Show("Se produjo un error al insertar el usuario");
-                        Close();
+                        MessageBox.Show("No se pudo insertar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1); Close();
                     }
                 }
             }

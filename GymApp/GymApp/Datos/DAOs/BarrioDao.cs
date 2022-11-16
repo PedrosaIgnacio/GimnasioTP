@@ -74,11 +74,15 @@ namespace GymApp.Datos.DAOs
             return MapToObjetoBarrio(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
+
+
         private Barrio MapToObjetoBarrio(DataTable tabla)
         {
             Barrio br = new Barrio();
             br.IdBarrio = (int)tabla.Rows[0][0];
             br.Nombre = tabla.Rows[0][1].ToString();
+            br.Localidad = new Localidad();
+            br.Localidad.IdLocalidad = (int)tabla.Rows[0][2];
             //br.Localidad = (int)tabla.Rows[0][2];
             return br;
 

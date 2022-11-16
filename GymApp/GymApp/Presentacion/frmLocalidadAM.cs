@@ -39,9 +39,8 @@ namespace GymApp.Presentacion
                 int rowsAff = Lservice.InsertarUno(loc); 
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Localidad creada");
+                    MessageBox.Show("Localidad agregada.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
-
             }
             else
             {
@@ -51,11 +50,11 @@ namespace GymApp.Presentacion
                 int rowsAff = Lservice.ActualizarLocalidad(loc);
                 if (rowsAff > 0)
                 {
-                    MessageBox.Show("Localidad actualizado");
+                    MessageBox.Show("Localidad actualizada.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo actualizar la Localidad");
+                    MessageBox.Show("No se pudo actualizar la localidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
             this.Close();
@@ -64,6 +63,16 @@ namespace GymApp.Presentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmLocalidadAM_Load(object sender, EventArgs e)
+        {
+            CargarCampos(Lservice.RecuperarUna((int)idLoc));
+        }
+
+        private void CargarCampos(Localidad localidad)
+        {
+            txtNombreLocalidad.Text = localidad.Nombre;
         }
     }
 }

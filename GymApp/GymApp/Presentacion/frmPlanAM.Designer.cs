@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPlanAM));
             this.gbxPlan = new System.Windows.Forms.GroupBox();
             this.lblIdPlan = new System.Windows.Forms.Label();
             this.txtIdPlan = new System.Windows.Forms.TextBox();
@@ -327,6 +328,7 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.gbxAlumno);
             this.Controls.Add(this.gbxPlan);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPlanAM";
             this.Text = "frmPlanAM";
             this.Load += new System.EventHandler(this.frmPlanAM_Load);

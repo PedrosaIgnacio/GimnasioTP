@@ -51,25 +51,25 @@ namespace GymApp.Presentacion
             gm.Descripcion = txtDescripcion.Text;
             if (txtNombreGrupoMuscular.Text == "")
             {
-                MessageBox.Show("Debe ingresar un nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar un nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 if (Accion == "Alta")
                 {
                     if (GMservice.AgregarGrupoMuscular(gm) == 1)
-                        MessageBox.Show("Grupo Muscular: " + gm.Nombre + " agregado con exito");
+                        MessageBox.Show("Grupo muscular" + gm.Nombre + " agregado", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     else
-                        MessageBox.Show("Error, no se pudo agregar el Grupo Muscular");
+                        MessageBox.Show("No se pudo agregar el grupo muscular.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
                     gm.IdGM = (int)IdGrupoMuscular;
                     int resultado = GMservice.ActualizarGrupoMuscular(gm);
                     if (resultado == 1)
-                        MessageBox.Show("Grupo Muscular: " + gm.Nombre + " actualizado con exito");
+                        MessageBox.Show("Grupo muscular actualizado.", "Operación realizada", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     else
-                        MessageBox.Show("Error, no se pudo actualizar el Grupo Muscular");
+                        MessageBox.Show("No se pudo actualizar el grupo muscular.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
             this.Close();

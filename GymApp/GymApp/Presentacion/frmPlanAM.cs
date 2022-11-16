@@ -36,7 +36,7 @@ namespace GymApp.Presentacion
         private void frmPlanAM_Load(object sender, EventArgs e)
         {
             listaDP = new List<DetallePlanGimnasio>();
-            CargarCombo(cbxAlumnos, svAlumno.RecuperarTodos());
+            CargarCombo(cbxAlumnos, svAlumno.RecuperarTodosNombApel());
             txtNumeroDNI.Enabled = false;
             txtTipoDocumento.Enabled = false;
             txtIdPlan.Enabled = false;
@@ -148,40 +148,49 @@ namespace GymApp.Presentacion
             else
             {
                 PlanGym nuevoPlan = new PlanGym();
-                nuevoPlan.Descripcion = txtDescripcion.Text;
-                nuevoPlan.FechaHasta = dtpHasta.Value;
-                nuevoPlan.FechaDesde = dtpDesde.Value;
-                nuevoPlan.Alumno = new Alumno();
-                nuevoPlan.Alumno.NroDocumento =  Int32.Parse(txtNumeroDNI.Text);
-                nuevoPlan.Alumno.TipoDoc = new TipoDocumento();
-                nuevoPlan.Alumno.TipoDoc.IdTipoDoc = 1;
-                nuevoPlan.Nombre = txtNombre.Text;
-                if (miAccion == "Modificacion")
+                if (txtDescripcion.Text == "" || txtNombre.Text == "" || cbxAlumnos.SelectedIndex == -1)
                 {
-                    nuevoPlan.IdPlan = (int)idPlan;
-                   
-                    if (svPlanGym.ModificarConDetalle(nuevoPlan, listaDP))
-                    {
-                        MessageBox.Show("Plan Actualizado");
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo actualizar el plan, porfavor intentelo nuevamente");
-                    }
+                    MessageBox.Show("Error en la introduccion de datos", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
                 }
-
-                if (miAccion == "Alta")
+                else
                 {
-                    if (svPlanGym.InsertarPlanConDetalle(nuevoPlan, listaDP))
+
+                    nuevoPlan.Descripcion = txtDescripcion.Text;
+                    nuevoPlan.FechaHasta = dtpHasta.Value;
+                    nuevoPlan.FechaDesde = dtpDesde.Value;
+                    nuevoPlan.Alumno = new Alumno();
+                    nuevoPlan.Alumno.NroDocumento = Int32.Parse(txtNumeroDNI.Text);
+                    nuevoPlan.Alumno.TipoDoc = new TipoDocumento();
+                    nuevoPlan.Alumno.TipoDoc.IdTipoDoc = 1;
+                    nuevoPlan.Nombre = txtNombre.Text;
+                    if (miAccion == "Modificacion")
                     {
-                        MessageBox.Show("Plan agregado!");
-                        this.Close();
+                        nuevoPlan.IdPlan = (int)idPlan;
+
+                        if (svPlanGym.ModificarConDetalle(nuevoPlan, listaDP))
+                        {
+                            MessageBox.Show("Plan Actualizado");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo actualizar el plan, porfavor intentelo nuevamente");
+                        }
                     }
-                    else
+
+                    if (miAccion == "Alta")
                     {
-                        MessageBox.Show("Error, porfavor volver a reintentar");
-                        this.Close();
+                        if (svPlanGym.InsertarPlanConDetalle(nuevoPlan, listaDP))
+                        {
+                            MessageBox.Show("Plan agregado!");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error, porfavor volver a reintentar");
+                            this.Close();
+                        }
                     }
                 }
             }
