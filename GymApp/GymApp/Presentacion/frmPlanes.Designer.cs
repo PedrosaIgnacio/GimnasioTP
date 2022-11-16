@@ -281,6 +281,7 @@
             this.Controls.Add(this.grdPlan);
             this.Controls.Add(this.gbxPeriodo);
             this.Controls.Add(this.gbxAlumno);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPlanes";
             this.Text = "Administrador de Planes";
             this.Load += new System.EventHandler(this.frmPlanes_Load);

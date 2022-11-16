@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymApp.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,28 @@ namespace GymApp.Presentacion
 {
     public partial class frmPrincipal : Form
     {
+        enum Perfiles
+        {
+            Administrador,
+            Profesor
+        }
+        private Perfiles miPerfil;
         public frmPrincipal()
         {
             InitializeComponent();
+            miPerfil = Perfiles.Administrador;
+        }
+        public frmPrincipal(Usuario usr)
+        {
+            InitializeComponent();
+            if (usr.TipoUsuario.IdTipoUsuario == 1)
+            {
+                miPerfil = Perfiles.Administrador;
+            }
+            else
+            {
+                miPerfil = Perfiles.Profesor;
+            }
         }
 
         private void soporteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,9 +51,16 @@ namespace GymApp.Presentacion
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsuarios frmUsuario = new frmUsuarios();
-            frmUsuario.Show();
-            this.Hide();
+            if (miPerfil == Perfiles.Administrador)
+            {
+                frmUsuarios frmUsuario = new frmUsuarios();
+                frmUsuario.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso para entrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void grupoMuscularToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,6 +102,25 @@ namespace GymApp.Presentacion
             frmReporteListado frmReporte = new frmReporteListado();
             frmReporte.Show();
             this.Hide();
+        }
+
+        private void ejerciciosMasUtilzadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteEjercicioMasUtilizados frmReporte = new frmReporteEjercicioMasUtilizados();
+            frmReporte.Show();
+            this.Hide();
+        }
+
+        private void grupoMuscularMásAfectadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGrupoMuscularMasAfectado frmReporteGM = new frmGrupoMuscularMasAfectado();
+            frmReporteGM.Show();
+            this.Hide();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

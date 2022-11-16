@@ -48,5 +48,10 @@ namespace GymApp.Servicios.Implementaciones
         {
             return dao.BajaLogica(a);
         }
+
+        public List<Alumno> RecuperarTodosNombApel()
+        {
+            return dao.RecuperarTodosNombApel();
+        }
     }
 }

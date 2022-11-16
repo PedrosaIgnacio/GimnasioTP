@@ -116,25 +116,6 @@ namespace GymApp.Presentacion
             
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            //if (MessageBox.Show("Está seguro de eliminar este Barrio ?", "Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            //{
-            //    int rowsAff = BrService.EliminarEjercicio((int)grdBarrio.CurrentRow.Cells[0].Value);
-            //    if (rowsAff > 0)
-            //    {
-            //        MessageBox.Show("Barrio eliminado");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("No se pudo eliminar el Barrio");
-            //    }
-                
-            //    List<Barrio> lstBr = new List<Barrio>();
-            //    CargarGrilla(grdBarrio, lstBr);
-            //}
-        }
-
        
     }
 }

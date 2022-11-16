@@ -126,15 +126,17 @@ namespace GymApp.Presentacion
         {
             if (grdPlan.CurrentRow != null)
             {
-                miAccion = Acciones.Consulta;
-                frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), (int)grdPlan.CurrentRow.Cells[0].Value);
-                frmPlanAM.Show();
+                /* miAccion = Acciones.Consulta;
+                 frmPlanAM frmPlanAM = new frmPlanAM(miAccion.ToString(), (int)grdPlan.CurrentRow.Cells[0].Value);
+                 frmPlanAM.Show();*/
+                frmPlanReporte frmPlanReporte = new frmPlanReporte((int)grdPlan.CurrentRow.Cells[0].Value);
+                frmPlanReporte.Show();
 
             }
             else
             {
 
-                MessageBox.Show("Error, debe elegir un Plan primero.");
+                MessageBox.Show("Error, debe elegir un plan primero");
 
             }
         }

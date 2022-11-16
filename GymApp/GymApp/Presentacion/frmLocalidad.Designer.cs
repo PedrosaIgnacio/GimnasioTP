@@ -31,15 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLocalidad));
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.grdLocalidad = new System.Windows.Forms.DataGridView();
-            this.lblNombreEjercicio = new System.Windows.Forms.Label();
-            this.txtNombreLocalidad = new System.Windows.Forms.TextBox();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColLocalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNombreEjercicio = new System.Windows.Forms.Label();
+            this.txtNombreLocalidad = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdLocalidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,19 +67,6 @@
             this.btnLimpiarFiltros.TabIndex = 50;
             this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.SystemColors.Window;
-            this.btnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminar.BackgroundImage")));
-            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnEliminar.Location = new System.Drawing.Point(179, 331);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(46, 47);
-            this.btnEliminar.TabIndex = 48;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnSalir
             // 
@@ -143,6 +129,20 @@
             this.grdLocalidad.Size = new System.Drawing.Size(325, 192);
             this.grdLocalidad.TabIndex = 44;
             // 
+            // colId
+            // 
+            this.colId.HeaderText = "#ID";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            // 
+            // ColLocalidad
+            // 
+            this.ColLocalidad.HeaderText = "Nombre Localidad";
+            this.ColLocalidad.MinimumWidth = 6;
+            this.ColLocalidad.Name = "ColLocalidad";
+            this.ColLocalidad.ReadOnly = true;
+            this.ColLocalidad.Width = 300;
+            // 
             // lblNombreEjercicio
             // 
             this.lblNombreEjercicio.AutoSize = true;
@@ -161,20 +161,6 @@
             this.txtNombreLocalidad.Size = new System.Drawing.Size(159, 20);
             this.txtNombreLocalidad.TabIndex = 41;
             // 
-            // colId
-            // 
-            this.colId.HeaderText = "#ID";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            // 
-            // ColLocalidad
-            // 
-            this.ColLocalidad.HeaderText = "Nombre Localidad";
-            this.ColLocalidad.MinimumWidth = 6;
-            this.ColLocalidad.Name = "ColLocalidad";
-            this.ColLocalidad.ReadOnly = true;
-            this.ColLocalidad.Width = 300;
-            // 
             // frmLocalidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,13 +168,13 @@
             this.ClientSize = new System.Drawing.Size(380, 401);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnLimpiarFiltros);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.grdLocalidad);
             this.Controls.Add(this.lblNombreEjercicio);
             this.Controls.Add(this.txtNombreLocalidad);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLocalidad";
             this.Text = "frmLocalidad";
             ((System.ComponentModel.ISupportInitialize)(this.grdLocalidad)).EndInit();
@@ -201,7 +187,6 @@
 
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnLimpiarFiltros;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;

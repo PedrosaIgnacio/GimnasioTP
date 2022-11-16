@@ -15,5 +15,7 @@ namespace GymApp.Servicios.Interfaces
         int InsertarUno(Localidad l);
 
         int ActualizarLocalidad(Localidad l);
+
+        
     }
 }

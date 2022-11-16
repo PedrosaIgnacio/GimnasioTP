@@ -225,6 +225,7 @@
             this.Controls.Add(this.txtNombreEjercicio);
             this.Controls.Add(this.cmbGrupoMuscular);
             this.Controls.Add(this.lblGrupoMuscular);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEjercicios";
             this.Text = "Administración de Ejercicios";
             this.Load += new System.EventHandler(this.frmEjercicios_Load);

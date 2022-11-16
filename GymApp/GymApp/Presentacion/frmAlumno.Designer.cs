@@ -217,6 +217,7 @@
             this.Controls.Add(this.txtNroDni);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAlumno";
             this.Text = "Administrador Alumno";
             this.Load += new System.EventHandler(this.frmAlumno_Load);

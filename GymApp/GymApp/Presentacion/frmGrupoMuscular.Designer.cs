@@ -35,11 +35,11 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.grdGrupoMuscular = new System.Windows.Forms.DataGridView();
+            this.ColIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.lblNombreGrupoMuscular = new System.Windows.Forms.Label();
             this.txtNombreGrupoMuscular = new System.Windows.Forms.TextBox();
-            this.ColIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdGrupoMuscular)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,6 +130,22 @@
             this.grdGrupoMuscular.Size = new System.Drawing.Size(478, 192);
             this.grdGrupoMuscular.TabIndex = 33;
             // 
+            // ColIdUsuario
+            // 
+            this.ColIdUsuario.HeaderText = "# ID";
+            this.ColIdUsuario.MinimumWidth = 6;
+            this.ColIdUsuario.Name = "ColIdUsuario";
+            this.ColIdUsuario.ReadOnly = true;
+            this.ColIdUsuario.Width = 125;
+            // 
+            // ColNombreUsuario
+            // 
+            this.ColNombreUsuario.HeaderText = "Nombre de Gupo Muscular";
+            this.ColNombreUsuario.MinimumWidth = 6;
+            this.ColNombreUsuario.Name = "ColNombreUsuario";
+            this.ColNombreUsuario.ReadOnly = true;
+            this.ColNombreUsuario.Width = 175;
+            // 
             // btnLimpiarFiltros
             // 
             this.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Window;
@@ -161,22 +177,6 @@
             this.txtNombreGrupoMuscular.Size = new System.Drawing.Size(159, 20);
             this.txtNombreGrupoMuscular.TabIndex = 35;
             // 
-            // ColIdUsuario
-            // 
-            this.ColIdUsuario.HeaderText = "# ID";
-            this.ColIdUsuario.MinimumWidth = 6;
-            this.ColIdUsuario.Name = "ColIdUsuario";
-            this.ColIdUsuario.ReadOnly = true;
-            this.ColIdUsuario.Width = 125;
-            // 
-            // ColNombreUsuario
-            // 
-            this.ColNombreUsuario.HeaderText = "Nombre de Gupo Muscular";
-            this.ColNombreUsuario.MinimumWidth = 6;
-            this.ColNombreUsuario.Name = "ColNombreUsuario";
-            this.ColNombreUsuario.ReadOnly = true;
-            this.ColNombreUsuario.Width = 175;
-            // 
             // frmGrupoMuscular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +191,7 @@
             this.Controls.Add(this.btnLimpiarFiltros);
             this.Controls.Add(this.lblNombreGrupoMuscular);
             this.Controls.Add(this.txtNombreGrupoMuscular);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGrupoMuscular";
             this.Text = "Administrador Grupo Muscular";
             this.Load += new System.EventHandler(this.frmGrupoMuscular_Load);

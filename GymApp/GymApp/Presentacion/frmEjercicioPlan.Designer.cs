@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEjercicioPlan));
             this.cmbEjercicio = new System.Windows.Forms.ComboBox();
             this.txtGrupoMuscular = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -186,6 +187,7 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.gbxDetalleEjercicio);
             this.Controls.Add(this.gbxEjercicio);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEjercicioPlan";
             this.Text = "Agregar Ejercicio";
             this.Load += new System.EventHandler(this.frmEjercicioPlan_Load);

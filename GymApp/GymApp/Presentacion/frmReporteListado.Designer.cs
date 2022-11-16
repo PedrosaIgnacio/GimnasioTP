@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteListado));
             this.rpvPlan = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnListo = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -263,6 +264,7 @@
             this.txtNumeroDoc.Name = "txtNumeroDoc";
             this.txtNumeroDoc.Size = new System.Drawing.Size(153, 20);
             this.txtNumeroDoc.TabIndex = 0;
+            this.txtNumeroDoc.TextChanged += new System.EventHandler(this.txtNumeroDoc_TextChanged);
             // 
             // frmReporteListado
             // 
@@ -276,6 +278,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnListo);
             this.Controls.Add(this.rpvPlan);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReporteListado";
             this.Text = "Listado de planes";
             this.Load += new System.EventHandler(this.frmReporteListado_Load);

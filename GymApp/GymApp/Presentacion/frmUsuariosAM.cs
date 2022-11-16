@@ -92,17 +92,35 @@ namespace GymApp.Presentacion
             Usuario usuario = new Usuario();
             usuario.NombreUsuario = txtNombreUsuario.Text;
             usuario.Clave = txtClave.Text;
-            usuario.TipoUsuario = new TipoUsuario();
-            usuario.TipoUsuario.IdTipoUsuario = (int)cmbTipoUsuario.SelectedValue;
-            usuario.Estado = new Estado();
-            usuario.Estado.IdEstado = (int)cmbEstado.SelectedValue;
+            if (cmbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar un estado, por favor intente de nuevo", "Error en la actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                usuario.Estado = new Estado();
+                usuario.Estado.IdEstado = (int)cmbEstado.SelectedValue;
+            }
+            if (cmbTipoUsuario.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe ingresar un tipo de Usuario, por favor intente de nuevo", "Error en la actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                usuario.TipoUsuario = new TipoUsuario();
+                usuario.TipoUsuario.IdTipoUsuario = (int)cmbTipoUsuario.SelectedValue;
+            }
+            
+            
 
             if (MiAccion == "Modificacion")
             {
                 usuario.IdUsuario = int.Parse(txtIdUsuario.Text);
                 if (UsuarioS.Existe(txtNombreUsuario.Text, usuario.IdUsuario))
                 {
-                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Error en la actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     LimpiarCampos();
                     return;
                 }
@@ -129,7 +147,7 @@ namespace GymApp.Presentacion
             {
                 if (UsuarioS.Existe(txtNombreUsuario.Text, null))
                 {
-                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Actualizacion Completada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("El nombre de usuario ingresado ya existe, por favor intente de nuevo", "Error en la actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     LimpiarCampos();
                     return;
                 }

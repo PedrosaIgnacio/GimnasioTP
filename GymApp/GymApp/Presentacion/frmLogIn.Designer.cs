@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogIn));
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -112,7 +113,7 @@
             this.picLogoGym.Image = global::GymApp.Properties.Resources.LogoGim;
             this.picLogoGym.Location = new System.Drawing.Point(114, 75);
             this.picLogoGym.Name = "picLogoGym";
-            this.picLogoGym.Size = new System.Drawing.Size(110, 90);
+            this.picLogoGym.Size = new System.Drawing.Size(110, 96);
             this.picLogoGym.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogoGym.TabIndex = 7;
             this.picLogoGym.TabStop = false;
@@ -130,6 +131,7 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.btnIngresar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLogIn";
             this.Text = "Iniciar Sesión";

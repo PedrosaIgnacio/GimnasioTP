@@ -43,6 +43,11 @@ namespace GymApp.Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (cmbEjercicio.SelectedIndex == -1 || txtSerie.Text == "" || txtRepeticiones.Text == "")
+            {
+                MessageBox.Show("Error en la introduccion de datos", "Error de datos", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
             if (Int32.Parse(txtSerie.Text) <= 0 || Int32.Parse(txtRepeticiones.Text) <= 0)
             {
                 MessageBox.Show("Error serie o repeticiones no puede ser negativo");

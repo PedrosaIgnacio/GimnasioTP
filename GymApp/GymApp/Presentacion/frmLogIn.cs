@@ -57,7 +57,7 @@ namespace GymApp.Presentacion
                 if (usuario.Clave == txtClave.Text)
                 {
                     MessageBox.Show("Ingreso correcto", "Ingreso al Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmPrincipal frmPrincipal = new frmPrincipal();
+                    frmPrincipal frmPrincipal = new frmPrincipal(usuario);
                     frmPrincipal.Show();
                     this.Hide();
                 

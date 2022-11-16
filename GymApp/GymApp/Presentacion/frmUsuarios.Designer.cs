@@ -247,6 +247,7 @@ namespace GymApp.Presentacion
             this.Controls.Add(this.txtNombreUsuario);
             this.Controls.Add(this.cmbTipoUsuario);
             this.Controls.Add(this.lblTipoUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBarrioAM));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdBarrio = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregarGrupoMuscular = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -36,8 +39,6 @@
             this.txtNombreBarrio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtIdBarrio = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Barrio";
+            // 
+            // txtIdBarrio
+            // 
+            this.txtIdBarrio.Enabled = false;
+            this.txtIdBarrio.Location = new System.Drawing.Point(59, 32);
+            this.txtIdBarrio.Name = "txtIdBarrio";
+            this.txtIdBarrio.Size = new System.Drawing.Size(32, 20);
+            this.txtIdBarrio.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Enabled = false;
+            this.label3.Location = new System.Drawing.Point(27, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "ID:";
             // 
             // btnCancelar
             // 
@@ -123,30 +142,13 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Enabled = false;
-            this.label3.Location = new System.Drawing.Point(27, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "ID:";
-            // 
-            // txtIdBarrio
-            // 
-            this.txtIdBarrio.Enabled = false;
-            this.txtIdBarrio.Location = new System.Drawing.Point(59, 32);
-            this.txtIdBarrio.Name = "txtIdBarrio";
-            this.txtIdBarrio.Size = new System.Drawing.Size(32, 20);
-            this.txtIdBarrio.TabIndex = 16;
-            // 
             // frmBarrioAM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(275, 237);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBarrioAM";
             this.Text = "Alta Barrio";
             this.Load += new System.EventHandler(this.frmBarrioAM_Load);

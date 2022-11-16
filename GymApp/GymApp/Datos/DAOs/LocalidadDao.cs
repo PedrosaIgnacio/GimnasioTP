@@ -85,6 +85,7 @@ namespace GymApp.Datos.DAOs
             string consulta = "UPDATE Localidad SET Nombre = '" +l.Nombre +"' WHERE IdLocalidad ="+l.IdLocalidad;
             return DBHelper.obtenerInstancia().actualizar(consulta);
         }
+
     }
 
 }

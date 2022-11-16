@@ -12,12 +12,11 @@ namespace GymApp.Servicios.Interfaces
         List<Barrio> RecuperarTodos();
         List<Barrio> RecuperarFiltrados(string Nombre, int? IdLoc);
 
-        List<Barrio> EliminarBarrio();
-
         int InsertarUno(Barrio b);
 
         int ActualizarBarrio(Barrio ej);
 
         Barrio RecuperarUno(int Idbr);
+        
     }
 }

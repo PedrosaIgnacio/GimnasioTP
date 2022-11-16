@@ -24,6 +24,7 @@ namespace GymApp.Presentacion
             Modificacion
         }
         private Acciones MiAccion;
+        ILocalidadService servicio = new LocalidadService();
         public frmLocalidad()
         {
             InitializeComponent();
@@ -80,11 +81,6 @@ namespace GymApp.Presentacion
                 MessageBox.Show("Error debe elegir una localidad primero.");
             }
        
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

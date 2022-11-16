@@ -74,6 +74,8 @@ namespace GymApp.Datos.DAOs
             return MapToObjetoBarrio(DBHelper.obtenerInstancia().consultar(consulta));
         }
 
+
+
         private Barrio MapToObjetoBarrio(DataTable tabla)
         {
             Barrio br = new Barrio();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,9 +39,11 @@
             this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoPlanesPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ejerciciosMasUtilzadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grupoMuscularMásAfectadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -132,6 +135,37 @@
             this.ejerciciosToolStripMenuItem.Text = "Ejercicios";
             this.ejerciciosToolStripMenuItem.Click += new System.EventHandler(this.ejerciciosToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listadoPlanesPorMesToolStripMenuItem,
+            this.ejerciciosMasUtilzadosToolStripMenuItem,
+            this.grupoMuscularMásAfectadoToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // listadoPlanesPorMesToolStripMenuItem
+            // 
+            this.listadoPlanesPorMesToolStripMenuItem.Name = "listadoPlanesPorMesToolStripMenuItem";
+            this.listadoPlanesPorMesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.listadoPlanesPorMesToolStripMenuItem.Text = "Listado de planes";
+            this.listadoPlanesPorMesToolStripMenuItem.Click += new System.EventHandler(this.listadoPlanesPorMesToolStripMenuItem_Click);
+            // 
+            // ejerciciosMasUtilzadosToolStripMenuItem
+            // 
+            this.ejerciciosMasUtilzadosToolStripMenuItem.Name = "ejerciciosMasUtilzadosToolStripMenuItem";
+            this.ejerciciosMasUtilzadosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.ejerciciosMasUtilzadosToolStripMenuItem.Text = "Ejercicios mas utilzados";
+            this.ejerciciosMasUtilzadosToolStripMenuItem.Click += new System.EventHandler(this.ejerciciosMasUtilzadosToolStripMenuItem_Click);
+            // 
+            // grupoMuscularMásAfectadoToolStripMenuItem
+            // 
+            this.grupoMuscularMásAfectadoToolStripMenuItem.Name = "grupoMuscularMásAfectadoToolStripMenuItem";
+            this.grupoMuscularMásAfectadoToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.grupoMuscularMásAfectadoToolStripMenuItem.Text = "Grupo Muscular más afectado";
+            this.grupoMuscularMásAfectadoToolStripMenuItem.Click += new System.EventHandler(this.grupoMuscularMásAfectadoToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::GymApp.Properties.Resources.LogoGim;
@@ -141,21 +175,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listadoPlanesPorMesToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // listadoPlanesPorMesToolStripMenuItem
-            // 
-            this.listadoPlanesPorMesToolStripMenuItem.Name = "listadoPlanesPorMesToolStripMenuItem";
-            this.listadoPlanesPorMesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.listadoPlanesPorMesToolStripMenuItem.Text = "Listado Planes por Mes";
-            this.listadoPlanesPorMesToolStripMenuItem.Click += new System.EventHandler(this.listadoPlanesPorMesToolStripMenuItem_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,9 +182,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.Text = "Principal";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -189,5 +210,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoPlanesPorMesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ejerciciosMasUtilzadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem grupoMuscularMásAfectadoToolStripMenuItem;
     }
 }
